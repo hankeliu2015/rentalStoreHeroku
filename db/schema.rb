@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_034038) do
+ActiveRecord::Schema.define(version: 2019_03_26_040218) do
 
   create_table "tools", force: :cascade do |t|
     t.string "name"
-    t.string "type"
     t.string "brand"
     t.string "description"
     t.string "condition"
     t.boolean "availability"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
   end
 
 end
