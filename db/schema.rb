@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_151611) do
+ActiveRecord::Schema.define(version: 2019_03_26_195138) do
+
+  create_table "rentals", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "return_date"
+    t.boolean "return"
+    t.integer "user_id"
+    t.integer "tool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tool_id"], name: "index_rentals_on_tool_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
 
   create_table "tools", force: :cascade do |t|
     t.string "name"
