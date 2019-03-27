@@ -6,11 +6,11 @@
 
 <% @tools.each do |tool| %>
 <ul>
-  <li><%= tool.name %></li>
-  <li><%= tool.category %></li>
-  <li><%= tool.brand %></li>
-  <li><%= tool.description %></li>
-  <li><%= tool.condition %></li>
-  <li><%= tool.availability %></li>
+  <h3><%= tool.name %></h3>
+  <li>Category: <%= tool.category %></li>
+  <li>Brand: <%= tool.brand %></li>
+  <li>Description: <%= tool.description %></li>
+  <li>Condition: <%= tool.condition %></li>
+  <li>availability: <%= tool.availability %></li>
 </ul>
 <% end %>
