@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  # devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-  devise_for :users
+  # devise_for :users
   root 'tools#index'
 
-  get 'rentals/new'
+  # resources :rentals, only: [:new, :create, :update]
+  get 'rent/tool/:tool_id', to: 'rentals#new', as: 'new_rental'
+  post 'rent', to: 'rentals#create', as: 'rentals'
+  patch 'rent/tool/:tool_id', to: 'rentals#update', as: 'rental'
+
+  resources :tools
+  
+  # get 'rentals/new'
 
   # get 'tools/index'
   # get 'tools/show'
