@@ -6,10 +6,17 @@ class RentalsController < ApplicationController
   end
 
   def create
+    rental = Rental.new(rental_params)
+    rental.save
+    redirect_to root_path
   end
 
   def update
 
   end
 
+  private
+  def rental_params
+    params.require(:rental).permit(:user_id, :tool_id, :start_date, :return_date, :return)
+  end
 end

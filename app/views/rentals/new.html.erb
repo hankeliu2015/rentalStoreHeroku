@@ -5,3 +5,16 @@
 <br>
 
 <h4>Please ensure the data on this form are correct to complete your checkout!</h4>
+
+<%= form_for @rental, url: '/rent' do |f|  %>
+  <%= f.label(:start_date) %>
+  <%= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
+
+  <%= f.label(:return_date) %>
+  <%= f.text_field(:return_date, value: Date.tomorrow.strftime("%a. %B %d, %Y"), required: true) %> <br>
+
+  <%= f.hidden_field(:user_id, value: current_user.id) %><br>
+  <%= f.hidden_field(:tool_id, value: @rental.tool.id) %><br>
+  <%= f.submit('Rent') %>
+
+<% end  %>
