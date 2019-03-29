@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   root 'tools#index'
 
   # resources :rentals, only: [:new, :create, :update]
-  get 'rent/tool/:tool_id', to: 'rentals#new', as: 'new_rental'
-  post 'rent', to: 'rentals#create', as: 'rentals'
-  patch 'rent/tool/:tool_id', to: 'rentals#update', as: 'rental'
+  # get 'rent/tool/:tool_id', to: 'rentals#new', as: 'new_rental'
+  # post 'rent', to: 'rentals#create', as: 'rentals'
+  # patch 'rent/tool/:tool_id', to: 'rentals#update', as: 'rental'
 
-  resources :tools
-  
+  resources :tools do
+    resources :rentals, only: [:new, :create, :update, :edit]
+  end
+  #resources :users, only: [:show]
+
   # get 'rentals/new'
 
   # get 'tools/index'
