@@ -5,5 +5,7 @@ class ToolsController < ApplicationController
   end
 
   def show
+    #binding.pry
+    @tool = Tool.find_by(id: params[:id])
   end
 end

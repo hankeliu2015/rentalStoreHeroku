@@ -1,2 +1,11 @@
-<h1>Tools#show</h1>
-<p>Find me in app/views/tools/show.html.erb</p>
+<h3><%= @tool.name %></h3>
+
+<li>Category: <%= @tool.category %></li>
+<li>Brand: <%= @tool.brand %></li>
+<li>Description: <%= @tool.description %></li>
+<li>Condition: <%= @tool.condition %></li>
+<li>availability: <%= @tool.availability %></li>
+
+<br>
+
+<%= button_to "Rent", new_tool_rental_path(@tool), method: :get if user_signed_in? %>

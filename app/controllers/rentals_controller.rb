@@ -8,7 +8,7 @@ class RentalsController < ApplicationController
   def create
     rental = Rental.new(rental_params)
     rental.save
-    redirect_to root_path
+    redirect_to root_path #leave it to root for now.
   end
 
   def update

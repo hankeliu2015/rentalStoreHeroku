@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :tools do
     resources :rentals, only: [:new, :create, :update, :edit]
   end
+  
   #resources :users, only: [:show]
 
   # get 'rentals/new'
