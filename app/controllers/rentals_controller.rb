@@ -9,7 +9,8 @@ class RentalsController < ApplicationController
     #binding.pry
     rental = Rental.new(rental_params)
     rental.save
-    redirect_to root_path #leave it to root for now.
+
+    redirect_to user_path(rental.user) #leave it to root for now.
   end
 
   def update

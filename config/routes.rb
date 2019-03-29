@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  #get 'users/show'
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
+   resources :users, only: [:show]
   # devise_for :users
   root 'tools#index'
 
@@ -12,7 +14,8 @@ Rails.application.routes.draw do
   resources :tools do
     resources :rentals, only: [:new, :create, :update, :edit]
   end
-  
+
+
   #resources :users, only: [:show]
 
   # get 'rentals/new'

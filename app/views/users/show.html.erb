@@ -1,0 +1,17 @@
+<h3>Hello <%= @user.email %>!</h3>
+
+<h4>Here are the tools you rented:</h4>
+
+  <% @user.tools.each do |tool| %>
+  <ul>
+  <h4><%= tool.name %></h4>
+
+  <li>Rented at: <%#= tool.start_date %></li>
+  <li>Return at: <%#= tool.return_date %></li>
+  <li>Total Cost: <%#= tool.rental_price %></li>
+
+  <%= button_to "Return Tool", tool_rental_path(tool, ?), method: :patch %>
+
+  <li>Renew Rental Button</li>
+  </ul>
+  <% end %>
