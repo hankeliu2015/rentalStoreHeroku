@@ -6,7 +6,7 @@
 
 <h4>Please ensure the data on this form are correct to complete your checkout!</h4>
 
-<%= form_for @rental, url: '/rent' do |f|  %>
+<%= form_for(@rental, url: tool_rentals_path) do |f|  %>
   <%= f.label(:start_date) %>
   <%= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
 
