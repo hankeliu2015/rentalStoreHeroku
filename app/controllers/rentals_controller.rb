@@ -14,7 +14,10 @@ class RentalsController < ApplicationController
   end
 
   def update
+    @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 
+    @rental.update(return_date: Date.today, return: true)
+    redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
   end
 
   private
