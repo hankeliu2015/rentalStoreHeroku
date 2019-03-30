@@ -4,13 +4,16 @@
 
   <% @user.rentals.each do |rental| %>
   <ul>
-  <h4><%= rental.tool.name %></h4>
+    <% if rental.return == false %>
+      <h4><%= rental.tool.name %></h4>
 
-  <li>Rented at: <%= rental.start_date %></li>
-  <li>Return at: <%= rental.return_date %></li>
-  <li>Total Cost: <%= Tool.find_by(id: rental.tool_id).rental_price %></li>
+      <li>Rented at: <%= rental.start_date %></li>
+      <li>Return at: <%= rental.return_date %></li>
+      <li>Total Cost: <%= Tool.find_by(id: rental.tool_id).rental_price %></li>
 
-  <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+      <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+
+    <% end %>
 
   </ul>
   <% end %>
