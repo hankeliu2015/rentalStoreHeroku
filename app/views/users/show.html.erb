@@ -7,8 +7,8 @@
     <% if rental.return == false %>
       <h4><%= rental.tool.name %></h4>
 
-      <li>Rented on: <%= rental.start_date %></li>
-      <li>Return on: <%= rental.return_date %></li>
+      <li>Rented on: <%= rental.start_date.strftime("%a, %b %e, %y") %></li>
+      <li>Return on: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
       <li>Total Cost: <%= Tool.find_by(id: rental.tool_id).rental_price %></li>
 
       <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
@@ -17,11 +17,11 @@
   </ul>
   <% end %>
 
-<h4 style="color:red">Here are your past tools Overdue:</h4>
+<h4 style="color:red">Your rented tools Overdue. Please update the rental the return date:</h4>
   <ul>
     <% Rental.rental_overdue(@user).each do |rental|  %>
       <h4><%= rental.tool.name %></h4>
-      <li>Return Date:<%= rental.return_date %></li>
+      <li>Return Date: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
       <li>Dates overdued: (work in progress) <%#= Date.today - rental.return_date %> </li>
 
     <% end %>
