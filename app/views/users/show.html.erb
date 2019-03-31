@@ -17,11 +17,21 @@
   </ul>
   <% end %>
 
-  <h4>Here are your past tools rental:</h4>
+<h4 style="color:red">Here are your past tools Overdue:</h4>
+  <ul>
+    <% Rental.rental_overdue(@user).each do |rental|  %>
+      <h4><%= rental.tool.name %></h4>
+      <li>Return Date:<%= rental.return_date %></li>
+      <li>Dates overdued: (work in progress) <%#= Date.today - rental.return_date %> </li>
 
+    <% end %>
+  </ul>
+<br>
+
+<h4>Here are your past tools rental:</h4>
+<ul>
   <% @user.tools.each do |tool|  %>
-
     <h4><%= tool.name %></h4>
     <li>Returned on: <%= tool.past_rental_date(@user) %></li>
-
   <% end %>
+</ul>

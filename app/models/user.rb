@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :rentals
   has_many :tools, through: :rentals
 
+  # def self.overdue_tool
+  #   @overdue_items =
+  # end
+
+
   def self.from_omniauth(auth)
     self.where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.provider = auth.provider
@@ -16,4 +21,4 @@ class User < ApplicationRecord
     end
   end
 
-end
+end #end of class
