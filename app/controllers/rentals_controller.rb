@@ -9,6 +9,7 @@ class RentalsController < ApplicationController
 
     rental = Rental.new(rental_params)
     #rental = Rental.new(user_id: params[:rental][:user_id], tool_id: params[:rental][:tool_id], start_date: params[:rental][:start_date], return_date: @return_date)
+    rental.start_date = DateTime.strptime(params[:rental][:start_date], "%m/%d/%Y")
     rental.return_date = DateTime.strptime(params[:rental][:return_date], "%m/%d/%Y")
     rental.save
 

@@ -8,7 +8,8 @@
 
 <%= form_for(@rental, url: tool_rentals_path) do |f|  %>
   <%= f.label(:start_date) %>
-  <%= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
+  <%= f.text_field(:start_date, placeholder: "MM/DD/YYYY", required: true) %>
+  <%#= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
 
   <%= f.label(:return_date) %>
   <%= f.text_field(:return_date, placeholder: "MM/DD/YYYY", required: true) %> <br>
