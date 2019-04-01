@@ -2,6 +2,11 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
+  def self.in_progress
+    where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
+  end
+
+  # scope :in_progress, where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
 
   def self.overdue #no need the argument(user). chain this method after @user.retnals ActiveRecord::Relation object
     where("return_date < ?", Date.today).where(return: false) #where(user_id: user.id) can be done in users controller show

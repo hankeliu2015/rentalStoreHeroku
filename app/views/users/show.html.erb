@@ -1,21 +1,17 @@
 <h3>Hello <%= @user.email %>!</h3>
 
-<h4>Here are the tools you rented:</h4>
+<h4>Here are the tools you currently renting:</h4>
 
-  <% @user.rentals.each do |rental| %>
+  <% @in_progress.each do |rental| %>
   <ul>
-    <% if rental.return == false %>
-      <h4><%= rental.tool.name %></h4>
-
-      <li>Rented on: <%= rental.start_date.strftime("%a, %b %e, %y") %></li>
-      <li>Return on: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
-      <li>Total Cost: <%= Tool.find_by(id: rental.tool_id).rental_price %></li>
-
-      <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
-
-    <% end %>
+    <h4><%=rental.tool.name %></h4>
+    <li>Rented on: <%=rental.start_date.strftime("%a, %b %e, %Y") %></li>
+    <li>Scheduled Return on: <%=rental.return_date.strftime("%a, %b %e, %Y") %></li>
+    <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
   </ul>
   <% end %>
+  
+  <br>
 
 <h4 style="color:red">Your rented tools Overdue. Please update the rental the return date:</h4>
   <ul>
