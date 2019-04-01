@@ -30,7 +30,7 @@
 
 <h4>Here are your tools rental history:</h4>
 <ul>
-  <% @user.rentals.each do |rental|  %>
+  <% @past_rented_tools.each do |rental|  %>
     <h4><%= rental.tool.name %></h4>
     <li>Returned on: <%= rental.return_date %></li>
   <% end %>

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @user = current_user #make sure @user consistancy in show.html.erb
     end
       @overdue_items = @user.rentals.overdue
+      @past_rented_tools = @user.rentals.past_rentals
   end
 
   private
