@@ -6,8 +6,10 @@ class RentalsController < ApplicationController
   end
 
   def create
-    #binding.pry
+
     rental = Rental.new(rental_params)
+    #rental = Rental.new(user_id: params[:rental][:user_id], tool_id: params[:rental][:tool_id], start_date: params[:rental][:start_date], return_date: @return_date)
+    rental.return_date = DateTime.strptime(params[:rental][:return_date], "%m/%d/%Y")
     rental.save
 
     redirect_to user_path(rental.user) #leave it to root for now.
