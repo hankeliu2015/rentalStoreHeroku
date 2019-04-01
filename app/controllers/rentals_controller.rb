@@ -6,15 +6,20 @@ class RentalsController < ApplicationController
   end
 
   def create
+    # need a conditin to decide if the tool is available for rent before create new rental instance
+    @tool = Tool.find_by(id: params[:tool_id])
 
-    rental = Rental.new(rental_params)
-    #rental = Rental.new(user_id: params[:rental][:user_id], tool_id: params[:rental][:tool_id], start_date: params[:rental][:start_date], return_date: @return_date)
-    rental.start_date = DateTime.strptime(params[:rental][:start_date], "%m/%d/%Y")
-    rental.return_date = DateTime.strptime(params[:rental][:return_date], "%m/%d/%Y")
-    rental.save
+    if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
 
-    redirect_to user_path(rental.user) #leave it to root for now.
-  end
+      rental = Rental.new(rental_params)
+      rental.start_date = DateTime.strptime(params[:rental][:start_date], "%m/%d/%Y")
+      rental.return_date = DateTime.strptime(params[:rental][:return_date], "%m/%d/%Y")
+      rental.save
+      redirect_to user_path(rental.user)
+    else
+      redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
+    end
+  end # end of method
 
   def update
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)

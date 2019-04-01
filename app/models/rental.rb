@@ -2,6 +2,11 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
+  # def self.available_to_rent? # replaced by instance method (available_for_rent? in the tool class. 
+  #   where(return: false).empty?
+  # end
+
+
   def self.in_progress
     where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
   end
