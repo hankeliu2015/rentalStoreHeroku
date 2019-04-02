@@ -14,20 +14,23 @@
   <br>
 
 <h4 style="color:red">Your rented tools Overdue. Please update the rental the return date:</h4>
-  <ul>
-    <% @overdue_items.each do |rental|  %>
+
+  <% @overdue_items.each do |rental|  %>
+    <ul>
       <h4><%= rental.tool.name %></h4>
       <li>Return Date: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
       <li>Dates overdued: (work in progress) <%#= Date.today - rental.return_date %> </li>
+      <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+    </ul>
+  <% end %>
 
-    <% end %>
-  </ul>
 <br>
 
 <h4>Here are your tools rental history:</h4>
 <ul>
   <% @past_rented_tools.each do |rental|  %>
     <h4><%= rental.tool.name %></h4>
-    <li>Returned on: <%= rental.return_date %></li>
+    <li>Returned on: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
+    <li>Actual Return on: <%= rental.actual_return_date.strftime("%a, %b %e, %y")  if rental.actual_return_date %></li>
   <% end %>
 </ul>

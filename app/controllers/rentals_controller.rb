@@ -22,10 +22,18 @@ class RentalsController < ApplicationController
   end # end of method
 
   def update
-    @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 
-    @rental.update(return_date: Date.today, return: true)
-    redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
+    @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
+#binding.pry
+    if @rental.return_date <= DateTime.new
+
+      @rental.update(return: true)
+      redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
+
+    else
+      @rental.update(actual_return_date: Date.today, return: true)
+      redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. To avoid furtnre overdue charge, please return on time. Thanks!"}
+    end
   end
 
   private
