@@ -5,8 +5,8 @@
   <% @in_progress.each do |rental| %>
   <ul>
     <h4><%=rental.tool.name %></h4>
-    <li>Rented on: <%=rental.start_date.strftime("%a, %b %e, %Y") %></li>
-    <li>Scheduled Return on: <%=rental.return_date.strftime("%a, %b %e, %Y") %></li>
+    <li>Rented on: <%= display_start_date(rental) %></li>
+    <li>Return on: <%= display_return_date(rental)%></li>
     <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
   </ul>
   <% end %>
@@ -18,7 +18,7 @@
   <% @overdue_items.each do |rental|  %>
     <ul>
       <h4><%= rental.tool.name %></h4>
-      <li>Return Date: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
+      <li>Return Date: <%= display_return_date(rental) %></li>
       <li>Dates overdued: (work in progress) <%#= Date.today - rental.return_date %> </li>
       <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
     </ul>
@@ -30,7 +30,7 @@
 <ul>
   <% @past_rented_tools.each do |rental|  %>
     <h4><%= rental.tool.name %></h4>
-    <li>Returned on: <%= rental.return_date.strftime("%a, %b %e, %y") %></li>
-    <li>Actual Return on: <%= rental.actual_return_date.strftime("%a, %b %e, %y")  if rental.actual_return_date %></li>
+    <li>Returned on: <%= display_return_date(rental) %></li>
+    <li>Actual Return on: <%= display_actual_return_date(rental) %></li>
   <% end %>
 </ul>
