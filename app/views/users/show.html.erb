@@ -1,4 +1,4 @@
-<h3>Hello <%= @user.email %>!</h3>
+<h3>Hello <%= @user.username %>!</h3>
 
 <h4>Here are the tools you currently renting:</h4>
 
@@ -10,7 +10,7 @@
     <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
   </ul>
   <% end %>
-  
+
   <br>
 
 <h4 style="color:red">Your rented tools Overdue. Please update the rental the return date:</h4>

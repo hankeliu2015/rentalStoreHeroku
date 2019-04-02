@@ -1,4 +1,4 @@
-<h3>Hi, <%= current_user.email if current_user %>! Welcome to Henry's Tool Rental Store</h3>
+<h3>Hi, <%= current_user.username if current_user %>! Welcome to Henry's Tool Rental Store</h3>
 
 <p><%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %></p>
 
