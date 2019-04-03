@@ -26,7 +26,7 @@ class Rental < ApplicationRecord
   end
 
   def overdued_dates
-    (Date.today - self.return_date).to_i
+    (Date.today - self.return_date.to_date).to_i
   end
 
   def self.past_rentals
