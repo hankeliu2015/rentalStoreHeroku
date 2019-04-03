@@ -6,9 +6,17 @@ class Rental < ApplicationRecord
   #   where(return: false).empty?
   # end
 
-
   def self.in_progress
+    #binding.pry
     where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
+  end
+
+  def self.in_possession
+    where(return: false).select do |rental|
+      if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
+        rental
+      end
+    end
   end
 
   # scope :in_progress, where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)

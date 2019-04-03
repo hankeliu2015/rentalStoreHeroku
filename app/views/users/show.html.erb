@@ -2,7 +2,7 @@
 <%= link_to 'Home Page', root_path %>
 <h4>Here are the tools you currently renting:</h4>
 
-  <% @in_progress.each do |rental| %>
+  <% @in_prossession.each do |rental| %>
   <ul>
     <h4><%=rental.tool.name %></h4>
     <li>Rented on: <%= display_start_date(rental) %></li>
@@ -19,7 +19,7 @@
     <ul>
       <h4><%= rental.tool.name %></h4>
       <li>Return Date: <%= display_return_date(rental) %></li>
-      <li>Dates overdued: (work in progress) <%#= Date.today - rental.return_date %> </li>
+      <li>Dates overdued: <%= rental.overdued_dates %> </li>
       <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
     </ul>
   <% end %>
