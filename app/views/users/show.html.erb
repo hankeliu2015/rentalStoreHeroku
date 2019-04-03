@@ -1,5 +1,5 @@
 <h3>Hello <%= @user.username %>!</h3>
-
+<%= link_to 'Home Page', root_path %>
 <h4>Here are the tools you currently renting:</h4>
 
   <% @in_progress.each do |rental| %>
