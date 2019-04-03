@@ -2,7 +2,7 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
-  # def self.available_to_rent? # replaced by instance method (available_for_rent? in the tool class. 
+  # def self.available_to_rent? # replaced by instance method (available_for_rent? in the tool class.
   #   where(return: false).empty?
   # end
 
@@ -17,8 +17,13 @@ class Rental < ApplicationRecord
     where("return_date < ?", Date.today).where(return: false) #where(user_id: user.id) can be done in users controller show
   end
 
+  def overdued_dates
+    (Date.today - self.return_date).to_i
+  end
+
   def self.past_rentals
     where(return: true)
   end
+
 
 end #end of class
