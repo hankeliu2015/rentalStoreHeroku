@@ -1,4 +1,4 @@
-<h3>Hello, <%= current_user.email %>!</h3>
+<h3>Hello, <%= current_user.username %>!</h3>
 
 <h4>Thanks for choosing the <em><%= @rental.tool.name %></em></h4>
 
@@ -8,11 +8,11 @@
 
 <%= form_for(@rental, url: tool_rentals_path) do |f|  %>
   <%= f.label(:start_date) %>
-  <%= f.text_field(:start_date, placeholder: "MM/DD/YYYY", required: true) %>
+  <%= f.date_field(:start_date, placeholder: "MM/DD/YYYY", required: true) %>
   <%#= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
 
   <%= f.label(:return_date) %>
-  <%= f.text_field(:return_date, placeholder: "MM/DD/YYYY", required: true) %> <br>
+  <%= f.date_field(:return_date, placeholder: "MM/DD/YYYY", required: true) %> <br>
 
   <%= f.hidden_field(:user_id, value: current_user.id) %><br>
   <%= f.hidden_field(:tool_id, value: @rental.tool.id) %><br>

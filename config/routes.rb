@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     resources :rentals, only: [:new, :create, :update, :edit]
   end
 
+  # resources :users do
+  #   resources :rentals, only: [:show, :index]
+  # end
+
 
   #resources :users, only: [:show]
 
