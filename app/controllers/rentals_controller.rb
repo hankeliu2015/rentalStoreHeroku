@@ -13,8 +13,8 @@ class RentalsController < ApplicationController
     if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
 
       rental = Rental.new(rental_params)
-      rental.start_date = DateTime.strptime(params[:rental][:start_date], "%m/%d/%Y")
-      rental.return_date = DateTime.strptime(params[:rental][:return_date], "%m/%d/%Y")
+      rental.start_date = Date.strptime(params[:rental][:start_date], "%m/%d/%Y")
+      rental.return_date = Date.strptime(params[:rental][:return_date], "%m/%d/%Y")
       rental.save
       redirect_to user_path(rental.user)
     else
