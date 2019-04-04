@@ -6,8 +6,7 @@ class Rental < ApplicationRecord
   #   where(return: false).empty?
   # end
 
-  def self.in_progress
-    #binding.pry
+  def self.in_progress #replaced by in_prossession
     where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
   end
 
