@@ -2,6 +2,9 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
+  validate :appropriate_start_date
+  #validate :appropriate_return_date
+
   # def self.available_to_rent? # replaced by instance method (available_for_rent? in the tool class.
   #   where(return: false).empty?
   # end
@@ -30,6 +33,11 @@ class Rental < ApplicationRecord
 
   def self.past_rentals
     where(return: true)
+  end
+
+  def appropriate_start_date
+    errors.add(:start_date, "Rental start date must start from today or after") if self.start_date.to_date < Date.today
+    binding.pry
   end
 
 
