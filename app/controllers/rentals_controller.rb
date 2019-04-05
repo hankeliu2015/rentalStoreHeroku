@@ -14,11 +14,16 @@ class RentalsController < ApplicationController
 
       rental = Rental.new(rental_params)
 
-      # rental.start_date = Date.strptime(params[:rental][:start_date], "%m/%d/%Y")
-      rental.start_date = Date.parse(params[:rental][:start_date])
-      rental.return_date = Date.parse(params[:rental][:return_date])
-      rental.save
-      redirect_to user_path(rental.user)
+      if rental.valid?
+        # rental.start_date = Date.strptime(params[:rental][:start_date], "%m/%d/%Y")
+        rental.start_date = Date.parse(params[:rental][:start_date])
+        rental.return_date = Date.parse(params[:rental][:return_date])
+        rental.save
+        redirect_to user_path(rental.user)
+      else
+        #render "/tools/#{@tool.id}/rentals/new"
+        redirect_to new_tool_rental_path(@tool), {alert: "#{rental.errors.full_messages}" }
+      end
     else
       redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
     end

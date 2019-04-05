@@ -37,7 +37,7 @@ class Rental < ApplicationRecord
 
   def appropriate_start_date
     errors.add(:start_date, "Rental start date must start from today or after") if self.start_date.to_date < Date.today
-    binding.pry
+    #binding.pry
   end
 
 
