@@ -3,7 +3,7 @@ class Rental < ApplicationRecord
   belongs_to :tool
 
   validate :appropriate_start_date
-  validate :appropriate_return_date
+  #validate :appropriate_return_date
   #validate :appropriate_return_date
 
   # def self.available_to_rent? # replaced by instance method (available_for_rent? in the tool class.
@@ -37,12 +37,13 @@ class Rental < ApplicationRecord
   end
 
   def appropriate_start_date
-    errors.add(:start_date, "Rental start date must start from today or after") if self.start_date.to_date < Date.today
+    errors.add(:start_date, " for rental must start from today or after") if self.start_date.to_date < Date.today
     #binding.pry
+
   end
 
-  def appropriate_return_date
-    errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date > self.start_date.to_date
-  end
+  # def appropriate_return_date #untested.
+  #   errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date > self.start_date.to_date
+  # end
 
 end #end of class
