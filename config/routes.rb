@@ -15,14 +15,15 @@ Rails.application.routes.draw do
     resources :rentals, only: [:new, :create, :update, :edit]
   end
 
-  # resources :users do
-  #   resources :rentals, only: [:show, :index]
-  # end
+  get 'rentals/new'
+
+  # resources :rentals, only: [:index]
+
+  resources :users, only: [:show] do
+    resources :rentals, only: [:index]
+  end
 
 
-  #resources :users, only: [:show]
-
-  # get 'rentals/new'
 
   # get 'tools/index'
   # get 'tools/show'

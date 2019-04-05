@@ -1,9 +1,8 @@
 <h3>Hello <%= @user.username %>!</h3>
-
-<%= link_to 'Home Page', root_path %>
+<%#= link_to 'Home Page', root_path %>
 <h4>Here are the tools you currently renting:</h4>
 
-  <% @in_progress.each do |rental| %>
+  <% @in_prossession.each do |rental| %>
   <ul>
     <h4><%=rental.tool.name %></h4>
     <li>Rented on: <%= display_start_date(rental) %></li>
@@ -14,24 +13,17 @@
 
   <br>
 
-<h4 style="color:red">Your rented tools Overdue. Please update the rental the return date:</h4>
+<h5 style="color:red">Your have following tools Overdue. Please return to avoid overdue charges</h5>
 
   <% @overdue_items.each do |rental|  %>
     <ul>
       <h4><%= rental.tool.name %></h4>
       <li>Return Date: <%= display_return_date(rental) %></li>
-      <li>Dates overdued: (work in progress) <%#= Date.today - rental.return_date %> </li>
+      <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
       <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
     </ul>
   <% end %>
 
 <br>
 
-<h4>Here are your tools rental history:</h4>
-<ul>
-  <% @past_rented_tools.each do |rental|  %>
-    <h4><%= rental.tool.name %></h4>
-    <li>Returned on: <%= display_return_date(rental) %></li>
-    <li>Actual Return on: <%= display_actual_return_date(rental) %></li>
-  <% end %>
-</ul>
+<%= link_to 'Please click here for your rentals history:', user_rentals_path(current_user) %>

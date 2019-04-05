@@ -1,6 +1,20 @@
 class RentalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
+  def index
+#binding.pry
+    @user = User.find_by(id: params[:user_id])
+    if current_user.id != @user.id
+      flash[:alert] = "You can not access other user's profile. Here is the information under your profile"
+      @user = current_user #make sure @user consistancy in show.html.erb
+    end
+
+    @user = current_user
+    @in_progress = @user.rentals.in_progress
+    @in_prossession = @user.rentals.in_possession
+    @overdue_items = @user.rentals.overdue
+    @past_rented_tools = @user.rentals.past_rentals
+  end #end of method
 
   def new
     @rental = Rental.new(tool_id: params[:tool_id])
@@ -13,11 +27,18 @@ class RentalsController < ApplicationController
 
     if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
 
-      rental = Rental.new(rental_params)
-      #rental.start_date = DateTime.strptime(params[:rental][:start_date], "%m/%d/%Y") rescue nil # {alert: "Please enter valid date"}
-      #rental.return_date = DateTime.strptime(params[:rental][:return_date], "%m/%d/%Y") rescue nil
-      rental.save
-      redirect_to user_path(rental.user)
+      @rental = Rental.new(rental_params) #change from rental to @rental for render :new
+
+      if @rental.valid?
+        # rental.start_date = Date.strptime(params[:rental][:start_date], "%m/%d/%Y")
+        @rental.start_date = Date.parse(params[:rental][:start_date])
+        @rental.return_date = Date.parse(params[:rental][:return_date])
+        @rental.save
+        redirect_to user_path(@rental.user)
+      else
+        render :new #"/tools/#{@tool.id}/rentals/new"
+        #redirect_to new_tool_rental_path(@tool) #, #{alert: "#{rental.errors.full_messages}" }
+      end
     else
       redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
     end
@@ -27,7 +48,7 @@ class RentalsController < ApplicationController
 
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 #binding.pry
-    if Date.today <= @rental.return_date
+    if @rental.return_date <= Date.today
 
       @rental.update(return: true)
       redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
@@ -36,7 +57,8 @@ class RentalsController < ApplicationController
       @rental.update(actual_return_date: Date.today, return: true)
       redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. To avoid furtnre overdue charge, please return on time. Thanks!"}
     end
-  end
+
+  end #end of method
 
   private
   def rental_params
