@@ -26,7 +26,7 @@
 
 <br>
 
-<h4>Here are your tools rental history:</h4>
+<%= link_to 'Please click here for your rentals history:', user_rentals_path(current_user) %>
 <ul>
   <% @past_rented_tools.each do |rental|  %>
     <h4><%= rental.tool.name %></h4>
