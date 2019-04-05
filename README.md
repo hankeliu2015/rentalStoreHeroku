@@ -1,11 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Introduction:
 
-Things you may want to cover:
+  Welcome and thanks for testing my software. This is an rental store application that runs on Ruby on Rails. Once you sign on throught my site or Google OminiAuth, You will be able to rent hardware/tools the store provided.
 
-* Ruby version
+* Supported Ruby version
+
+  Ruby 2.6.2
+
+* Getting Started
+
+  Install Ruby and run bundle install
+  After cloning the repository.
+  run:
+    rake db:migrate
+    rake db:seed
+    rails s
+
+* Integrating OmniAuth
+
+* License
+
+The app is available as open source under the terms of the MIT License.
+
 
 * System dependencies
 
@@ -20,5 +37,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
