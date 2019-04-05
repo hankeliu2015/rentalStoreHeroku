@@ -4,17 +4,21 @@
   <p class="lead">Thanks for choosing the <em><%= @rental.tool.name %></em></p>
   <hr class="my-4">
 
-  <p>Please ensure the data on this form are correct to complete your checkout!</p>
+  <p>Please ensure the <em>dates</em> on this form are correct to complete your checkout!</p>
 
   <% if @rental.errors %>
     <% @rental.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
+      <p class="<%='field_with_errors'%>"><%= message %></p>
     <% end %>
   <% end %>
 
   <%= form_for(@rental, url: tool_rentals_path) do |f|  %>
+
+  <div class="<%= 'field_with_errors' if @rental.errors[:start_date].any? %>">
     <%= f.label(:start_date) %>
     <%= f.date_field(:start_date) %>
+  </div>
+
     <%#= f.text_field(:start_date, placeholder: "MM/DD/YYYY", required: true) %>
     <%#= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
 
