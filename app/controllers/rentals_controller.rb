@@ -2,8 +2,19 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @rentals = Rental.all
-  end
+#binding.pry
+    @user = User.find_by(id: params[:user_id])
+    if current_user.id != @user.id
+      flash[:alert] = "You can not access other user's profile. Here is the information under your profile"
+      @user = current_user #make sure @user consistancy in show.html.erb
+    end
+
+    @user = current_user
+    @in_progress = @user.rentals.in_progress
+    @in_prossession = @user.rentals.in_possession
+    @overdue_items = @user.rentals.overdue
+    @past_rented_tools = @user.rentals.past_rentals
+  end #end of method
 
   def new
     @rental = Rental.new(tool_id: params[:tool_id])

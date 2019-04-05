@@ -1,1 +1,9 @@
-<h3>Rental Index page</h3>
+<h3>Hello! <%= current_user.username %>, Here is your rentals history</h3>
+
+<ul>
+  <% @past_rented_tools.each do |rental|  %>
+    <h4><%= rental.tool.name %></h4>
+    <li>Returned on: <%= display_return_date(rental) %></li>
+    <li>Actual Return on: <%= display_actual_return_date(rental) %></li>
+  <% end %>
+</ul>

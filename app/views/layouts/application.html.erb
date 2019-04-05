@@ -18,8 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link">Customer Profile</a>
-      <%= link_to "User Show Page", user_path(current_user), class: "nav-item nav-link" if current_user %>
+      <%= link_to "Customer's Show Page", user_path(current_user), class: "nav-item nav-link" if current_user %>
       <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %> <%= link_to "Sign Up", new_user_registration_path, class: "nav-item nav-link" %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-item nav-link" if user_signed_in? %>
     </div>

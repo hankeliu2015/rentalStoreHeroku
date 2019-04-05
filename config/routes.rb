@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'rentals/new'
 
-  resources :rentals, only: [:index]
+  # resources :rentals, only: [:index]
 
   resources :users, only: [:show] do
     resources :rentals, only: [:index]
