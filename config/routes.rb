@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   #resources :users, only: [:show]
 
-  # get 'rentals/new'
+   get 'rentals/new'
 
   # get 'tools/index'
   # get 'tools/show'
