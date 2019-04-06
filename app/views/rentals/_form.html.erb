@@ -1,1 +1,25 @@
 
+<% if user_rental.errors %>
+  <% user_rental.errors.full_messages.each do |message| %>
+    <p class="<%='field_with_errors'%>"><%= message %></p>
+  <% end %>
+<% end %>
+
+<%= form_for(user_rental, url: tool_rentals_path) do |f|  %>
+
+  <%= f.label(:start_date) %>
+  <%= f.date_field(:start_date) %>
+
+  <%#= f.text_field(:start_date, placeholder: "MM/DD/YYYY", required: true) %>
+  <%#= f.text_field(:start_date, value: Date.today.strftime("%a. %B %d, %Y"), required: true) %> <br>
+
+  <%= f.label(:return_date) %>
+  <%= f.date_field(:return_date) %> <br>
+
+<!-- </div> -->
+
+  <%= f.hidden_field(:user_id, value: current_user.id) %><br>
+  <%= f.hidden_field(:tool_id, value: user_rental.tool.id) %><br>
+  <%= f.submit('Rent') %>
+
+<% end %>
