@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     end
       @in_progress = @user.rentals.in_progress
       @in_prossession = @user.rentals.in_possession
+      @scheduled_rentals = @user.rentals.scheduled_rentals
       @overdue_items = @user.rentals.overdue
       @past_rented_tools = @user.rentals.past_rentals
 

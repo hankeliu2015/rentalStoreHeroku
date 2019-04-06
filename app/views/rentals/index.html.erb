@@ -2,8 +2,6 @@
 
 <ul>
   <% @past_rented_tools.each_with_index do |rental, index|  %>
-    <%#= binding.pry %>
-
     <h4><%= "#{index+1}: " %> <%= rental.tool.name %></h4>
     <li>Returned on: <%= display_return_date(rental) %></li>
     <li>Actual Return on: <%= display_actual_return_date(rental) %></li>
