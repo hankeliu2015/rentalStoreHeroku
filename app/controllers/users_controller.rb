@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @scheduled_rentals = @user.rentals.scheduled_rentals
       @overdue_items = @user.rentals.overdue
       @past_rented_tools = @user.rentals.past_rentals
-
+#binding.pry
   end
 
   private
