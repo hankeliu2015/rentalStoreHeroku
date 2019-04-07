@@ -12,6 +12,8 @@
   <li>Description: <%= tool.description %></li>
   <li>Condition: <%= tool.condition %></li>
   <li>availability: <%= tool.availability %></li>
+  <%= image_tag(tool.image, size: "150x150",  alt: "Floor Polisher") %>
+
   <%= button_to "Rent", new_tool_rental_path(tool), method: :get if user_signed_in? %>
 </ul>
 
