@@ -15,23 +15,24 @@ class Rental < ApplicationRecord
     where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
   end
 
-    # scope :in_progress, where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
-
   def self.in_possession
-    #binding.pry
-    where(return: false).select do |rental|
-      if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
-        rental
-      end
-    end
+    where(return: false).select {|rental|
+      rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
+      }
   end
 
+  # def self.in_possession
+  #   where(return: false).select do |rental|
+  #     if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
+  #       rental
+  #     end
+  #   end
+  # end
+
   def self.scheduled_rentals
-    where(return: false).select do |rental|
-      if rental.start_date.to_date > Date.today
-        rental
-      end
-    end
+    where(return: false).select {|rental|
+        rental if rental.start_date.to_date > Date.today
+      }
   end
 
   def self.overdue #no need the argument(user). chain this method after @user.retnals ActiveRecord::Relation object

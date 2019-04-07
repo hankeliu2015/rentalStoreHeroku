@@ -7,6 +7,7 @@ class Tool < ApplicationRecord
     rentals.where(return: false).empty?
   end
 
+
   # def past_rental_date(user)
   #   Rental.past_rentals(self, user)
   # end # no need this method for past_rented-tools
