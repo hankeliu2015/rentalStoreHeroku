@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:alert] = "You can not access other user's profile. Here is the information under your profile"
       @user = current_user #make sure @user consistancy in show.html.erb
     end
-      @in_progress = @user.rentals.in_progress
+      # @in_progress = @user.rentals.in_progress
       @in_prossession = @user.rentals.in_possession
       @scheduled_rentals = @user.rentals.scheduled_rentals
       @overdue_items = @user.rentals.overdue

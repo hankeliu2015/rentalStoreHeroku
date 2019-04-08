@@ -11,10 +11,6 @@ class Rental < ApplicationRecord
   #   where(return: false).empty?
   # end
 
-  def self.in_progress #replaced by in_prossession
-    where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
-  end
-
   def self.in_possession
     where(return: false).select {|rental|
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
@@ -27,6 +23,10 @@ class Rental < ApplicationRecord
   #       rental
   #     end
   #   end
+  # end
+
+  # def self.in_progress #replaced by in_prossession
+  #   where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
   # end
 
   def self.scheduled_rentals
