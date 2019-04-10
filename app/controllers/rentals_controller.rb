@@ -23,25 +23,38 @@ class RentalsController < ApplicationController
   def create
     # need a conditin to decide if the tool is available for rent before create new rental instance
     #binding.pry
-    @tool = Tool.find_by(id: params[:tool_id])
 
-    if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
+  @tool = Tool.find_by(id: params[:tool_id])
 
-      @rental = Rental.new(rental_params) #change from rental to @rental for render :new
+    #binding.pry
+    #if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
+
+      # @rental = Rental.new(rental_params)
+      # @rental.user_id = current_user.id
+      # @rental.tool_id = @tool.id
+
+      @rental = current_user.rentals.build(rental_params)
+      @rental.tool_id = @tool.id
 
       if @rental.valid?
         # rental.start_date = Date.strptime(params[:rental][:start_date], "%m/%d/%Y")
+
         @rental.start_date = Date.parse(params[:rental][:start_date])
         @rental.return_date = Date.parse(params[:rental][:return_date])
-        @rental.save
-        redirect_to user_path(@rental.user)
+        if @rental.save
+          redirect_to user_path(@rental.user)
+        else
+          redirect_to root_path
+        end
       else
         render :new #"/tools/#{@tool.id}/rentals/new"
         #redirect_to new_tool_rental_path(@tool) #, #{alert: "#{rental.errors.full_messages}" }
       end
-    else
-      redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
-    end
+    # else
+    #   redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
+    # end
+
+
   end # end of method
 
   def update
@@ -51,6 +64,7 @@ class RentalsController < ApplicationController
     if @rental.return_date <= Date.today
 
       @rental.update(return: true)
+      #binding.pry
       redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
 
     else
@@ -62,7 +76,7 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:user_id, :tool_id, :start_date, :return_date, :return)
+    params.require(:rental).permit(:start_date, :return_date, :return) #:user_id, :tool_id, removed from form_for hidden_fields
   end
 
 end

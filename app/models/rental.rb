@@ -2,7 +2,8 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
-  validate :appropriate_start_date, :appropriate_return_date
+  validate :appropriate_start_date, :appropriate_return_date, :tool_available, on: :create
+
 
   #validate :appropriate_return_date
   #validate :appropriate_return_date
@@ -54,6 +55,10 @@ class Rental < ApplicationRecord
 
   def appropriate_return_date #untested.
     errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date <= self.start_date.to_date
+  end
+
+  def tool_available
+    errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
   end
 
 end #end of class
