@@ -9,8 +9,11 @@
   <%= render partial: 'form', locals: {user_rental: @rental} %>
 
 </div>
-<h4>Availability dates displayed in calendar</h4>
-  <%= month_calendar do |date| %>
-  <%#= binding.pry %>
-    <%= date.strftime("%e") %>
-  <% end %>
+
+<div class="">
+  <h4>Tools Availability dates displayed in calendar</h4>
+    <%= month_calendar do |date| %>
+    <%#= binding.pry %>
+      <div class="today_highlight"><%= date.strftime("%e") %></div>
+    <% end %>
+</div>

@@ -9,6 +9,9 @@
     <li>Return on: <%= display_return_date(rental)%></li>
     <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
     <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+
+    <%= button_to "Change Rental Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
+
   </ul>
   <% end %>
 
@@ -23,6 +26,8 @@
       <li>Return on: <%= display_return_date(rental)%></li>
       <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
       <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+
+      <%= button_to "Change Rental Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
     </ul>
     <% end %>
 

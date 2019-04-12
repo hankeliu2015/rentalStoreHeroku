@@ -20,6 +20,12 @@ class RentalsController < ApplicationController
     @rental = Rental.new(tool_id: params[:tool_id])
   end
 
+  def edit
+    #@rental = Rental.new(tool_id: params[:tool_id])
+    #binding.pry
+    @rental = Rental.find_by(id: params[:id])
+  end
+
   def create
     # need a conditin to decide if the tool is available for rent before create new rental instance
     #binding.pry
