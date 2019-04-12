@@ -8,4 +8,8 @@
 
   <%= render partial: 'form', locals: {user_rental: @rental} %>
 
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
+
 </div>
