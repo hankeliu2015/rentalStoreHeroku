@@ -18,6 +18,8 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new(tool_id: params[:tool_id])
+    # need the rental instance, which scheduled for the future.
+    # to have the condition to highlight the calendar dates. 
   end
 
   def edit
@@ -27,12 +29,9 @@ class RentalsController < ApplicationController
   end
 
   def create
-    # need a conditin to decide if the tool is available for rent before create new rental instance
-    #binding.pry
 
-  @tool = Tool.find_by(id: params[:tool_id])
+    @tool = Tool.find_by(id: params[:tool_id])
 
-    #binding.pry
     #if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
 
       # @rental = Rental.new(rental_params)

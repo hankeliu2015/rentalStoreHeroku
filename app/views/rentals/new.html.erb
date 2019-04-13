@@ -14,6 +14,6 @@
   <h4>Tools Availability dates displayed in calendar</h4>
     <%= month_calendar do |date| %>
     <%#= binding.pry %>
-      <div class=<%="today_highlight" if date == Date.today %>> <%= date.strftime("%e") %></div>
+      <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, params[:tool_id], date) || date == Date.today %>> <%= date.strftime("%e") %></div>
     <% end %>
 </div>
