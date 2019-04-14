@@ -19,7 +19,7 @@ class RentalsController < ApplicationController
   def new
     @rental = Rental.new(tool_id: params[:tool_id])
     # need the rental instance, which scheduled for the future.
-    # to have the condition to highlight the calendar dates. 
+    # to have the condition to highlight the calendar dates.
   end
 
   def edit
@@ -65,11 +65,11 @@ class RentalsController < ApplicationController
   def update
 
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
-#binding.pry
+
     if @rental.return_date <= Date.today
 
       @rental.update(return: true)
-      #binding.pry
+
       redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
 
     else
