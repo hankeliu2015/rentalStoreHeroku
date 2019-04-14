@@ -17,7 +17,7 @@ module RentalsHelper
     #need to find that rental instance from user_id and tool_id where return is false.
     rental = Rental.where(user_id: user_id).where(tool_id: tool_id).where(return: false)
     #binding.pry
-    date >= rental[0].start_date.to_date && date <= rental[0].return_date.to_date
+    date >= rental[0].start_date.to_date && date <= rental[0].return_date.to_date if rental[0]
   end
 
   # def return_ontime?(rental) # not working?
