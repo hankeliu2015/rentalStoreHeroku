@@ -28,6 +28,10 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
   end
 
+  def reschdulereturn
+
+  end
+
   def create
 
     @tool = Tool.find_by(id: params[:tool_id])
@@ -78,6 +82,7 @@ class RentalsController < ApplicationController
     end
 
   end #end of method
+
 
   private
   def rental_params
