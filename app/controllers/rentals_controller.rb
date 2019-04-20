@@ -66,9 +66,9 @@ class RentalsController < ApplicationController
 #binding.pry
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 
-    if @rental.return_date >= Date.today #the return date is passed! yesterday(start_date) < today < tomorrow (return_date)
+    if @rental.return_date >= Date.today
 
-      @rental.update(return: true)
+      @rental.update(actual_return_date: Date.today, return: true)
 
       redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
 
