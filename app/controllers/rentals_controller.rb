@@ -29,8 +29,13 @@ class RentalsController < ApplicationController
   end
 
   def reschedulereturn
-    @a = "reach reschedulereturn action"
-    binding.pry
+    @rental = Rental.find(params[:id])
+# binding.pry
+    @rental.update(rental_params)
+
+    redirect_to user_path(current_user)
+    #change the return date
+    #redirect to user index page.
   end
 
   def create
