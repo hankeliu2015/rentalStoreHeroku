@@ -63,10 +63,10 @@ class RentalsController < ApplicationController
   end # end of method
 
   def update
-
+#binding.pry
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 
-    if @rental.return_date <= Date.today
+    if @rental.return_date >= Date.today #the return date is passed! yesterday(start_date) < today < tomorrow (return_date)
 
       @rental.update(return: true)
 
@@ -74,7 +74,7 @@ class RentalsController < ApplicationController
 
     else
       @rental.update(actual_return_date: Date.today, return: true)
-      redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. To avoid furtnre overdue charge, please return on time. Thanks!"}
+      redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. To avoid furture overdue charge, please return on time. Thanks!"}
     end
 
   end #end of method
