@@ -28,8 +28,9 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
   end
 
-  def reschdulereturn
-
+  def reschedulereturn
+    @a = "reach reschedulereturn action"
+    binding.pry
   end
 
   def create

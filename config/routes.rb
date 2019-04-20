@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # post 'rent', to: 'rentals#create', as: 'rentals'
   # patch 'rent/tool/:tool_id', to: 'rentals#update', as: 'rental'
 
+  patch 'rentals/:id', to: 'rentals#reschedulereturn', as: 'reschedule_return'
+
   resources :tools do
     resources :rentals, only: [:new, :create, :update, :edit]
   end
