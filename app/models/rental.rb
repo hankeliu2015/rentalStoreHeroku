@@ -4,6 +4,7 @@ class Rental < ApplicationRecord
 
   validate :appropriate_start_date, :appropriate_return_date, :tool_available, on: :create
 
+  validate :appropriate_start_date, :appropriate_return_date, on: :update
 
   #validate :appropriate_return_date
   #validate :appropriate_return_date

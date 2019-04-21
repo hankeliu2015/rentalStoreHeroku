@@ -28,7 +28,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
   end
 
-  def reschedulereturn
+  def reschedule_return
     @rental = Rental.find(params[:id])
 # binding.pry
     @rental.update(rental_params)
