@@ -29,10 +29,13 @@ class RentalsController < ApplicationController
   end
 
   def reschedule_return
-    @rental = Rental.find(params[:id])
-    @rental.update(rental_params)
-    redirect_to user_path(current_user)
-
+    #binding.pry
+    @rental = Rental.find_by(id: params[:id] )
+    if @rental.update(rental_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def create
