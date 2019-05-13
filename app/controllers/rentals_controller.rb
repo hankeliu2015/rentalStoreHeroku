@@ -30,12 +30,9 @@ class RentalsController < ApplicationController
 
   def reschedule_return
     @rental = Rental.find(params[:id])
-# binding.pry
     @rental.update(rental_params)
-
     redirect_to user_path(current_user)
-    #change the return date
-    #redirect to user index page.
+
   end
 
   def create
@@ -75,7 +72,7 @@ class RentalsController < ApplicationController
   def update
 #binding.pry
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
-
+#binding.pry
     if @rental.return_date >= Date.today
 
       @rental.update(actual_return_date: Date.today, return: true)

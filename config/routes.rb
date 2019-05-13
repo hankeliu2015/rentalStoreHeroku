@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #get 'users/show'
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-   resources :users, only: [:show]
+   # resources :users, only: [:show]
   # devise_for :users
   root 'tools#index'
 
@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
   patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
 
+
   resources :tools do
-    resources :rentals, only: [:new, :create, :update, :edit]
+    resources :rentals, only: [:new, :create, :update, :edit, :show]
   end
 
   get 'rentals/new'

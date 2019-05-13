@@ -4,7 +4,10 @@ class Rental < ApplicationRecord
 
   validate :appropriate_start_date, :appropriate_return_date, :tool_available, on: :create
 
-  validate :appropriate_start_date, :appropriate_return_date, on: :update
+  validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :update
+
+  # validate :appropriate_start_date, :appropriate_return_date, on: :update #valication for reschedule_return action.
+    #if turn on this, can not return overdue rentals.
 
   #validate :appropriate_return_date
   #validate :appropriate_return_date
@@ -54,6 +57,14 @@ class Rental < ApplicationRecord
   end
 
   def appropriate_return_date #untested.
+    errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date <= self.start_date.to_date
+  end
+
+  def appropriate_reschedule_start_date
+    errors.add(:start_date, " Reschedule rental start date must start from today or after") if self.start_date.to_date < Date.today
+  end
+
+  def appropriate_reschedule_end_date #untested.
     errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date <= self.start_date.to_date
   end
 
