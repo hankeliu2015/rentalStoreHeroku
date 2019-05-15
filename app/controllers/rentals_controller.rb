@@ -29,7 +29,7 @@ class RentalsController < ApplicationController
   end
 
   def reschedule_return
-    #start date need to compare with previous value. 
+    #start date need to compare with previous value.
     @rental = Rental.find_by(id: params[:id] )
     if @rental.update(rental_params)
       redirect_to user_path(current_user)
@@ -92,7 +92,7 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:start_date, :return_date, :return) #:user_id, :tool_id, removed from form_for hidden_fields
+    params.require(:rental).permit(:start_date, :return_date, :checkout) #:user_id, :tool_id, removed from form_for hidden_fields
   end
 
 end
