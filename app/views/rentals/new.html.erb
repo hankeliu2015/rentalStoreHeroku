@@ -1,19 +1,21 @@
 
-<div class="jumbotron">
-  <h3 class="display-4">Hello, <%= current_user.username %>!</h3>
-  <p class="lead">Thanks for choosing the <em><%= @rental.tool.name %></em></p>
-  <hr class="my-4">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="jumbotron">
+        <h3 class="display-4">Hello, <%= current_user.username %>!</h3>
+        <p class="lead">Thanks for choosing the <em><%= @rental.tool.name %></em></p>
+        <hr class="my-4">
+        <p>Please ensure the <em>dates</em> on this form are correct to complete your checkout!</p>
+        <%= render partial: 'form', locals: {user_rental: @rental} %>
+      </div>
+    </div>
 
-  <p>Please ensure the <em>dates</em> on this form are correct to complete your checkout!</p>
-
-  <%= render partial: 'form', locals: {user_rental: @rental} %>
-
-</div>
-
-<div class="">
-  <h4>Tools are not available on those dates highlighted</h4>
-    <%= month_calendar do |date| %>
-    <%#= binding.pry %>
-      <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, params[:tool_id], date) || date == Date.today %>> <%= date.strftime("%e") %></div>
-    <% end %>
+    <div class="col-sm-6">
+      <h4>Tools are booked on dates highlighted</h4>
+        <%= month_calendar do |date| %>
+          <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, params[:tool_id], date) || date == Date.today %>> <%= date.strftime("%e") %></div>
+        <% end %>
+    </div>
+  </div>
 </div>

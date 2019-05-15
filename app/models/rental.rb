@@ -6,9 +6,6 @@ class Rental < ApplicationRecord
 
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
-  # validate :appropriate_start_date, :appropriate_return_date, on: :update #valication for reschedule_return action.
-    #if turn on this, can not return overdue rentals.
-
   #validate :appropriate_return_date
   #validate :appropriate_return_date
 
