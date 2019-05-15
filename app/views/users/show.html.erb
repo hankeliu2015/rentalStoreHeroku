@@ -1,50 +1,53 @@
-<h3>Hello <%= @user.username %>!</h3>
-<%#= link_to 'Home Page', root_path %>
-<h4>Here are the tools you currently renting:</h4>
-
-  <% @in_prossession.each do |rental| %>
-  <ul>
-    <h4><%=rental.tool.name %></h4>
-    <li>Start on: <%= display_start_date(rental) %></li>
-    <li>Return on: <%= display_return_date(rental)%></li>
-    <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
-    <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
-
-    <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
-
-  </ul>
-  <% end %>
-
-  <br>
-
-  <h4>Here are the tools you scheduled for renting:</h4>
-
-    <% @scheduled_rentals.each do |rental| %>
-    <ul>
-      <h4><%=rental.tool.name %></h4>
-      <li>Start on: <%= display_start_date(rental) %></li>
-      <li>Return on: <%= display_return_date(rental)%></li>
-      <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
-      <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
-
-      <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
-    </ul>
-    <% end %>
-
-    <br>
-
-<h5 style="color:red">Your have following tools Overdue. Please return to avoid overdue charges</h5>
 
 
-  <% @overdue_items.each do |rental|  %>
-    <ul>
-      <h4><%= rental.tool.name %></h4>
-      <li>Return Date: <%= display_return_date(rental) %></li>
-      <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
-      <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
-    </ul>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Hello <%= @user.username %>!</h3>
+      <h4>Here are the tools you currently renting:</h4>
+      <% @in_prossession.each do |rental| %>
+      <ul>
+        <h4><%=rental.tool.name %></h4>
+        <li>Start on: <%= display_start_date(rental) %></li>
+        <li>Return on: <%= display_return_date(rental)%></li>
+        <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
+        <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+        <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
+      </ul>
+      <% end %>
+    </div>
 
-<br>
+    <div class="col-sm-6">
+      <h4>Here are the tools you scheduled for renting:</h4>
 
-<%= link_to 'Please click here for your rentals history:', user_rentals_path(current_user) %>
+        <% @scheduled_rentals.each do |rental| %>
+        <ul>
+          <h4><%=rental.tool.name %></h4>
+          <li>Start on: <%= display_start_date(rental) %></li>
+          <li>Return on: <%= display_return_date(rental)%></li>
+          <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
+          <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+          <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
+        </ul>
+        <% end %>
+
+        <br>
+
+        <h5 style="color:red">Your have following tools Overdue. Please return to avoid overdue charges</h5>
+        <% @overdue_items.each do |rental|  %>
+          <ul>
+            <h4><%= rental.tool.name %></h4>
+            <li>Return Date: <%= display_return_date(rental) %></li>
+            <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
+            <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+          </ul>
+        <% end %>
+
+        <br>
+
+        <%= link_to 'Please click here for your rentals history:', user_rentals_path(current_user) %>
+
+    </div>
+
+  </div>
+</div>
