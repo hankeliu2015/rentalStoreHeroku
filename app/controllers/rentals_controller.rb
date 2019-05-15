@@ -29,7 +29,7 @@ class RentalsController < ApplicationController
   end
 
   def reschedule_return
-    #binding.pry
+    #start date need to compare with previous value. 
     @rental = Rental.find_by(id: params[:id] )
     if @rental.update(rental_params)
       redirect_to user_path(current_user)

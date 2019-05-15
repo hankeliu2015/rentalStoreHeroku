@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_07_023931) do
+ActiveRecord::Schema.define(version: 2019_05_15_010614) do
 
   create_table "rentals", force: :cascade do |t|
     t.datetime "start_date"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_04_07_023931) do
     t.datetime "updated_at", null: false
     t.boolean "return", default: false
     t.datetime "actual_return_date"
+    t.boolean "picked_up"
+    t.boolean "returned"
     t.index ["tool_id"], name: "index_rentals_on_tool_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end

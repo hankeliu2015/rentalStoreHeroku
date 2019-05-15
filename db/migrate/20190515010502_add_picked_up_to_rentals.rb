@@ -1,0 +1,5 @@
+class AddPickedUpToRentals < ActiveRecord::Migration[5.2]
+  def change
+    add_column :rentals, :picked_up, :boolean
+  end
+end
