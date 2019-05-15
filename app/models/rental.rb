@@ -61,7 +61,12 @@ class Rental < ApplicationRecord
   end
 
   def appropriate_reschedule_start_date
-    errors.add(:start_date, " Reschedule rental start date must start from today or after") if self.start_date.to_date < Date.today
+    if self.checkout == true && self.start_date_was.to_date != self.start_date.to_date #if tool checkout, can not change start date.
+      errors.add(:start_date, "Tool already checked out, can not change start date, please choose the original date")
+
+    elsif self.checkout == false && self.start_date.to_date < Date.today
+      errors.add(:start_date, " Your rental start date must start from today or after")
+    end
   end
 
   def appropriate_reschedule_end_date #untested.
