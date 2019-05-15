@@ -28,16 +28,6 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
   end
 
-  def reschedule_return
-    #start date need to compare with previous value.
-    @rental = Rental.find_by(id: params[:id] )
-    if @rental.update(rental_params)
-      redirect_to user_path(current_user)
-    else
-      render :edit
-    end
-  end
-
   def create
 
     @tool = Tool.find_by(id: params[:tool_id])
@@ -82,11 +72,22 @@ class RentalsController < ApplicationController
 
       @rental.update(actual_return_date: Date.today, return: true)
       redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. To avoid furture overdue charge, please return on time. Thanks!"}
-
     end
-
   end #end of method
 
+  def reschedule_return
+    @rental = Rental.find_by(id: params[:id] )
+
+    if @rental.update(rental_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
+  end
+
+  def checkout
+    
+  end
 
   private
   def rental_params

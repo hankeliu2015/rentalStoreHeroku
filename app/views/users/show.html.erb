@@ -4,15 +4,16 @@
   <div class="row">
     <div class="col-sm-6">
       <h3>Hello <%= @user.username %>!</h3>
-      <h4>Here are the tools you currently renting:</h4>
+      <h4>Tools you currently renting:</h4>
       <% @in_prossession.each do |rental| %>
       <ul>
-        <h4><%=rental.tool.name %></h4>
+        <h5><%=rental.tool.name %></h5>
         <li>Start on: <%= display_start_date(rental) %></li>
         <li>Return on: <%= display_return_date(rental)%></li>
         <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
-        <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+        <%= button_to "Return", tool_rental_path(rental.tool, current_user), method: :patch %>
         <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
+
       </ul>
       <% end %>
     </div>
@@ -26,7 +27,8 @@
           <li>Start on: <%= display_start_date(rental) %></li>
           <li>Return on: <%= display_return_date(rental)%></li>
           <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
-          <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+          <%= button_to "Checkout", tool_rental_path(rental.tool, current_user), method: :patch %>
+          <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, current_user), method: :patch %>
           <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
         </ul>
         <% end %>

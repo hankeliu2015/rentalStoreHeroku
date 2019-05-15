@@ -11,25 +11,19 @@ Rails.application.routes.draw do
   # post 'rent', to: 'rentals#create', as: 'rentals'
   # patch 'rent/tool/:tool_id', to: 'rentals#update', as: 'rental'
 
-  patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
-
-
   resources :tools do
     resources :rentals, only: [:new, :create, :update, :edit, :show]
   end
 
   get 'rentals/new'
 
-  # resources :rentals, only: [:index]
-
   resources :users, only: [:show] do
     resources :rentals, only: [:index]
   end
 
+  patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
 
-
-  # get 'tools/index'
-  # get 'tools/show'
+  patch 'rentals/:id', to: 'rentals#checkout_update', as: 'checkout'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
