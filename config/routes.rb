@@ -23,7 +23,15 @@ Rails.application.routes.draw do
 
   patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
 
-  patch 'rentals/:id', to: 'rentals#checkout_update', as: 'checkout'
+  patch 'rentals/:id/checkout_update', to: 'rentals#checkout_update', as: 'checkout'
+
+  # resources :rentals do
+  #   member do
+  #     patch :checkout_update
+  #   end
+  # end
+  #need define another route for checkout.
+  # patch 'rentals/:id', to: 'rentals#checkout_update', as: 'checkout'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

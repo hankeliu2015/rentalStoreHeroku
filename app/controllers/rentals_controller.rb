@@ -76,7 +76,7 @@ class RentalsController < ApplicationController
   end #end of method
 
   def reschedule_return
-    @rental = Rental.find_by(id: params[:id] )
+    @rental = Rental.find_by(id: params[:id])
 
     if @rental.update(rental_params)
       redirect_to user_path(current_user)
@@ -85,8 +85,10 @@ class RentalsController < ApplicationController
     end
   end
 
-  def checkout
-    
+  def checkout_update #not hit by checkout button
+     #binding.pry
+    @rental = Rental.find_by(id: params[:id])
+    @rental.update(checkout: true)
   end
 
   private
