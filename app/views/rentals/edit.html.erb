@@ -7,7 +7,7 @@
   <% end %>
 <% end %>
 
-<%= form_for(@rental, url: reschedule_return_path) do |f|  %>
+<%= form_for(@rental, url: reschedule_return_tool_rental_path(@rental.tool, @rental)) do |f|  %>
 
   <%= f.label(:start_date) %>
   <%= f.date_field(:start_date) %>
