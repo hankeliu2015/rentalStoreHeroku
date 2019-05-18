@@ -12,7 +12,6 @@ Rails.application.routes.draw do
         patch :reschedule_return
       end
     end
-
   end
 
   get 'rentals/new'
@@ -21,15 +20,10 @@ Rails.application.routes.draw do
     resources :rentals, only: [:index]
   end
 
+  # moved the following route to tools/rentals nested routes.
   # patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
 
   patch 'rentals/:id/checkout_update', to: 'rentals#checkout_update', as: 'checkout'
-
-  # resources :rentals do
-  #   member do
-  #     patch :checkout_update
-  #   end
-  # end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

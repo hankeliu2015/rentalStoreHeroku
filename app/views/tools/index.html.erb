@@ -7,12 +7,16 @@
 <% @tools.each do |tool| %>
 <ul>
   <h3><%= tool.name %></h3>
+
+  <div class="tool_image">
+    <%= image_tag(tool.image, size: "150x150",  alt: tool.image) %>
+  </div>
+
   <li>Category: <%= tool.category %></li>
   <li>Brand: <%= tool.brand %></li>
   <li>Description: <%= tool.description %></li>
   <li>Condition: <%= tool.condition %></li>
   <li>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
-  <%= image_tag(tool.image, size: "150x150",  alt: tool.image) %>
 
   <%= button_to "Rent", new_tool_rental_path(tool), method: :get if user_signed_in? %>
 </ul>
