@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   root 'tools#index'
 
   resources :tools do
-    resources :rentals, only: [:new, :create, :update, :edit, :show]
+    resources :rentals, only: [:new, :create, :update, :edit, :show] do
+      member do
+        patch :reschedule_return
+      end
+    end
+
   end
 
   get 'rentals/new'
@@ -16,7 +21,7 @@ Rails.application.routes.draw do
     resources :rentals, only: [:index]
   end
 
-  patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
+  # patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
 
   patch 'rentals/:id/checkout_update', to: 'rentals#checkout_update', as: 'checkout'
 
