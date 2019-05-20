@@ -2,34 +2,18 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
+  #validate tool availa and start/return date
+  #instance method (available_for_rent? in the tool class.
   validate :appropriate_start_date, :appropriate_return_date, :tool_available, on: :create
 
+  #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
-
-  #validate :appropriate_return_date
-  #validate :appropriate_return_date
-
-  # def self.available_to_rent? # replaced by instance method (available_for_rent? in the tool class.
-  #   where(return: false).empty?
-  # end
 
   def self.in_possession
     where(return: false).select {|rental|
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
       }
   end
-
-  # def self.in_possession
-  #   where(return: false).select do |rental|
-  #     if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
-  #       rental
-  #     end
-  #   end
-  # end
-
-  # def self.in_progress #replaced by in_prossession
-  #   where("start_date <= ?", Date.today).where("return_date >= ?", Date.today).where(return: false)
-  # end
 
   def self.scheduled_rentals
     where(return: false).select {|rental|
