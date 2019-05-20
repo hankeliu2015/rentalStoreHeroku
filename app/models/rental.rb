@@ -13,6 +13,10 @@ class Rental < ApplicationRecord
     errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
   end
 
+  def self.available_for_rent?
+    where(return: false).empty?
+  end
+
   def self.in_possession
     where(return: false).select {|rental|
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
