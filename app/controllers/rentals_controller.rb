@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    # user current_user to identify user_id. 
+    # user current_user to identify user_id.
     @user = User.find_by(id: current_user.id)
     # if current_user.id != @user.id
     #   flash[:alert] = "You can not access other user's profile. Here is the information under your profile"
@@ -53,7 +53,6 @@ class RentalsController < ApplicationController
         end
       else
         render :new #"/tools/#{@tool.id}/rentals/new"
-        #redirect_to new_tool_rental_path(@tool) #, #{alert: "#{rental.errors.full_messages}" }
       end
     # else
     #   redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
@@ -87,7 +86,7 @@ class RentalsController < ApplicationController
   end
 
   def checkout_update #not hit by checkout button
-     #binding.pry
+
     @rental = Rental.find_by(id: params[:id])
     @rental.update(checkout: true)
   end
