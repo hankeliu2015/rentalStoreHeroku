@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h3>Hello <%= @user.username %>!</h3>
+  <h3>Hello <%= current_user.username %>!</h3>
   <div class="row">
     <div class="col-sm-6">
       <h4>Tools you currently renting:</h4>
@@ -55,7 +55,7 @@
         <% end %>
 
         <div class="fall-below">
-          <%= link_to 'Please click here for your rentals history:', user_rentals_path(current_user) %>
+          <%= link_to 'Please click here for your rentals history:', rentals_path %>
         </div>
 
     </div>

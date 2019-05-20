@@ -16,9 +16,14 @@ Rails.application.routes.draw do
 
   get 'rentals/new'
 
-  resources :users, only: [:show] do
-    resources :rentals, only: [:index]
-  end
+  # resources :users, only: [:show] do
+  #   resources :rentals, only: [:index]
+  # end
+
+  get 'profile', to: 'users#show'
+  get 'rentals', to: 'rentals#index'
+
+
 
   # moved the following route to tools/rentals nested routes.
   # patch 'rentals/:id', to: 'rentals#reschedule_return', as: 'reschedule_return'
