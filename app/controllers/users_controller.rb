@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
 
   def show
-    # use current_user to replace user id in URL
+    # use current_user to replace user id in URL. repalce all @user with current_user
+
     # if current_user.id != @user.id
     #   flash[:alert] = "You can not access other user's profile. Here is the information under your profile"
     #   @user = current_user #make sure @user consistancy in show.html.erb

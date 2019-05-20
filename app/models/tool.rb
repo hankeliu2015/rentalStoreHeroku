@@ -15,7 +15,8 @@ class Tool < ApplicationRecord
       return true
     elsif self.tool_forget_return?
       return false
-
+    elsif self.tool_scheduled
+      
     end
   end #end of method
 
@@ -41,7 +42,7 @@ class Tool < ApplicationRecord
   end
 
   def tool_scheduled
-    
+    rentals.where("")
   end
 
 end #end of class
