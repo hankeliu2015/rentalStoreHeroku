@@ -12,9 +12,10 @@ class Tool < ApplicationRecord
     rentals.find_by(return: false)
   end
 
-  # def checkout? # not srue about it yer. available for rent?
-  #   rentals.where(checkout: false).empty?
-  # end
+  def checkout?   #tool checkout is when rental checkout is true and return is false.
+    # rentals.where(checkout: true).where(return: false)
+    rentals.where("checkout = ? AND return = ?", true, false)
+  end
 
   # def past_rental_date(user)
   #   Rental.past_rentals(self, user)
