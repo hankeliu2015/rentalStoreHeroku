@@ -9,6 +9,10 @@ class Rental < ApplicationRecord
   #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
+  def tool_available
+    errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
+  end
+  
   def self.in_possession
     where(return: false).select {|rental|
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
@@ -54,8 +58,5 @@ class Rental < ApplicationRecord
     errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date <= self.start_date.to_date
   end
 
-  def tool_available
-    errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
-  end
 
 end #end of class
