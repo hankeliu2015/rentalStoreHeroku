@@ -24,10 +24,11 @@ class Rental < ApplicationRecord
   end
 
   def self.scheduled_rentals
-    where(return: false).where("start_date > ?", Date.today)
-    # where(return: false).select {|rental|
-    #     rental if rental.start_date.to_date > Date.today
-    #   }
+
+    # where(return: false).where("start_date > ?", Date.today)
+    where(return: false).select {|rental|
+        rental if rental.start_date.to_date > Date.today
+      }
   end
 
   def self.overdue #no need the argument(user). chain this method after @user.retnals ActiveRecord::Relation object

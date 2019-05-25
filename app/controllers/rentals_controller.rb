@@ -31,12 +31,6 @@ class RentalsController < ApplicationController
 
     @tool = Tool.find_by(id: params[:tool_id])
 
-    #if @tool.available_for_rent? #rentals.available_to_rent? #where(return: false).empty? #count == 0
-
-      # @rental = Rental.new(rental_params)
-      # @rental.user_id = current_user.id
-      # @rental.tool_id = @tool.id
-
       @rental = current_user.rentals.build(rental_params)
       @rental.tool_id = @tool.id
 
@@ -63,7 +57,7 @@ class RentalsController < ApplicationController
   def update
 
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
-    
+
     if @rental.return_date >= Date.today
       @rental.update(actual_return_date: Date.today, return: true)
       redirect_to profile_path, {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
