@@ -6,6 +6,7 @@ class Rental < ApplicationRecord
   #instance method (available_for_rent? in the tool class.
   validate :appropriate_start_date, :appropriate_return_date, :available_for_rent?, on: :create
 
+  validate :appropriate_checkout
   #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
@@ -24,16 +25,17 @@ class Rental < ApplicationRecord
     where("checkout = ? AND return = ?", true, false) && self.return_date.to_date >= Date.today
   end
 
-  def self.tool_not_rented_or_not_scheduled?
+  def self.tool_not_rented_or_not_scheduled?  #wip
     rentals.where(return: false).empty?
   end
 
   # tool checked out/noreturn && today's date < return date.
+  # wip
   def self.tool_forget_return?
     where("checkout = ? AND return = ?", true, false)  && self.return_date.to_date < Date.today
   end
 
-  def tool_scheduled
+  def tool_scheduled  #wip
     rentals.where("")
   end
 
@@ -87,5 +89,8 @@ class Rental < ApplicationRecord
     errors.add(:return_date, "Return Date must be at least one day after the start date") if self.return_date.to_date <= self.start_date.to_date
   end
 
+  def appropriate_checkout
+    errors.add(:checkout, "Tools can not be checked out before start date") if self.checkout == true && self.start_date.to_date > Date.today
+  end
 
 end #end of class
