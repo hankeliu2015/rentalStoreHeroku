@@ -25,13 +25,6 @@ class Tool < ApplicationRecord
   #   rentals.find_by(return: false)
   # end
 
-  # tool checkout is when rental checkout is true and return is false.
-  # rentals.where(checkout: true).where(return: false)
-  # today date must ahead of return date.
-  def checkout?
-    rentals.where("checkout = ? AND return = ?", true, false) && self.return_date.to_date >= Date.today
-  end
-
   def tool_not_rented_or_Not_scheduled?
     rentals.where(return: false).empty?
   end

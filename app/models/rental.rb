@@ -17,6 +17,13 @@ class Rental < ApplicationRecord
     Rental.where(return: false).empty?
   end
 
+  # tool checkout is when rental checkout is true and return is false.
+  # rentals.where(checkout: true).where(return: false)
+  # today date must ahead of return date.
+  def self.checkout?
+    where("checkout = ? AND return = ?", true, false) && self.return_date.to_date >= Date.today
+  end
+
   def self.in_possession
     where(return: false).select {|rental|
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
