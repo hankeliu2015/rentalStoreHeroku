@@ -61,9 +61,9 @@ class RentalsController < ApplicationController
   end # end of method
 
   def update
-    #binding.pry
-    @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 
+    @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
+    
     if @rental.return_date >= Date.today
       @rental.update(actual_return_date: Date.today, return: true)
       redirect_to profile_path, {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
@@ -93,7 +93,7 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:start_date, :return_date, :checkout) #:user_id, :tool_id, removed from form_for hidden_fields
+    params.require(:rental).permit(:start_date, :return_date, :checkout)
   end
 
 end
