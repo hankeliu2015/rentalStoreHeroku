@@ -26,6 +26,7 @@ class Rental < ApplicationRecord
   def self.scheduled_rentals
 
     # where(return: false).where("start_date > ?", Date.today)
+    # above scope method can not compare today's date. 'Start_date'(if value is today's date) > Date.today => true
     where(return: false).select {|rental|
         rental if rental.start_date.to_date > Date.today
       }

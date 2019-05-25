@@ -3,7 +3,7 @@ class Tool < ApplicationRecord
   has_many :rentals
   has_many :users, through: :rentals
 
-  # moved the following to rental model: 
+  # moved the following to rental model:
   # def available_for_rent?
   #   rentals.where(return: false).empty?
   # end
@@ -20,10 +20,10 @@ class Tool < ApplicationRecord
     end
   end #end of method
 
-
-  def current_rental
-    rentals.find_by(return: false)
-  end
+  # no need this method anymore
+  # def current_rental
+  #   rentals.find_by(return: false)
+  # end
 
   # tool checkout is when rental checkout is true and return is false.
   # rentals.where(checkout: true).where(return: false)
