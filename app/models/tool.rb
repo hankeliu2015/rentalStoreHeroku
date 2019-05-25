@@ -8,6 +8,11 @@ class Tool < ApplicationRecord
   #   rentals.where(return: false).empty?
   # end
 
+  # no need this method anymore
+  # def current_rental
+  #   rentals.find_by(return: false)
+  # end
+
   # new method to allow user book tools base on dates.
   def new_available_for_rent?
 
@@ -19,23 +24,5 @@ class Tool < ApplicationRecord
 
     end
   end #end of method
-
-  # no need this method anymore
-  # def current_rental
-  #   rentals.find_by(return: false)
-  # end
-
-  def tool_not_rented_or_Not_scheduled?
-    rentals.where(return: false).empty?
-  end
-
-  # tool checked out/noreturn && today's date < return date.
-  def tool_forget_return?
-    rentals.where("checkout = ? AND return = ?", true, false)  && self.return_date.to_date < Date.today
-  end
-
-  def tool_scheduled
-    rentals.where("")
-  end
 
 end #end of class

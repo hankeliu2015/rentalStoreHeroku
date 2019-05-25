@@ -24,6 +24,20 @@ class Rental < ApplicationRecord
     where("checkout = ? AND return = ?", true, false) && self.return_date.to_date >= Date.today
   end
 
+  def self.tool_not_rented_or_not_scheduled?
+    rentals.where(return: false).empty?
+  end
+
+  # tool checked out/noreturn && today's date < return date.
+  def self.tool_forget_return?
+    where("checkout = ? AND return = ?", true, false)  && self.return_date.to_date < Date.today
+  end
+
+  def tool_scheduled
+    rentals.where("")
+  end
+
+
   def self.in_possession
     where(return: false).select {|rental|
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
