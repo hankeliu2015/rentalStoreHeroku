@@ -4,17 +4,17 @@ class Rental < ApplicationRecord
 
   #validate tool availa and start/return date
   #instance method (available_for_rent? in the tool class.
-  validate :appropriate_start_date, :appropriate_return_date, :tool_available, on: :create
+  validate :appropriate_start_date, :appropriate_return_date, :available_for_rent?, on: :create
 
   #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
-  def tool_available
-    errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
-  end
+  # def tool_available
+  #   errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
+  # end
 
-  def self.available_for_rent?
-    where(return: false).empty?
+  def available_for_rent?
+    Rental.where(return: false).empty?
   end
 
   def self.in_possession

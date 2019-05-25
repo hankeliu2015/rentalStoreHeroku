@@ -46,7 +46,7 @@ class RentalsController < ApplicationController
         @rental.start_date = Date.parse(params[:rental][:start_date])
         @rental.return_date = Date.parse(params[:rental][:return_date])
         if @rental.save
-          redirect_to user_path(@rental.user)
+          redirect_to profile_path #user_path(@rental.user)
         else
           redirect_to root_path
         end
@@ -61,15 +61,16 @@ class RentalsController < ApplicationController
   end # end of method
 
   def update
+    #binding.pry
     @rental = Rental.find_by(tool_id: params[:tool_id], user_id: current_user.id, return: false)
 
     if @rental.return_date >= Date.today
       @rental.update(actual_return_date: Date.today, return: true)
-      redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
+      redirect_to profile_path, {alert: "Thank you for return #{@rental.tool.name}. Here is the rental cost: $123456"}
     else
 
       @rental.update(actual_return_date: Date.today, return: true)
-      redirect_to user_path(current_user), {alert: "Thank you for return #{@rental.tool.name}. To avoid furture overdue charge, please return on time. Thanks!"}
+      redirect_to profile_path, {alert: "Thank you for return #{@rental.tool.name}. To avoid furture overdue charge, please return on time. Thanks!"}
     end
   end #end of method
 
@@ -78,7 +79,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
     # binding.pry
     if @rental.update(rental_params)
-      redirect_to user_path(current_user)
+      redirect_to profile_path #user_path(current_user)
     else
       render :edit
     end
