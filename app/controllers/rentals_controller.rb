@@ -79,7 +79,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
     # binding.pry
     if @rental.update(rental_params)
-      redirect_to profile_path #user_path(current_user)
+      redirect_to profile_path ##user_path(current_user)
     else
       render :edit
     end
