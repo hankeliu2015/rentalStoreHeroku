@@ -53,9 +53,9 @@ class Rental < ApplicationRecord
     not_checked_out.return_date_in_future
   end
 
-  def self.overdue
+  def self.overdued
     checked_out?.not_returned.return_date_in_past
-    # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true)
+    # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #do not delete yet.
 
   end
 
