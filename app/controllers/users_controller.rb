@@ -9,8 +9,10 @@ class UsersController < ApplicationController
       @in_prossession = current_user.rentals.in_possession
       # binding.pry
       @scheduled_rentals = current_user.rentals.scheduled_rentals
-      @overdue_items = current_user.rentals.overdue
-      # the following code no needed. User show only only show a link for completed_rentals. 
+
+      #binding.pry
+      @overdue_items = current_user.rentals.overdued
+      # the following code no needed. User show only only show a link for completed_rentals.
       # @past_rented_tools = current_user.rentals.completed_rentals
   end
 

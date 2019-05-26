@@ -49,14 +49,28 @@ class Rental < ApplicationRecord
     checked_out.return_date_in_future
   end
 
-  def rental_scheduled  #wip
+  def self.rental_scheduled  #wip
     not_checked_out.return_date_in_future
   end
+
+  def self.overdue
+    checked_out?.not_returned.return_date_in_past
+    # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true)
+
+  end
+
+  def overdued_dates
+    (Date.today - self.return_date.to_date).to_i
+  end
+
 
   def self.completed_rentals
     where("checkout = ? AND return = ?", true, true)
   end
 
+  # def self.past_rentals # replaced it with completed_rentals method.
+  #   where(return: true)
+  # end
 
   def self.in_possession
     where(return: false).select {|rental|
@@ -73,18 +87,6 @@ class Rental < ApplicationRecord
       }
   end
 
-  def self.overdue #chain this method after @user.retnals ActiveRecord::Relation object
-
-    where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true)
-  end
-
-  def overdued_dates
-    (Date.today - self.return_date.to_date).to_i
-  end
-
-  # def self.past_rentals # replaced it with completed_rentals method. 
-  #   where(return: true)
-  # end
 
   def appropriate_start_date
     errors.add(:start_date, " for rental must start from today or after") if self.start_date.to_date < Date.today
