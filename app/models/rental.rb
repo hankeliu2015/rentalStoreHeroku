@@ -36,20 +36,20 @@ class Rental < ApplicationRecord
     where(return: false)
   end
 
-  def return_date_in_future
+  def self.return_date_in_future
     where("return_date > ?", Date.today)
   end
 
-  def return_date_in_past
+  def self.return_date_in_past
     where("return_date < ?", Date.today)
   end
 
-  def self.tool_not_rented_or_not_scheduled?  #wip
-    rentals.where(return: false).empty?
+  def self.rental_in_progress  #wip
+    checked_out.return_date_in_future
   end
 
   def tool_scheduled  #wip
-    rentals.where("")
+    not_checked_out.return_date_in_future
   end
 
 
