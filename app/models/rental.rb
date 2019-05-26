@@ -53,7 +53,7 @@ class Rental < ApplicationRecord
     not_checked_out.return_date_in_future
   end
 
-  def self.rental_completed
+  def self.completed_rentals
     where("checkout = ? AND return = ?", true, true)
   end
 
@@ -82,9 +82,9 @@ class Rental < ApplicationRecord
     (Date.today - self.return_date.to_date).to_i
   end
 
-  def self.past_rentals
-    where(return: true)
-  end
+  # def self.past_rentals # replaced it with completed_rentals method. 
+  #   where(return: true)
+  # end
 
   def appropriate_start_date
     errors.add(:start_date, " for rental must start from today or after") if self.start_date.to_date < Date.today

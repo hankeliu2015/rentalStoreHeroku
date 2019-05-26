@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     @user = current_user
     @in_prossession = @user.rentals.in_possession
     @overdue_items = @user.rentals.overdue
-    @past_rented_tools = @user.rentals.past_rentals
+    @past_rented_tools = @user.rentals.completed_rentals
   end #end of method
 
   def new
