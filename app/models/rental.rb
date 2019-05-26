@@ -28,6 +28,14 @@ class Rental < ApplicationRecord
     #where("start_date >= ?", Date.today)
   end
 
+  def self.returned
+    where(return: true)
+  end
+
+  def self.not_returned
+    where(return: false)
+  end
+
   def self.tool_not_rented_or_not_scheduled?  #wip
     rentals.where(return: false).empty?
   end
