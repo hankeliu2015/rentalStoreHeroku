@@ -49,14 +49,22 @@ class Rental < ApplicationRecord
     checked_out.return_date_in_future
   end
 
-  def self.rental_scheduled  #wip
-    not_checked_out.return_date_in_future
+
+  def self.scheduled_rentals
+
+    not_checked_out.not_returned.return_date_in_future
+
+    # where(return: false).where("start_date > ?", Date.today)
+    # above scope method can not compare today's date. 'Start_date'(if value is today's date) > Date.today => true
+    # where(return: false).select {|rental|
+    #     rental if rental.start_date.to_date > Date.today
+    #   }
+
   end
 
   def self.overdued
     checked_out?.not_returned.return_date_in_past
     # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #do not delete yet.
-
   end
 
   def overdued_dates
@@ -77,16 +85,6 @@ class Rental < ApplicationRecord
       rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
       }
   end
-
-  def self.scheduled_rentals
-    #binding.pry
-    # where(return: false).where("start_date > ?", Date.today)
-    # above scope method can not compare today's date. 'Start_date'(if value is today's date) > Date.today => true
-    where(return: false).select {|rental|
-        rental if rental.start_date.to_date > Date.today
-      }
-  end
-
 
   def appropriate_start_date
     errors.add(:start_date, " for rental must start from today or after") if self.start_date.to_date < Date.today
