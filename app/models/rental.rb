@@ -15,7 +15,7 @@ class Rental < ApplicationRecord
   # end
 
   def available_for_rent?
-    # binding.pry
+    
     errors.add(:tool, "Sorry, this Tool is not available for rent.") unless Rental.where(tool_id: self.tool_id).where(return: false).empty?
   end
 
