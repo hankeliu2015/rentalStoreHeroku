@@ -50,8 +50,8 @@ class Rental < ApplicationRecord
   end
 
   def self.overdue #no need the argument(user). chain this method after @user.retnals ActiveRecord::Relation object
-    
-    where("return_date < ?", Date.today).where(return: false) #where(user_id: user.id) can be done in users controller show
+
+    where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #where(user_id: user.id) can be done in users controller show
   end
 
 
