@@ -15,7 +15,7 @@ class Rental < ApplicationRecord
   # end
 
   def available_for_rent?
-    
+
     errors.add(:tool, "Sorry, this Tool is not available for rent.") unless Rental.where(tool_id: self.tool_id).where(return: false).empty?
   end
 
@@ -51,6 +51,10 @@ class Rental < ApplicationRecord
 
   def rental_scheduled  #wip
     not_checked_out.return_date_in_future
+  end
+
+  def self.rental_completed
+    where("checkout = ? AND return = ?", true, true)
   end
 
 
