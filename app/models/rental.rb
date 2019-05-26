@@ -48,7 +48,7 @@ class Rental < ApplicationRecord
     checked_out.return_date_in_future
   end
 
-  def tool_scheduled  #wip
+  def rental_scheduled  #wip
     not_checked_out.return_date_in_future
   end
 
