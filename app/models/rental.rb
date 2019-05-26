@@ -14,18 +14,18 @@ class Rental < ApplicationRecord
   #   errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
   # end
 
-  def available_for_rent?
+  def available_for_rent? # need to test, might not work as planned.
     Rental.where(return: false).empty?
   end
 
-  # items checkout: true and return:false. today between start and end date.
   def self.checked_out?
-    where("checkout = ? AND return = ?", true, false).where("start_date <= ? and return_date >= ?", Date.today, Date.today)
+    where(checkout: true)
+    #where("start_date <= ? and return_date >= ?", Date.today, Date.today)
   end
 
-  # items checkout: false, start_date and return_date in the future.
-  def self.not_checked_out #wip. not tested yet. compariasion might have problem when start_date is today.
-    where("checkout = ? AND return = ?", false, false).where("start_date >= ?", Date.today)
+  def self.not_checked_out
+    where(checkout: false)
+    #where("start_date >= ?", Date.today)
   end
 
   def self.tool_not_rented_or_not_scheduled?  #wip
@@ -44,7 +44,7 @@ class Rental < ApplicationRecord
   end
 
   def self.scheduled_rentals
-
+    #binding.pry
     # where(return: false).where("start_date > ?", Date.today)
     # above scope method can not compare today's date. 'Start_date'(if value is today's date) > Date.today => true
     where(return: false).select {|rental|
@@ -52,12 +52,10 @@ class Rental < ApplicationRecord
       }
   end
 
-  def self.overdue #no need the argument(user). chain this method after @user.retnals ActiveRecord::Relation object
+  def self.overdue #chain this method after @user.retnals ActiveRecord::Relation object
 
-    where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #where(user_id: user.id) can be done in users controller show
+    where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true)
   end
-
-
 
   def overdued_dates
     (Date.today - self.return_date.to_date).to_i
