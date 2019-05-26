@@ -19,11 +19,13 @@
   <%= f.date_field(:return_date) %> <br>
 
 <!-- </div> -->
+  <%= f.label(:checkout) %>
+  <%= f.check_box(:checkout) %> <br>
   <%= f.label(:return) %>
   <%= f.radio_button :return, @rental.return, :checked => false %>
   <%#= f.hidden_field(:user_id, value: current_user.id) %><br>
   <%#= f.hidden_field(:tool_id, value: user_rental.tool.id) %><br>
-  <%= f.submit('Reschedule Return') %>
+  <%= f.submit('Reschedule Return Date') %>
 
 <% end %>
 
