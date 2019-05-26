@@ -38,7 +38,7 @@ class Rental < ApplicationRecord
   end
 
   def self.return_date_in_future
-    where("return_date > ?", Date.today)
+    where("return_date > ? AND start_date > ?", Date.today, Date.tomorrow) #have to add one more day for start_date. comparaion has problme compare Date.today. 
   end
 
   def self.return_date_in_past
