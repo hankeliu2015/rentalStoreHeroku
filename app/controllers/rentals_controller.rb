@@ -79,7 +79,7 @@ class RentalsController < ApplicationController
     end
   end
 
-  def checkout_update #not hit by checkout button
+  def checkout_update #wip, not test yet. Might not need it.
 
     @rental = Rental.find_by(id: params[:id])
     @rental.update(checkout: true)

@@ -32,7 +32,7 @@
           <li>Start on: <%= display_start_date(rental) %></li>
           <li>Return on: <%= display_return_date(rental)%></li>
           <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, current_user), method: :patch %>
-          <%= button_to "Reschedule and Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
+          <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
           <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
 
         </ul>

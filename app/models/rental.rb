@@ -18,11 +18,14 @@ class Rental < ApplicationRecord
     Rental.where(return: false).empty?
   end
 
-  # tool checkout is when rental checkout is true and return is false.
-  # rentals.where(checkout: true).where(return: false)
-  # today date must ahead of return date.
+  # items checkout: true and return:false. today between start and end date.
   def self.checked_out?
-    where("checkout = ? AND return = ?", true, false) && self.return_date.to_date >= Date.today
+    where("checkout = ? AND return = ?", true, false).where("start_date <= ? and return_date >= ?", Date.today, Date.today)
+  end
+
+  # items checkout: false, start_date and return_date in the future.
+  def self.not_checked_out #wip. not tested yet. compariasion might have problem when start_date is today.
+    where("checkout = ? AND return = ?", false, false).where("start_date >= ?", Date.today)
   end
 
   def self.tool_not_rented_or_not_scheduled?  #wip
