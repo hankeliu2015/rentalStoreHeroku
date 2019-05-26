@@ -13,16 +13,4 @@ class Tool < ApplicationRecord
   #   rentals.find_by(return: false)
   # end
 
-  # new method to allow user book tools base on dates.
-  def new_available_for_rent?
-
-    if self.tool_not_rented_or_Not_scheduled?
-      return true
-    elsif self.tool_forget_return?
-      return false
-    elsif self.tool_scheduled
-
-    end
-  end #end of method
-
 end #end of class
