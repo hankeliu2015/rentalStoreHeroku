@@ -29,12 +29,6 @@ class Rental < ApplicationRecord
     rentals.where(return: false).empty?
   end
 
-  # tool checked out/noreturn && today's date < return date.
-  # wip
-  def self.tool_forget_return?
-    where("checkout = ? AND return = ?", true, false)  && self.return_date.to_date < Date.today
-  end
-
   def tool_scheduled  #wip
     rentals.where("")
   end
@@ -56,8 +50,10 @@ class Rental < ApplicationRecord
   end
 
   def self.overdue #no need the argument(user). chain this method after @user.retnals ActiveRecord::Relation object
+    
     where("return_date < ?", Date.today).where(return: false) #where(user_id: user.id) can be done in users controller show
   end
+
 
 
   def overdued_dates
