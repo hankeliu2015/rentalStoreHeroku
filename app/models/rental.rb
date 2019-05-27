@@ -19,20 +19,24 @@ class Rental < ApplicationRecord
   end
 
   def available_for_rent2?
+    #return unless tool
+
     #if the tool overdued, it is not vailable
     errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued
 
     #if the tool is in progress, compare the start and end dates.
+    # tool.rentals.rentals_in_progress.any?
     if !Rental.where(tool_id: self.tool_id).rentals_in_progress.empty?
       rented_tool = Rental.where(tool_id: self.tool_id).rentals_in_progress.first
-      if self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date
+      if self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date # start_in_middle_of_rental
         errors.add(:tool, "Sorry, this Tool is rented, please try a different start dates.")
       elsif self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
         errors.add(:tool, "Sorry, this Tool is rented, please try a different return date.")
       end
     end
 
-    #if tool has scheduled rentals, iterate each future rental and compare dates.
+    #if tool has scheduled rentals, iterate each future rental and compare dates. tool.rentals == Rental.where(tool_id: self.tool_id)
+
     if !Rental.where(tool_id: self.tool_id).scheduled_rentals.empty?
       Rental.where(tool_id: self.tool_id).scheduled_rentals.each do |rental|
         if self.start_date >= rental.start_date && self.start_date <= rental.return_date
@@ -64,11 +68,11 @@ class Rental < ApplicationRecord
   end
 
   def self.return_date_in_future
-    where("return_date > ? AND start_date > ?", Date.today, Date.tomorrow) #have to add one more day for start_date. comparaion has problme compare Date.today.
+    where("return_date > ? AND start_date > ?", Date.today.midnight, Date.today.midnight) #have to add one more day for start_date. comparaion has problme compare Date.today.
   end
 
   def self.return_date_in_past
-    where("return_date < ?", Date.today)
+    where("return_date < ?", Date.today.midnight)
   end
 
   def self.current_date_between_start_return #wip

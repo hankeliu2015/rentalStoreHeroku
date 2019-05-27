@@ -10,8 +10,8 @@ class RentalsController < ApplicationController
     # end
 
     @user = current_user
-    @in_prossession = @user.rentals.in_possession
-    @overdue_items = @user.rentals.overdue
+    @in_prossession = @user.rentals.rentals_in_progress
+    @overdue_items = @user.rentals.overdued
     @past_rented_tools = @user.rentals.completed_rentals
   end #end of method
 
