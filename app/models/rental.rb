@@ -37,8 +37,8 @@ class Rental < ApplicationRecord
 
     #if tool has scheduled rentals, iterate each future rental and compare dates. tool.rentals == Rental.where(tool_id: self.tool_id)
 
-    if !Rental.where(tool_id: self.tool_id).schedlued.empty?
-      Rental.where(tool_id: self.tool_id).schedlued.each do |rental|
+    if !Rental.where(tool_id: self.tool_id).scheduled.empty?
+      Rental.where(tool_id: self.tool_id).scheduled.each do |rental|
         if self.start_date >= rental.start_date && self.start_date <= rental.return_date
           errors.add(:tool, "Sorry, this Tool is rented, please try a different start dates.")
         elsif self.return_date >= rental.start_date && self.return_date <= rental.return_date
@@ -92,7 +92,7 @@ class Rental < ApplicationRecord
   #     }
   # end
 
-  def self.schedlued
+  def self.scheduled
 
     not_checked_out.not_returned.return_date_in_future
 
