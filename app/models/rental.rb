@@ -37,8 +37,8 @@ class Rental < ApplicationRecord
 
     #if tool has scheduled rentals, iterate each future rental and compare dates. tool.rentals == Rental.where(tool_id: self.tool_id)
 
-    if !Rental.where(tool_id: self.tool_id).scheduled_rentals.empty?
-      Rental.where(tool_id: self.tool_id).scheduled_rentals.each do |rental|
+    if !Rental.where(tool_id: self.tool_id).schedlued.empty?
+      Rental.where(tool_id: self.tool_id).schedlued.each do |rental|
         if self.start_date >= rental.start_date && self.start_date <= rental.return_date
           errors.add(:tool, "Sorry, this Tool is rented, please try a different start dates.")
         elsif self.return_date >= rental.start_date && self.return_date <= rental.return_date
@@ -68,7 +68,7 @@ class Rental < ApplicationRecord
   end
 
   def self.return_date_in_future
-    where("return_date > ? AND start_date > ?", Date.today.midnight, Date.today.midnight) #have to add one more day for start_date. comparaion has problme compare Date.today.
+    where("return_date > ? AND start_date > ?", Date.today.midnight, Date.today.midnight) #Date.today.midnight will resovled the comparaion issue when start_date is today.
   end
 
   def self.return_date_in_past
@@ -92,7 +92,7 @@ class Rental < ApplicationRecord
   #     }
   # end
 
-  def self.scheduled_rentals
+  def self.schedlued
 
     not_checked_out.not_returned.return_date_in_future
 
@@ -105,6 +105,7 @@ class Rental < ApplicationRecord
   end
 
   def self.overdued
+    #binding.pry
     checked_out?.not_returned.return_date_in_past
     # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #do not delete yet.
   end

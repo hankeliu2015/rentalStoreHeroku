@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
       @in_prossession = current_user.rentals.rentals_in_progress
       # binding.pry
-      @scheduled_rentals = current_user.rentals.scheduled_rentals
+      @scheduled_rentals = current_user.rentals.scheduled
 
       @overdue_items = current_user.rentals.overdued
       # the following code no needed. User show only only show a link for completed_rentals.
