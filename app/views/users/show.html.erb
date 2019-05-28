@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-sm-6">
-      <h4>Tools scheduled for renting and not checked out:</h4>
+      <h4>Tools scheduled for renting:</h4>
 
         <% @scheduled_rentals.each do |rental| %>
         <ul>
@@ -34,9 +34,25 @@
           <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, current_user), method: :patch %>
           <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
           <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
-
         </ul>
         <% end %>
+        <br>
+        
+        <h4>Tools forget to checkout:</h4>
+
+          <% @forget_checkout.each do |rental| %>
+          <ul>
+            <h5><%=rental.tool.name %></h5>
+            <div class="tool_image">
+              <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+            </div>
+            <li>Start on: <%= display_start_date(rental) %></li>
+            <li>Return on: <%= display_return_date(rental)%></li>
+            <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, current_user), method: :patch %>
+            <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
+            <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
+          </ul>
+          <% end %>
 
         <br>
 

@@ -10,6 +10,8 @@ class UsersController < ApplicationController
       # binding.pry
       @scheduled_rentals = current_user.rentals.scheduled
 
+      @forget_checkout = current_user.rentals.forget_checkout
+
       @overdue_items = current_user.rentals.overdued
       # the following code no needed. User show only only show a link for completed_rentals.
       # @past_rented_tools = current_user.rentals.completed_rentals

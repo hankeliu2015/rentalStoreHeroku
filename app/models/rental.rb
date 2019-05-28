@@ -67,6 +67,10 @@ class Rental < ApplicationRecord
     where(return: false)
   end
 
+  def self.start_date_in_the_past
+    where("start_date < ?", Date.today.midnight)
+  end
+
   def self.return_date_in_future
     where("return_date > ? AND start_date > ?", Date.today.midnight, Date.today.midnight) #Date.today.midnight will resovled the comparaion issue when start_date is today.
   end
@@ -121,6 +125,10 @@ class Rental < ApplicationRecord
   # def self.past_rentals # replaced it with completed_rentals method.
   #   where(return: true)
   # end
+
+  def self.forget_checkout
+    where(checkout: false).where(return: false).start_date_in_the_past
+  end
 
   def appropriate_start_date
     errors.add(:start_date, " for rental must start from today or after") if self.start_date.to_date < Date.today
