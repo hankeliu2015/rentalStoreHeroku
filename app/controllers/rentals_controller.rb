@@ -13,6 +13,13 @@ class RentalsController < ApplicationController
     @in_prossession = @user.rentals.rentals_in_progress
     @overdue_items = @user.rentals.overdued
     @past_rented_tools = @user.rentals.completed_rentals
+
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @past_rented_tools}
+    end
+
+
   end #end of method
 
   def new
