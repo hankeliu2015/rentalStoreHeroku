@@ -67,7 +67,7 @@ class Rental < ApplicationRecord
     where(return: false)
   end
 
-  def self.start_date_in_the_past
+  def self.start_date_in_past
     where("start_date < ?", Date.today.midnight)
   end
 
@@ -109,7 +109,7 @@ class Rental < ApplicationRecord
   end
 
   def self.overdued
-    #binding.pry
+    # binding.pry
     checked_out?.not_returned.return_date_in_past
     # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #do not delete yet.
   end
@@ -127,7 +127,7 @@ class Rental < ApplicationRecord
   # end
 
   def self.forget_checkout
-    where(checkout: false).where(return: false).start_date_in_the_past
+    where(checkout: false).where(return: false).start_date_in_past
   end
 
   def appropriate_start_date
