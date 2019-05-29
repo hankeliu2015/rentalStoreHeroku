@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     @user = current_user
     @in_prossession = @user.rentals.in_progress
     @overdue_items = @user.rentals.overdued
-    @past_rented_tools = @user.rentals.completed_rentals
+    @past_rented_tools = @user.rentals.completed
 
     respond_to do |format|
       format.html {render :index}

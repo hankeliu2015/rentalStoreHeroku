@@ -13,8 +13,8 @@ class UsersController < ApplicationController
       @forget_checkout = current_user.rentals.forget_checkout
 
       @overdue_items = current_user.rentals.overdued
-      # the following code no needed. User show only only show a link for completed_rentals.
-      # @past_rented_tools = current_user.rentals.completed_rentals
+      # the following code no needed. User show only only show a link for completed.
+      # @past_rented_tools = current_user.rentals.completed
   end
 
   private

@@ -118,11 +118,11 @@ class Rental < ApplicationRecord
     (Date.today - self.return_date.to_date).to_i
   end
 
-  def self.completed_rentals
+  def self.completed
     where("checkout = ? AND return = ?", true, true)
   end
 
-  # def self.past_rentals # replaced it with completed_rentals method.
+  # def self.past_rentals # replaced it with completed method.
   #   where(return: true)
   # end
 
