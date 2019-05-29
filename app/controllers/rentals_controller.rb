@@ -27,6 +27,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new(tool_id: params[:tool_id])
     # need the rental instance, which scheduled for the future.
     # to have the condition to highlight the calendar dates.
+    respond_to do |format|
+      format.html {render :new}
+      format.json {render json: @rental}
+    end
   end
 
   def edit
