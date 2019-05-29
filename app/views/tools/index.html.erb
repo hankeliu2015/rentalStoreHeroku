@@ -20,6 +20,7 @@
   <li>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
 
   <%= button_to "Rent", new_tool_rental_path(tool), method: :get if user_signed_in? %>
+  <%= link_to "Discount Rental - Next Day Return", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
 </ul>
 
 <% end %>
