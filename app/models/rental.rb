@@ -4,7 +4,7 @@ class Rental < ApplicationRecord
 
   #validate tool availa and start/return date
   #instance method (available_for_rent? in the tool class.
-  validate :appropriate_start_date, :appropriate_return_date, :available_for_rent2?, on: :create
+  validate :appropriate_start_date, :appropriate_return_date, :available_for_rent?, on: :create
 
   validate :appropriate_checkout
   #validate reschedule_return with checkout and dates.
@@ -14,15 +14,15 @@ class Rental < ApplicationRecord
   #   errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
   # end
 
-  def available_for_rent?
-    errors.add(:tool, "Sorry, this Tool is not available for rent.") unless Rental.where(tool_id: self.tool_id).where(return: false).empty?
-  end
+  # def available_for_rent? #replaced by following method
+  #   errors.add(:tool, "Sorry, this Tool is not available for rent.") unless Rental.where(tool_id: self.tool_id).where(return: false).empty?
+  # end
 
-  def available_for_rent2?
+  def available_for_rent?
     #return unless tool
 
-    #if the tool overdued, it is not vailable
-    errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued
+    #if the tool overdued_status true?, it is not vailable
+    errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued_status?
 
     #if the tool is in progress, compare the start and end dates.
     # tool.rentals.in_progress.any?
@@ -67,6 +67,19 @@ class Rental < ApplicationRecord
     where(return: false)
   end
 
+  def self.overdued_status?  #return if true of false on overdued status
+    #binding.pry
+    checked_out?.not_returned.return_date_in_past.any?
+  end
+
+  def self.overdued #return the overdued objects
+    checked_out?.not_returned.return_date_in_past
+  end
+
+  def overdued_dates
+    (Date.today - self.return_date.to_date).to_i
+  end
+
   def self.start_date_in_past
     where("start_date < ?", Date.today.midnight)
   end
@@ -106,16 +119,6 @@ class Rental < ApplicationRecord
     #     rental if rental.start_date.to_date > Date.today
     #   }
 
-  end
-
-  def self.overdued
-    # binding.pry
-    checked_out?.not_returned.return_date_in_past
-    # where("return_date < ?", Date.today).where("return = ? AND  checkout = ?", false, true) #do not delete yet.
-  end
-
-  def overdued_dates
-    (Date.today - self.return_date.to_date).to_i
   end
 
   def self.completed
