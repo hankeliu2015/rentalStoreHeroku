@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     # use current_user to replace user id in URL. repalce all @user with current_user
 
-      @in_prossession = current_user.rentals.rentals_in_progress
+      @in_prossession = current_user.rentals.in_progress
       # binding.pry
       @scheduled_rentals = current_user.rentals.scheduled
 
