@@ -14,12 +14,12 @@ class RentalsController < ApplicationController
     @overdue_items = @user.rentals.overdued
     @past_rented_tools = @user.rentals.completed_rentals
 
-    # respond_to do |format|
-    #   format.html {render :index}
-    #   format.json {render json: @past_rented_tools}
-    # end
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @past_rented_tools}
+    end
 
-    render json: @past_rented_tools
+    # render json: @past_rented_tools
 
   end #end of method
 

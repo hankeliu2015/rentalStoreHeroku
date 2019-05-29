@@ -9,11 +9,11 @@ $(document).ready(function() {
       data.forEach((el, i) => {
         let custom_start_date = new Date(el.start_date)
         let custom_return_date = new Date(el.return_date)
-
+        // debugger
         let val = `
           <tr>
             <td>${i+1}</td>
-            <td>${el.name}</td>
+            <td>${el.tool.name}</td>
             <td>${custom_start_date.toDateString()}</td>
             <td>${custom_return_date.toDateString()}</td>
           </tr>
