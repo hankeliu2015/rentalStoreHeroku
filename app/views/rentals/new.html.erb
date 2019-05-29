@@ -6,6 +6,11 @@
         <h3 class="display-4">Hello, <%= current_user.username %>!</h3>
         <p class="lead">Thanks for choosing the <em><%= @rental.tool.name %></em></p>
         <hr class="my-4">
+        <% if @rental.errors %>
+          <% @rental.errors.full_messages.each do |message| %>
+            <p class="<%='field_with_errors'%>"><%= message %></p>
+          <% end %>
+        <% end %>
         <p>Please ensure the <em>dates</em> on this form are correct to complete your checkout!</p>
         <%= render partial: 'form', locals: {user_rental: @rental} %>
       </div>
