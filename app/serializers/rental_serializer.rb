@@ -1,3 +1,4 @@
 class RentalSerializer < ActiveModel::Serializer
-  attributes :id, :name, :start_date, :return_date
+  attributes :id, :start_date, :return_date
+  belongs_to :tool
 end
