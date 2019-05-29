@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'rentals', to: 'rentals#create'
   get 'rentals/new'
   get 'profile', to: 'users#show'
   get 'rentals', to: 'rentals#index'
