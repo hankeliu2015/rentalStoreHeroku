@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   post 'rentals', to: 'rentals#create'
+  post 'rentals/discount', to: 'rentals#create_discount_rental'
   get 'rentals/new'
   get 'profile', to: 'users#show'
   get 'rentals', to: 'rentals#index'

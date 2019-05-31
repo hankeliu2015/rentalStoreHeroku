@@ -24,7 +24,7 @@ function displayRentalForm(e) {
 function createDiscountRentalObj(e, idTool) {
   e.preventDefault();
 
-  let value = $(e.target).serializeArray();  //$('form')??
+  let value = $(e.target).serializeArray();
 
   //value.push({name: "rental[tool_id]", value: idTool})
 

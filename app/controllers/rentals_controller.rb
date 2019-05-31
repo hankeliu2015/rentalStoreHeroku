@@ -69,8 +69,12 @@ class RentalsController < ApplicationController
     #   redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
     # end
 
-
   end # end of method
+
+  def create_discount_rental
+    @rental = current_user.rentals.build(discount_rental_params)
+    @rental.save 
+  end
 
   def update
 
@@ -105,6 +109,10 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
+    params.require(:rental).permit(:start_date, :return_date, :checkout)
+  end
+
+  def discount_rental_params
     # binding.pry
     params.require(:rental).permit(:start_date, :return_date, :checkout, :tool_id)
   end
