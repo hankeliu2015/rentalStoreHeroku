@@ -52,12 +52,12 @@ class RentalsController < ApplicationController
         @rental.start_date = Date.parse(params[:rental][:start_date])
         @rental.return_date = Date.parse(params[:rental][:return_date])
         if @rental.save
-          redirect_to profile_path #user_path(@rental.user)
+          # redirect_to profile_path #user_path(@rental.user)
 
-          # respond_to do |format|
-          #     format.html {redirect_to profile_path}
-          #     format.json {render json: @rental}
-          # end
+          respond_to do |format|
+              format.html {redirect_to profile_path}
+              format.json {render json: @rental}
+          end
 
         else
           redirect_to root_path
@@ -70,12 +70,6 @@ class RentalsController < ApplicationController
     # end
 
   end # end of method
-
-  def create_discount_rental
-    @rental = current_user.rentals.build(discount_rental_params)
-    @rental.save
-    render json: @rental
-  end
 
   def update
 
@@ -94,7 +88,6 @@ class RentalsController < ApplicationController
   def reschedule_return
 
     @rental = Rental.find_by(id: params[:id])
-    # binding.pry
     if @rental.update(rental_params)
       redirect_to profile_path ##user_path(current_user)
     else
@@ -111,11 +104,6 @@ class RentalsController < ApplicationController
   private
   def rental_params
     params.require(:rental).permit(:start_date, :return_date, :checkout)
-  end
-
-  def discount_rental_params
-     #binding.pry
-    params.require(:rental).permit(:start_date, :return_date, :checkout, :tool_id)
   end
 
 end
