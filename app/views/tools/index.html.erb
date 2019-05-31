@@ -21,7 +21,7 @@
 
   <%= button_to "Rent", new_tool_rental_path(tool), method: :get if user_signed_in? %>
   <%= link_to "Discount Rental - Next Day Return", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
-  <div class="formDiscountRental-<%= tool.id %>">
+  <div id="formDiscountRental-<%= tool.id %>">
 
   </div>
 </ul>
@@ -40,6 +40,6 @@
   <%= label_tag(:checkout) %>
   <%= check_box_tag(:rental, :checkout, "true") %>
   <br>
-  <%= submit_tag('Discount Rent') %>
+  <%= submit_tag('Confirm Rent') %>
 <% end %>
 </div>
