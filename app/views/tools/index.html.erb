@@ -21,15 +21,18 @@
 
   <%= button_to "Rent", new_tool_rental_path(tool), method: :get if user_signed_in? %>
   <%= link_to "Discount Rental - Next Day Return", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
+  <div class="formDiscountRental-<%= tool.id %>">
+
+  </div>
 </ul>
 
 <% end %>
 
-<div class="hidden" style="">
+<div class="hidden" style="display: none">
   <%#= render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow)} %>
   <%= form_tag rentals_path do %>
   <%= label_tag(:start_date) %>
-  <%= date_field_tag(:rental, :start_date, value: Date.today) %>
+  <%= date_field_tag(:rental, :start_date, value: Date.today, required:true) %>
  <br>
   <%= label_tag(:return_date) %>
   <%= date_field_tag(:rental, :return_date, value: Date.tomorrow) %>
