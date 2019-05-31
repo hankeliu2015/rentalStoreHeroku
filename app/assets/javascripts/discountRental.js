@@ -26,7 +26,7 @@ function createDiscountRentalObj(e, idTool) {
 
   let value = $(e.target).serializeArray();  //$('form')??
 
-  value.push({name: "rental[tool_id]", value: idTool})
+  //value.push({name: "rental[tool_id]", value: idTool})
 
     debugger
   let renting = $.post('rentals', value)
