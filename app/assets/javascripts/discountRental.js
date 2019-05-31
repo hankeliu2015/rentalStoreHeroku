@@ -23,7 +23,7 @@ function createDiscountRentalObj(e, idTool) {
   // value.push({name: "rental[tool_id]", value: idTool})
 
   let renting = $.post(`/tools/${idTool}/rentals.json`, value, function(data) {
-    // debugger
+
     let custom_start_date = new Date(data.start_date)
     let custom_return_date = new Date(data.return_date)
     let content = `<p style="color: green" >Tool ${data.tool.name} rented successfully : Start Date: ${custom_start_date.toDateString()}; Return Date: ${custom_return_date.toDateString()} </p>`
