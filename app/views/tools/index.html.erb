@@ -23,21 +23,20 @@
   <%= link_to "Discount Rental - Next Day Return", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
 </ul>
 
-<div class="hidden" style="">
-  <%#= render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow)} %>
-</div>
 <% end %>
 
-
-<%= form_tag rentals_path do %>
+<div class="hidden" style="">
+  <%#= render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow)} %>
+  <%= form_tag rentals_path do %>
   <%= label_tag(:start_date) %>
-  <%= date_field_tag(:start_date) %>
+  <%= date_field_tag(:rental, :start_date, value: Date.today) %>
  <br>
   <%= label_tag(:return_date) %>
-  <%= date_field_tag(:return_date) %>
+  <%= date_field_tag(:rental, :return_date, value: Date.tomorrow) %>
   <br>
   <%= label_tag(:checkout) %>
-  <%= check_box_tag(:checkout) %>
+  <%= check_box_tag(:rental, :checkout, "true") %>
   <br>
   <%= submit_tag('Discount Rent') %>
 <% end %>
+</div>
