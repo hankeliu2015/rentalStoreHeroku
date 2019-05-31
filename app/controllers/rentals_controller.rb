@@ -73,7 +73,8 @@ class RentalsController < ApplicationController
 
   def create_discount_rental
     @rental = current_user.rentals.build(discount_rental_params)
-    @rental.save 
+    @rental.save
+    render json: @rental
   end
 
   def update
@@ -113,7 +114,7 @@ class RentalsController < ApplicationController
   end
 
   def discount_rental_params
-    # binding.pry
+     #binding.pry
     params.require(:rental).permit(:start_date, :return_date, :checkout, :tool_id)
   end
 
