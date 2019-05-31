@@ -32,13 +32,13 @@
   <%#= render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow)} %>
   <%= form_tag rentals_path do %>
   <%= label_tag(:start_date) %>
-  <%= date_field_tag(:rental, :start_date, value: Date.today, required:true) %>
+  <%= date_field_tag(:"rental[start_date]", value: Date.today, required:true) %>
  <br>
   <%= label_tag(:return_date) %>
-  <%= date_field_tag(:rental, :return_date, value: Date.tomorrow) %>
+  <%= date_field_tag(:"rental[return_date]", value: Date.tomorrow) %>
   <br>
   <%= label_tag(:checkout) %>
-  <%= check_box_tag(:rental, :checkout, "true") %>
+  <%= check_box_tag(:"rental[checkout]", "true") %>
   <br>
   <%= submit_tag('Confirm Rent') %>
 <% end %>
