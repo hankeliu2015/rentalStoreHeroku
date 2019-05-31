@@ -11,10 +11,10 @@ function displayRentalForm(e) {
   $(".hidden").html("")
 
   // $.('form')?? && toolId??
-  $(`#formDiscountRental-${discoutToolId}`).submit(function(event) {
-    e.preventDefault();
-    debugger
-    createDiscountRentalObj(event, toolId)
+  $(`form`).submit(function(event) {
+    // event.preventDefault();
+    // debugger
+    createDiscountRentalObj(event, discoutToolId)
   })
 
   // do not delete yet.
@@ -23,10 +23,12 @@ function displayRentalForm(e) {
 
 function createDiscountRentalObj(e, idTool) {
   e.preventDefault();
-  let value = $(this).serialize();
-  let renting = $.post('rentals', value)
-debugger
-  //??
 
-  // $.post('')
+  let value = $(e.target).serializeArray();  //$('form')??
+
+  value.push({name: "rental[tool_id]", value: idTool})
+
+    debugger
+  let renting = $.post('rentals', value)
+
 }
