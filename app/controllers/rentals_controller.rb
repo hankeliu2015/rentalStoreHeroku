@@ -53,6 +53,12 @@ class RentalsController < ApplicationController
         @rental.return_date = Date.parse(params[:rental][:return_date])
         if @rental.save
           redirect_to profile_path #user_path(@rental.user)
+
+          # respond_to do |format|
+          #     format.html {redirect_to profile_path}
+          #     format.json {render json: @rental}
+          # end
+
         else
           redirect_to root_path
         end
@@ -99,7 +105,8 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:start_date, :return_date, :checkout)
+    # binding.pry
+    params.require(:rental).permit(:start_date, :return_date, :checkout, :tool_id)
   end
 
 end
