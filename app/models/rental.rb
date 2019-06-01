@@ -25,7 +25,7 @@ class Rental < ApplicationRecord
     errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued_status?
 
     #if the tool is in progress, compare the start and end dates.
-    if tool.rentals.in_progress.any? #replace Rental.where(tool_id: self.tool_id)
+    if tool.rentals.in_progress.any? ##replace Rental.where(tool_id: self.tool_id).in_progress.any?
       # rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first # moved to start(end)_in_middle_of_rental method.
       if start_in_middle_of_rental
         errors.add(:tool, "Sorry, this Tool is renting now, please try a different start dates.")
@@ -36,11 +36,13 @@ class Rental < ApplicationRecord
 
     #if tool has scheduled rentals, iterate each future rental and compare dates. tool.rentals == Rental.where(tool_id: self.tool_id)
 
-    if tool.rentals.scheduled.any? #replace Rental.where(tool_id: self.tool_id)
+    if tool.rentals.scheduled.any? #replace Rental.where(tool_id: self.tool_id).scheduled.any?
       tool.rentals.scheduled.each do |rental|
-        if self.start_date >= rental.start_date && self.start_date <= rental.return_date
+
+      @rental = rental    #pass the @rental into start_in_middle_of_rental2
+        if start_in_middle_of_rental2 #self.start_date >= rental.start_date && self.start_date <= rental.return_date
           errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different start dates.")
-        elsif self.return_date >= rental.start_date && self.return_date <= rental.return_date
+        elsif end_in_middle_of_rental2
           errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different return date.")
         end
       end
@@ -49,17 +51,23 @@ class Rental < ApplicationRecord
   end #end of method
 
   def start_in_middle_of_rental #function as a condition in available_for_rent?
-    rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
+    rented_tool = tool.rentals.in_progress.first #replace Rental.where(tool_id: self.tool_id).in_progress.first
     self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date
   end
 
-  # def start_in_middle_of_rental2 # rental shows undefined??
-  #   self.start_date >= rental.start_date && self.start_date <= rental.return_date
-  # end
-
   def end_in_middle_of_rental #function as a condition in available_for_rent?
-    rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
+    rented_tool = tool.rentals.in_progress.first #replace Rental.where(tool_id: self.tool_id).in_progress.first
     self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
+  end
+
+  def start_in_middle_of_rental2
+      future_rental = @rental
+     self.start_date >= future_rental.start_date && self.start_date <= future_rental.return_date
+  end
+
+  def end_in_middle_of_rental2
+    future_rental = @rental
+    self.return_date >= future_rental.start_date && self.return_date <= future_rental.return_date
   end
 
   def self.checked_out?
