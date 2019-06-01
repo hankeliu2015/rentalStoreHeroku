@@ -19,12 +19,11 @@ class Rental < ApplicationRecord
   # end
 
   def available_for_rent?
-    #return unless tool
+    return unless tool
 
     #if the tool overdued_status true?, it is not vailable
-    errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued_status?
+    errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if tool.rentals.overdued_status? #repalced Rental.where(tool_id: self.tool_id).overdued_status?
 
-    #if the tool is in progress, compare the start and end dates.
     if tool.rentals.in_progress.any? ##replace Rental.where(tool_id: self.tool_id).in_progress.any?
       # rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first # moved to start(end)_in_middle_of_rental method.
       if start_in_middle_of_rental
