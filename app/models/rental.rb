@@ -25,7 +25,7 @@ class Rental < ApplicationRecord
     errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued_status?
 
     #if the tool is in progress, compare the start and end dates.
-    if Rental.where(tool_id: self.tool_id).in_progress.any?
+    if tool.rentals.in_progress.any? #replace Rental.where(tool_id: self.tool_id)
       # rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first # moved to start(end)_in_middle_of_rental method.
       if start_in_middle_of_rental
         errors.add(:tool, "Sorry, this Tool is renting now, please try a different start dates.")
@@ -36,8 +36,8 @@ class Rental < ApplicationRecord
 
     #if tool has scheduled rentals, iterate each future rental and compare dates. tool.rentals == Rental.where(tool_id: self.tool_id)
 
-    if Rental.where(tool_id: self.tool_id).scheduled.any?
-      Rental.where(tool_id: self.tool_id).scheduled.each do |rental|
+    if tool.rentals.scheduled.any? #replace Rental.where(tool_id: self.tool_id)
+      tool.rentals.scheduled.each do |rental|
         if self.start_date >= rental.start_date && self.start_date <= rental.return_date
           errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different start dates.")
         elsif self.return_date >= rental.start_date && self.return_date <= rental.return_date
