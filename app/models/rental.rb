@@ -53,6 +53,10 @@ class Rental < ApplicationRecord
     self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date
   end
 
+  # def start_in_middle_of_rental2 # rental shows undefined??
+  #   self.start_date >= rental.start_date && self.start_date <= rental.return_date
+  # end
+
   def end_in_middle_of_rental #function as a condition in available_for_rent?
     rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
     self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
