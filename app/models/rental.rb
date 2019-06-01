@@ -26,23 +26,23 @@ class Rental < ApplicationRecord
 
     #if the tool is in progress, compare the start and end dates.
     # tool.rentals.in_progress.any?
-    if !Rental.where(tool_id: self.tool_id).in_progress.empty?
+    if Rental.where(tool_id: self.tool_id).in_progress.any?
       rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
       if self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date # start_in_middle_of_rental
-        errors.add(:tool, "Sorry, this Tool is rented, please try a different start dates.")
+        errors.add(:tool, "Sorry, this Tool is renting now, please try a different start dates.")
       elsif self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
-        errors.add(:tool, "Sorry, this Tool is rented, please try a different return date.")
+        errors.add(:tool, "Sorry, this Tool is renting now, please try a different return date.")
       end
     end
 
     #if tool has scheduled rentals, iterate each future rental and compare dates. tool.rentals == Rental.where(tool_id: self.tool_id)
 
-    if !Rental.where(tool_id: self.tool_id).scheduled.empty?
+    if Rental.where(tool_id: self.tool_id).scheduled.any?
       Rental.where(tool_id: self.tool_id).scheduled.each do |rental|
         if self.start_date >= rental.start_date && self.start_date <= rental.return_date
-          errors.add(:tool, "Sorry, this Tool is rented, please try a different start dates.")
+          errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different start dates.")
         elsif self.return_date >= rental.start_date && self.return_date <= rental.return_date
-          errors.add(:tool, "Sorry, this Tool is rented, please try a different return date.")
+          errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different return date.")
         end
       end
     end
