@@ -13,7 +13,7 @@ $(document).ready(function() {
         let val = `
           <tr>
             <td>${i+1}</td>
-            <td>${el.tool.name}</td>
+            <td><a href=#>${el.tool.name}</a></td>
             <td>${custom_start_date.toDateString()}</td>
             <td>${custom_return_date.toDateString()}</td>
           </tr>
