@@ -25,12 +25,11 @@ class Rental < ApplicationRecord
     errors.add(:tool, "Sorry, this Tool is overdued by another customer and not available for rent.") if Rental.where(tool_id: self.tool_id).overdued_status?
 
     #if the tool is in progress, compare the start and end dates.
-    # tool.rentals.in_progress.any?
     if Rental.where(tool_id: self.tool_id).in_progress.any?
-      rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
-      if self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date # start_in_middle_of_rental
+      # rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first # moved to start(end)_in_middle_of_rental method.
+      if start_in_middle_of_rental
         errors.add(:tool, "Sorry, this Tool is renting now, please try a different start dates.")
-      elsif self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
+      elsif end_in_middle_of_rental
         errors.add(:tool, "Sorry, this Tool is renting now, please try a different return date.")
       end
     end
@@ -48,6 +47,16 @@ class Rental < ApplicationRecord
     end
 
   end #end of method
+
+  def start_in_middle_of_rental #function as a condition in available_for_rent?
+    rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
+    self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date
+  end
+
+  def end_in_middle_of_rental #function as a condition in available_for_rent?
+    rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first
+    self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
+  end
 
   def self.checked_out?
     where(checkout: true)
@@ -132,6 +141,8 @@ class Rental < ApplicationRecord
   def self.forget_checkout
     where(checkout: false).where(return: false).start_date_in_past
   end
+
+
 
   def appropriate_start_date
     errors.add(:start_date, " for rental must start from today or after") if self.start_date.to_date < Date.today
