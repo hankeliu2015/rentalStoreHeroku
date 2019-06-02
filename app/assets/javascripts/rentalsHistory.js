@@ -29,12 +29,14 @@ function Rental(rental) {
 
 Rental.prototype.formatRentalsHistory = function() {
 
+  let custom_start_date = new Date(this.start_date)
+  let custom_return_date = new Date(this.return_date)
   let val = `
   <tr>
     <td>${this.id}</td>
     <td><a href=#>${this.tool_name}</a></td>
-    <td>${this.start_date}</td>
-    <td>${this.return_date}</td>
+    <td>${custom_start_date.toDateString()}</td>
+    <td>${custom_return_date.toDateString()}</td>
   </tr>
   `
   return val
