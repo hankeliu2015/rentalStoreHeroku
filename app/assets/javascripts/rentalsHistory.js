@@ -5,7 +5,7 @@ $(document).ready(function() {
 const rentalsHistoryClickHandlers = function() {
   $(".rentals-history").on("click", function(e){
     e.preventDefault();
-    history.pushState(null,null, "rentals_history")
+    // history.pushState(null,null, "rentals_history")
     fetch("/rentals.json")
     .then(function(res) {
       return res.json()
@@ -26,6 +26,7 @@ function Rental(rental) {
   this.tool_name = rental.tool.name
   this.start_date = rental.start_date
   this.return_date = rental.return_date
+  this.tool_id = rental.tool.id
 }
 
 Rental.prototype.formatRentalsHistory = function() {
@@ -35,7 +36,7 @@ Rental.prototype.formatRentalsHistory = function() {
   let val = `
   <tr>
     <td>${this.id}</td>
-    <td><a href=#>${this.tool_name}</a></td>
+    <td><a href="/tools/${this.tool_id}">${this.tool_name}</a></td>
     <td>${custom_start_date.toDateString()}</td>
     <td>${custom_return_date.toDateString()}</td>
   </tr>
