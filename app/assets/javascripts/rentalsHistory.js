@@ -1,11 +1,20 @@
 $(document).ready(function() {
-  rentalHistoryClickHandlers()
+  rentalsHistoryClickHandlers()
 })
 
-const rentalHistoryClickHandlers = function() {
+const rentalsHistoryClickHandlers = function() {
   $(".rentals-history").on("click", function(e){
     e.preventDefault();
-    console.log("history rentals clicked")
+    fetch("/rentals.json")
+    .then(function(res) {
+      return res.json()
+    })
+    .then(function(rentals) {
+      $(".list-rentals-history").html("")
+      rentals.forEach(function(rental) {
+        console.log(rental)
+      })
+    })
   })
 }
 
