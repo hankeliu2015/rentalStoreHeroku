@@ -12,12 +12,20 @@ const rentalsHistoryClickHandlers = function() {
     .then(function(rentals) {
       $(".list-rentals-history").html("")
       rentals.forEach(function(rental) {
-        console.log(rental)
+        let newRental = new Rental(rental)
+        console.log(newRental)
       })
     })
   })
 }
 
+function Rental(rental) {
+  this.id = rental.id
+  this.tool_name = rental.tool.name
+  this.start_date = rental.start_date
+  this.return_date = rental.return_date
+
+}
 
 // $(document).ready(function() {
 //
