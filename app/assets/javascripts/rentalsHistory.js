@@ -5,6 +5,7 @@ $(document).ready(function() {
 const rentalsHistoryClickHandlers = function() {
   $(".rentals-history").on("click", function(e){
     e.preventDefault();
+    history.pushState(null,null, "rentals_history")
     fetch("/rentals.json")
     .then(function(res) {
       return res.json()
