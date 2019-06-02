@@ -65,9 +65,15 @@ function Tool (tool) {
   this.description = tool.description
   this.condition = tool.condition
   this.rental_price = tool.rental_price
-  this.image = tool.image 
+  this.image = tool.image
 }
 
+Tool.prototype.formatTool = function() {
+  let val = `
+    <h3> ${this.name} </h3>
+  `
+  return val
+}
 // previous ajax function to retrieve rental history.
 // $(document).ready(function() {
 //
