@@ -31,6 +31,9 @@ const rentalsHistoryClickHandlers = function() {
     })
     .then(function(tool) {
       console.log(tool)
+      let newTool = new Tool(tool)
+      let toolHTML = newTool.formatTool()
+      $(".show-tool").append(toolHTML)
     })
   })
 }
@@ -70,7 +73,13 @@ function Tool (tool) {
 
 Tool.prototype.formatTool = function() {
   let val = `
-    <h3> ${this.name} </h3>
+    <h4> ${this.name} </h4>
+    <ul>
+      <li>${this.description} </li>
+      <li>${this.brand} </li>
+      <li>${this.rental_price} </li>
+
+    </ul>
   `
   return val
 }
