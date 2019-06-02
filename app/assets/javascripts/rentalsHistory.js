@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 
 const rentalsHistoryClickHandlers = function() {
-  $(".rentals-history").on("click", function(e){
+  $("#rentals-history").on("click", function(e){
     e.preventDefault();
     // history.pushState(null,null, "rentals_history")
     fetch("/rentals.json")
@@ -11,11 +11,11 @@ const rentalsHistoryClickHandlers = function() {
       return res.json()
     })
     .then(function(rentals) {
-      $(".list-rentals-history").html("")
+      $("#list-rentals-history").html("")
       rentals.forEach(function(rental) {
         let newRental = new Rental(rental)
         let rentalsHistoryHTML = newRental.formatRentalsHistory()
-        $(".list-rentals-history").append(rentalsHistoryHTML)
+        $("#list-rentals-history").append(rentalsHistoryHTML)
       })
     })
   })
@@ -45,7 +45,7 @@ Rental.prototype.formatRentalsHistory = function() {
 }
 // $(document).ready(function() {
 //
-//   $(".rentals-history").on("click", function(e){
+//   $("#rentals-history").on("click", function(e){
 //     e.preventDefault();
 //     $.get("/rentals" + ".json", function(data) {
 //
@@ -61,7 +61,7 @@ Rental.prototype.formatRentalsHistory = function() {
 //             <td>${custom_return_date.toDateString()}</td>
 //           </tr>
 //         `
-//         $(".list-rentals-history").append(val);
+//         $("#list-rentals-history").append(val);
 //       })
 //     })
 //   })
