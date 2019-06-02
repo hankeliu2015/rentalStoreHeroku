@@ -13,7 +13,8 @@ const rentalsHistoryClickHandlers = function() {
       $(".list-rentals-history").html("")
       rentals.forEach(function(rental) {
         let newRental = new Rental(rental)
-        console.log(newRental)
+        let rentalsHistoryHTML = newRental.formatRentalsHistory()
+        $(".list-rentals-history").append(rentalsHistoryHTML)
       })
     })
   })
@@ -24,9 +25,20 @@ function Rental(rental) {
   this.tool_name = rental.tool.name
   this.start_date = rental.start_date
   this.return_date = rental.return_date
-
 }
 
+Rental.prototype.formatRentalsHistory = function() {
+
+  let val = `
+  <tr>
+    <td>${this.id}</td>
+    <td><a href=#>${this.tool_name}</a></td>
+    <td>${this.start_date}</td>
+    <td>${this.return_date}</td>
+  </tr>
+  `
+  return val
+}
 // $(document).ready(function() {
 //
 //   $(".rentals-history").on("click", function(e){
