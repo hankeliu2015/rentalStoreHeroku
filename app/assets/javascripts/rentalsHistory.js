@@ -57,6 +57,18 @@ Rental.prototype.formatRentalsHistory = function() {
   `
   return val
 }
+
+function Tool (tool) {
+  this.id = tool.id
+  this.name = tool.name
+  this.brand = tool.Brand
+  this.description = tool.description
+  this.condition = tool.condition
+  this.rental_price = tool.rental_price
+  this.image = tool.image 
+}
+
+// previous ajax function to retrieve rental history.
 // $(document).ready(function() {
 //
 //   $("#rentals-history").on("click", function(e){
