@@ -13,7 +13,7 @@ const showToolClickHandlers = function(){
     .then(function(tool){
       console.log(tool)
       $("#tool-container").html("")
-      
+
       let newTool = new Tool(tool)
       let toolHTML = newTool.formatTool()
       $("#tool-container").html(toolHTML)
@@ -35,9 +35,11 @@ Tool.prototype.formatTool = function() {
   let val = `
     <h4> ${this.name} </h4>
     <ul>
-      <li>${this.description} </li>
-      <li>${this.brand} </li>
-      <li>${this.rental_price} </li>
+      <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="120" width="120">
+      <li>Description: ${this.description} </li>
+      <li>Brand: ${this.brand} </li>
+      <li>Rental Price: ${this.rental_price} </li>
+      <li>Condition: ${this.condition} </li>
 
     </ul>
   `
