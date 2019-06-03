@@ -11,7 +11,6 @@ const showToolClickHandlers = function(){
       return res.json()
     })
     .then(function(tool){
-      console.log(tool)
       $("#tool-container").html("")
 
       let newTool = new Tool(tool)
