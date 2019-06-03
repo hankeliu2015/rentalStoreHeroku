@@ -13,7 +13,7 @@
         </div>
         <li>Start on: <%= display_start_date(rental) %></li>
         <li>Return on: <%= display_return_date(rental)%></li>
-        <%= button_to "Return", tool_rental_path(rental.tool, current_user), method: :patch %>
+        <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
         <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
 
       </ul>
@@ -31,7 +31,7 @@
           </div>
           <li>Start on: <%= display_start_date(rental) %></li>
           <li>Return on: <%= display_return_date(rental)%></li>
-          <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, current_user), method: :patch %>
+          <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
           <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
           <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
         </ul>
@@ -48,7 +48,7 @@
             </div>
             <li>Start on: <%= display_start_date(rental) %></li>
             <li>Return on: <%= display_return_date(rental)%></li>
-            <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, current_user), method: :patch %>
+            <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
             <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
             <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
           </ul>
@@ -65,7 +65,7 @@
             </div>
             <li>Return Date: <%= display_return_date(rental) %></li>
             <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
-            <%= button_to "Return Tool", tool_rental_path(rental.tool, current_user), method: :patch %>
+            <%= button_to "Return Tool", tool_rental_path(rental.tool, rental), method: :patch %>
           </ul>
         <% end %>
 
