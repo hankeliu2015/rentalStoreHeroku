@@ -4,8 +4,8 @@
 
 <br>
 <div id="tool-container">
-  <% @tools.each do |tool| %>
 
+  <% @tools.each do |tool| %>
   <ul>
     <h3><%= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3>
 
@@ -26,7 +26,6 @@
 
     </div>
   </ul>
-
   <% end %>
 </div>
 
