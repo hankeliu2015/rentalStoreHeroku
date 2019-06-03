@@ -3,8 +3,16 @@ $(document).ready(function(){
 })
 
 const showToolClickHandlers = function(){
-  $("#show-tool").on("click", function(e){
+  $("a#show-tool").on("click", function(e){
     e.preventDefault();
-    console.log("inside show tool")
+    let id = parseInt(this.dataset["toolId"])
+    fetch(`tools/${id}.json`)
+    .then(function(res) {
+      debugger
+      return res.json()
+    })
+    .then(function(tool){
+      console.log(tool)
+    })
   })
 }
