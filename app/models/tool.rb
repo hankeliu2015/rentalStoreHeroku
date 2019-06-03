@@ -13,4 +13,8 @@ class Tool < ApplicationRecord
   #   rentals.find_by(return: false)
   # end
 
+  def rental_in_progress
+    self.rentals.in_progress.first
+  end
+
 end #end of class
