@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("turbolinks:load", function(){
   $('a#discount-rental').on('click', displayRentalForm)
 })
 
