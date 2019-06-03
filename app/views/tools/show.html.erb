@@ -1,5 +1,9 @@
 <h3><%= @tool.name %></h3>
 
+<div class="tool_image">
+      <%= image_tag(@tool.image, size: "150x150",  alt: @tool.image) %>
+</div>
+
 <li>Category: <%= @tool.category %></li>
 <li>Brand: <%= @tool.brand %></li>
 <li>Description: <%= @tool.description %></li>
