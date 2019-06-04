@@ -12,13 +12,19 @@ const showToolClickHandlers = function(){
     let id = parseInt(this.dataset["toolId"])
 
     $.get(`tools/${id}.json`, function(resp_obj){
-      console.log("inside ajax")
+      
       let newTool = new Tool(resp_obj)
       let toolHTML = newTool.formatTool()
-      debugger
       $("#tool-container").html("")
       $("#tool-container").html(toolHTML)
 
+      if (newTool.rentalInProgress) {
+          let rentalHTML = newTool.formatToolRentalInProgress();
+          $("#tool-container").append(rentalHTML)
+        } else if (newTool.rentalOverdued) {
+          let overduedHTML = newTool.formatToolRentalOverdued();
+          $("#tool-container").append(overduedHTML)
+        }
     })
 
     // fetch(`tools/${id}.json`)
