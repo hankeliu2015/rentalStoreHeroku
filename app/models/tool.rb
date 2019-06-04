@@ -17,4 +17,9 @@ class Tool < ApplicationRecord
     self.rentals.in_progress.first
   end
 
+  def rental_overdued
+    # binding.pry
+    rentals.overdued.first
+  end
+
 end #end of class
