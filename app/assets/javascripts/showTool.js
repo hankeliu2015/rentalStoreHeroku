@@ -12,7 +12,7 @@ const showToolClickHandlers = function(){
     let id = parseInt(this.dataset["toolId"])
 
     $.get(`tools/${id}.json`, function(resp_obj){
-      
+
       let newTool = new Tool(resp_obj)
       let toolHTML = newTool.formatTool()
       $("#tool-container").html("")
@@ -27,6 +27,7 @@ const showToolClickHandlers = function(){
         }
     })
 
+    // replaced by above jQuery syntax
     // fetch(`tools/${id}.json`)
     // .then(function(res) {
     //   return res.json()
@@ -106,8 +107,10 @@ Tool.prototype.formatToolRentalOverdued = function() {
 
   let convertedStartDate = treatAsUTC(this.rentalOverdued.start_date)
   let convertedReturnDate = treatAsUTC(this.rentalOverdued.return_date)
-  let now = new Date()
-  let convertedToday = treatAsUTC(now)
+  // debugger
+
+  let today = new Date()
+  let convertedToday = treatAsUTC(today)
 
   // debugger
 
@@ -126,32 +129,3 @@ Tool.prototype.formatToolRentalOverdued = function() {
   `
   return val
 }
-
-// Use Ajax replace fetch api.
-// const showToolClickHandlers = function(){
-//   $("a#show-tool").on("click", function(e){
-//     e.preventDefault();
-//     let id = parseInt(this.dataset["toolId"])
-//     fetch(`tools/${id}.json`)
-//     .then(function(res) {
-//       return res.json()
-//     })
-//     .then(function(tool){
-//       $("#tool-container").html("")
-//
-//       let newTool = new Tool(tool)
-//       // debugger
-//       let toolHTML = newTool.formatTool()
-//
-//       $("#tool-container").html(toolHTML)
-//
-//       if (newTool.rentalInProgress) {
-//         let rentalHTML = newTool.formatToolRentalInProgress();
-//         $("#tool-container").append(rentalHTML)
-//       } else if (newTool.rentalOverdued) {
-//         let overduedHTML = newTool.formatToolRentalOverdued();
-//         $("#tool-container").append(overduedHTML)
-//       }
-//     })
-//   })
-// }
