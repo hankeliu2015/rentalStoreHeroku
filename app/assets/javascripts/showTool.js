@@ -26,9 +26,9 @@ const showToolClickHandlers = function(){
         let rentalHTML = newTool.formatToolRentalInProgress();
         $("#tool-container").append(rentalHTML)
       } else if (newTool.rentalOverdued) {
-        console.log("overdue reached")
+        let overduedHTML = newTool.formatToolRentalOverdued();
+        $("#tool-container").append(overduedHTML)
       }
-
     })
   })
 }
@@ -69,6 +69,17 @@ Tool.prototype.formatToolRentalInProgress = function() {
 
     <li>Rented on: ${customized_start_date.toDateString()} </li>
     <li style="color:maroon">Return Date: ${customized_return_date.toDateString()} </li>
+  `
+  return val
+}
+
+Tool.prototype.formatToolRentalOverdued = function(){
+
+  let val = `
+    <h6>This Tool is overdued and not able to rent, sorry!</h6>
+    <li>Rented on: </li>
+    <li>Return Date: </li>
+    <li style="color:maroon">Overdued for: days</li>
   `
   return val
 }
