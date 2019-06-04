@@ -19,7 +19,12 @@ const showToolClickHandlers = function(){
 
       let newTool = new Tool(tool)
       let toolHTML = newTool.formatTool()
+
       $("#tool-container").html(toolHTML)
+
+      if (newTool.rentalInProgress) {
+        $("#tool-container").append(newTool.formatToolRentalInProgress())
+      }
     })
   })
 }
@@ -32,9 +37,11 @@ function Tool (tool) {
   this.condition = tool.condition
   this.rental_price = tool.rental_price
   this.image = tool.image
+  this.rentalInProgress = tool.rental_in_progress
 }
 
 Tool.prototype.formatTool = function() {
+  // debugger
   let val = `
     <h4> ${this.name} </h4>
     <ul>
@@ -43,8 +50,17 @@ Tool.prototype.formatTool = function() {
       <li>Brand: ${this.brand} </li>
       <li>Rental Price: ${this.rental_price} </li>
       <li>Condition: ${this.condition} </li>
-
     </ul>
+  `
+  return val
+}
+
+Tool.prototype.formatToolRentalInProgress = function() {
+  let val = `
+    <h4>This tool is rented right now. Please book base on following return date: </h4>
+
+    <li>Start Date: ${this.rentalInProgress.start_date} </li>
+    <li>Return Date: ${this.rentalInProgress.start_date} </li>
   `
   return val
 }
