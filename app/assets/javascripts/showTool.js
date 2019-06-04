@@ -10,27 +10,39 @@ const showToolClickHandlers = function(){
   $("a#show-tool").on("click", function(e){
     e.preventDefault();
     let id = parseInt(this.dataset["toolId"])
-    fetch(`tools/${id}.json`)
-    .then(function(res) {
-      return res.json()
-    })
-    .then(function(tool){
-      $("#tool-container").html("")
 
-      let newTool = new Tool(tool)
-      // debugger
+    $.get(`tools/${id}.json`, function(resp_obj){
+      console.log("inside ajax")
+      let newTool = new Tool(resp_obj)
       let toolHTML = newTool.formatTool()
-
+      debugger
+      $("#tool-container").html("")
       $("#tool-container").html(toolHTML)
 
-      if (newTool.rentalInProgress) {
-        let rentalHTML = newTool.formatToolRentalInProgress();
-        $("#tool-container").append(rentalHTML)
-      } else if (newTool.rentalOverdued) {
-        let overduedHTML = newTool.formatToolRentalOverdued();
-        $("#tool-container").append(overduedHTML)
-      }
     })
+
+    // fetch(`tools/${id}.json`)
+    // .then(function(res) {
+    //   return res.json()
+    // })
+    // .then(function(tool){
+    //   $("#tool-container").html("")
+    //
+    //   let newTool = new Tool(tool)
+    //   // debugger
+    //   let toolHTML = newTool.formatTool()
+    //
+    //   $("#tool-container").html(toolHTML)
+    //
+    //   if (newTool.rentalInProgress) {
+    //     let rentalHTML = newTool.formatToolRentalInProgress();
+    //     $("#tool-container").append(rentalHTML)
+    //   } else if (newTool.rentalOverdued) {
+    //     let overduedHTML = newTool.formatToolRentalOverdued();
+    //     $("#tool-container").append(overduedHTML)
+    //   }
+    // })
+
   })
 }
 
@@ -54,7 +66,7 @@ Tool.prototype.formatTool = function() {
       <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="100" width="100">
       <li>Description: ${this.description} </li>
       <li>Brand: ${this.brand} </li>
-      <li>Rental Price: ${this.rental_price} </li>
+      <li>Rental Price: $ ${this.rental_price} </li>
       <li>Condition: ${this.condition} </li>
     </ul>
   `
@@ -108,3 +120,32 @@ Tool.prototype.formatToolRentalOverdued = function() {
   `
   return val
 }
+
+// Use Ajax replace fetch api.
+// const showToolClickHandlers = function(){
+//   $("a#show-tool").on("click", function(e){
+//     e.preventDefault();
+//     let id = parseInt(this.dataset["toolId"])
+//     fetch(`tools/${id}.json`)
+//     .then(function(res) {
+//       return res.json()
+//     })
+//     .then(function(tool){
+//       $("#tool-container").html("")
+//
+//       let newTool = new Tool(tool)
+//       // debugger
+//       let toolHTML = newTool.formatTool()
+//
+//       $("#tool-container").html(toolHTML)
+//
+//       if (newTool.rentalInProgress) {
+//         let rentalHTML = newTool.formatToolRentalInProgress();
+//         $("#tool-container").append(rentalHTML)
+//       } else if (newTool.rentalOverdued) {
+//         let overduedHTML = newTool.formatToolRentalOverdued();
+//         $("#tool-container").append(overduedHTML)
+//       }
+//     })
+//   })
+// }
