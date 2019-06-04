@@ -26,6 +26,7 @@ class Rental < ApplicationRecord
 
     if tool.rentals.in_progress.any? ##replace Rental.where(tool_id: self.tool_id).in_progress.any?
       # rented_tool = Rental.where(tool_id: self.tool_id).in_progress.first # moved to start(end)_in_middle_of_rental method.
+
       rental = tool.rentals.in_progress.first
 
       if start_in_middle_of_rental(rental)
@@ -51,23 +52,12 @@ class Rental < ApplicationRecord
 
   end #end of method
 
-  # def start_in_middle_of_rental #function as a condition in available_for_rent?
-  #   rented_tool = tool.rentals.in_progress.first #replace Rental.where(tool_id: self.tool_id).in_progress.first
-  #   self.start_date >= rented_tool.start_date && self.start_date <= rented_tool.return_date
-  # end
-  #
-  # def end_in_middle_of_rental #function as a condition in available_for_rent?
-  #   rented_tool = tool.rentals.in_progress.first #replace Rental.where(tool_id: self.tool_id).in_progress.first
-  #   self.return_date >= rented_tool.start_date && self.return_date <= rented_tool.return_date
-  # end
 
   def start_in_middle_of_rental(rental)
-      # future_rental = @rental
      self.start_date >= rental.start_date && self.start_date <= rental.return_date
   end
 
   def end_in_middle_of_rental(rental)
-    # future_rental = @rental
     self.return_date >= rental.start_date && self.return_date <= rental.return_date
   end
 
