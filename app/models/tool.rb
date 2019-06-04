@@ -14,6 +14,7 @@ class Tool < ApplicationRecord
   # end
 
   def rental_in_progress
+    # binding.pry
     self.rentals.in_progress.first
   end
 
