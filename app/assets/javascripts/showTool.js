@@ -75,14 +75,32 @@ Tool.prototype.formatToolRentalInProgress = function() {
 }
 
 Tool.prototype.formatToolRentalOverdued = function() {
-  let startDate = new Date(this.rentalOverdued.start_date)
-  let returnDate = new Date(this.rentalOverdued.return_date)
-  let todayDate = new Date()
+
+  // let todayDate = new Date().toDateString()
+  // let startDate = new Date(this.rentalOverdued.start_date)
+  // let returnDate = new Date(this.rentalOverdued.return_date)
+
+  function treatAsUTC(date) {
+      var result = new Date(date);
+      result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+      return result;
+  }
+
+  let convertedStartDate = treatAsUTC(this.rentalOverdued.start_date)
+  let convertedReturnDate = treatAsUTC(this.rentalOverdued.return_date)
+
+  function daysBetween(startDate, returnDate) {
+      var millisecondsPerDay = 24 * 60 * 60 * 1000;
+      return (treatAsUTC(returnDate) - treatAsUTC(startDate)) / millisecondsPerDay;
+  }
+
+  let daysOverdued = daysBetween(convertedStartDate, convertedReturnDate)
 
   let val = `
-  <h6 style="color:maroon"> Tool is Overdued for: days and not able to rent. Sorry!</h6>
-    <li>Rented on: ${startDate.toDateString()}</li>
-    <li>Return Date: ${returnDate.toDateString()}</li>
+    <h6 style="color:maroon"> Tool is Overdued for: ${daysOverdued} days and not available for rent. Sorry!</h6>
+
+    <li>Rented on: ${convertedStartDate.toDateString()}</li>
+    <li>Return Date: ${convertedReturnDate.toDateString()}</li>
   `
   return val
 }
