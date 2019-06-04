@@ -88,14 +88,17 @@ Tool.prototype.formatToolRentalOverdued = function() {
 
   let convertedStartDate = treatAsUTC(this.rentalOverdued.start_date)
   let convertedReturnDate = treatAsUTC(this.rentalOverdued.return_date)
-  let convertedToday = treatAsUTC(new Date())
+  let now = new Date()
+  let convertedToday = treatAsUTC(now)
+
+  // debugger
 
   function daysBetween(recentDate, pastDate) {
       var millisecondsPerDay = 24 * 60 * 60 * 1000;
       return (treatAsUTC(recentDate) - treatAsUTC(pastDate)) / millisecondsPerDay;
   }
 
-  let daysOverdued = daysBetween(convertedToday, convertedReturnDate)
+  let daysOverdued = parseInt(daysBetween(convertedToday, convertedReturnDate))
 
   let val = `
     <h6 style="color:maroon"> Tool is Overdued for: ${daysOverdued} days and not available for rent. Sorry!</h6>
