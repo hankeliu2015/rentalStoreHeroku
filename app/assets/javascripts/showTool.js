@@ -25,7 +25,10 @@ const showToolClickHandlers = function(){
       if (newTool.rentalInProgress) {
         let rentalHTML = newTool.formatToolRentalInProgress();
         $("#tool-container").append(rentalHTML)
+      } else if (newTool.rentalOverdued) {
+        console.log("overdue reached")
       }
+
     })
   })
 }
@@ -39,6 +42,7 @@ function Tool (tool) {
   this.rental_price = tool.rental_price
   this.image = tool.image
   this.rentalInProgress = tool.rental_in_progress
+  this.rentalOverdued = tool.rental_overdued
 }
 
 Tool.prototype.formatTool = function() {
@@ -61,10 +65,10 @@ Tool.prototype.formatToolRentalInProgress = function() {
   let customized_return_date = new Date(this.rentalInProgress.return_date)
 
   let val = `
-    <h5>Tool is not available right now. Please schedule rental dates base on the return date: </h5>
+    <h6>Tool is not available right now. Please schedule rental dates base on the return date: </h6>
 
     <li>Rented on: ${customized_start_date.toDateString()} </li>
-    <li>Return Date: ${customized_return_date.toDateString()} </li>
+    <li style="color:maroon">Return Date: ${customized_return_date.toDateString()} </li>
   `
   return val
 }
