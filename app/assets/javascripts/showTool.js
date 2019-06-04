@@ -23,7 +23,8 @@ const showToolClickHandlers = function(){
       $("#tool-container").html(toolHTML)
 
       if (newTool.rentalInProgress) {
-        $("#tool-container").append(newTool.formatToolRentalInProgress())
+        let rentalHTML = newTool.formatToolRentalInProgress();
+        $("#tool-container").append(rentalHTML)
       }
     })
   })
@@ -45,7 +46,7 @@ Tool.prototype.formatTool = function() {
   let val = `
     <h4> ${this.name} </h4>
     <ul>
-      <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="120" width="120">
+      <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="100" width="100">
       <li>Description: ${this.description} </li>
       <li>Brand: ${this.brand} </li>
       <li>Rental Price: ${this.rental_price} </li>
@@ -56,11 +57,14 @@ Tool.prototype.formatTool = function() {
 }
 
 Tool.prototype.formatToolRentalInProgress = function() {
-  let val = `
-    <h4>This tool is rented right now. Please book base on following return date: </h4>
+  let customized_start_date = new Date(this.rentalInProgress.start_date)
+  let customized_return_date = new Date(this.rentalInProgress.return_date)
 
-    <li>Start Date: ${this.rentalInProgress.start_date} </li>
-    <li>Return Date: ${this.rentalInProgress.start_date} </li>
+  let val = `
+    <h5>Tool is not available right now. Please schedule rental dates base on the return date: </h5>
+
+    <li>Rented on: ${customized_start_date.toDateString()} </li>
+    <li>Return Date: ${customized_return_date.toDateString()} </li>
   `
   return val
 }
