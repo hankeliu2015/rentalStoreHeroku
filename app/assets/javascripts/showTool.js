@@ -18,6 +18,7 @@ const showToolClickHandlers = function(){
       $("#tool-container").html("")
 
       let newTool = new Tool(tool)
+      // debugger
       let toolHTML = newTool.formatTool()
 
       $("#tool-container").html(toolHTML)
@@ -73,13 +74,15 @@ Tool.prototype.formatToolRentalInProgress = function() {
   return val
 }
 
-Tool.prototype.formatToolRentalOverdued = function(){
+Tool.prototype.formatToolRentalOverdued = function() {
+  let startDate = new Date(this.rentalOverdued.start_date)
+  let returnDate = new Date(this.rentalOverdued.return_date)
+  let todayDate = new Date()
 
   let val = `
-    <h6>This Tool is overdued and not able to rent, sorry!</h6>
-    <li>Rented on: </li>
-    <li>Return Date: </li>
-    <li style="color:maroon">Overdued for: days</li>
+  <h6 style="color:maroon"> Tool is Overdued for: days and not able to rent. Sorry!</h6>
+    <li>Rented on: ${startDate.toDateString()}</li>
+    <li>Return Date: ${returnDate.toDateString()}</li>
   `
   return val
 }
