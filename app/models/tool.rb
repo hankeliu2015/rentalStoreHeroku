@@ -18,7 +18,6 @@ class Tool < ApplicationRecord
   end
 
   def rental_overdued
-    # binding.pry
     rentals.overdued.first
   end
 
