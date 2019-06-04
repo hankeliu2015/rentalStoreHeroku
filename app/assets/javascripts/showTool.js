@@ -1,6 +1,10 @@
-$(document).ready(function(){
-  showToolClickHandlers()
+$(document).on(("turbolinks:load"), function() {
+  showToolClickHandlers();
 })
+
+// $(document).ready(function(){
+//   showToolClickHandlers()
+// })
 
 const showToolClickHandlers = function(){
   $("a#show-tool").on("click", function(e){
