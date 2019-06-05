@@ -5,11 +5,21 @@ $(document).on("turbolinks:load", function() {
 const rentalsHistoryClickHandlers = function() {
   $("#rentals-history").on("click", function(e){
     e.preventDefault();
-    $.get("/rentals.json", function(data) {
-      console.log("inside callback")
+    $.get("/rentals.json", function(rentals) {
+      rentals.forEach(function(rental, i) {
+
+        let newRental = new Rental(rental);
+        let rentalHTML = `
+          <tr>
+            <td> ${i+1} ${newRental.formatRental()} </td>
+          </tr>
+        `;
+
+        $("#list-rentals-history").append(rentalHTML)
+      })
     })
 
-    //replace fetch with jQuery
+    // the following replaced by above jQuery
     // history.pushState(null,null, "rentals_history")
     // fetch("/rentals.json")
     // .then(function(res) {
@@ -19,8 +29,8 @@ const rentalsHistoryClickHandlers = function() {
     //   $("#list-rentals-history").html("")
     //   rentals.forEach(function(rental) {
     //     let newRental = new Rental(rental)
-    //     let rentalsHistoryHTML = newRental.formatRentalsHistory()
-    //     $("#list-rentals-history").append(rentalsHistoryHTML)
+    //     let rentalHTML = newRental.formatRental()
+    //     $("#list-rentals-history").append(rentalHTML)
     //   })
     // })
   })
@@ -51,17 +61,14 @@ function Rental(rental) {
   this.tool_id = rental.tool.id
 }
 
-Rental.prototype.formatRentalsHistory = function() {
+Rental.prototype.formatRental = function() {
 
   let custom_start_date = new Date(this.start_date)
   let custom_return_date = new Date(this.return_date)
   let val = `
-  <tr>
-    <td>${this.id}</td>
     <td><a href="/tools/${this.tool_id}" data-toolid="${this.tool_id}" class="show-tool">${this.tool_name}</a></td>
     <td>${custom_start_date.toDateString()}</td>
     <td>${custom_return_date.toDateString()}</td>
-  </tr>
   `
   return val
 }
@@ -88,27 +95,3 @@ Tool.prototype.formatTool = function() {
   `
   return val
 }
-// previous ajax function to retrieve rental history.
-// $(document).ready(function() {
-//
-//   $("#rentals-history").on("click", function(e){
-//     e.preventDefault();
-//     $.get("/rentals" + ".json", function(data) {
-//
-//       data.forEach((el, i) => {
-//         let custom_start_date = new Date(el.start_date)
-//         let custom_return_date = new Date(el.return_date)
-//         // debugger
-//         let val = `
-//           <tr>
-//             <td>${i+1}</td>
-//             <td><a href=#>${el.tool.name}</a></td>
-//             <td>${custom_start_date.toDateString()}</td>
-//             <td>${custom_return_date.toDateString()}</td>
-//           </tr>
-//         `
-//         $("#list-rentals-history").append(val);
-//       })
-//     })
-//   })
-// })
