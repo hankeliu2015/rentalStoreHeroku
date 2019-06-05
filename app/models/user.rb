@@ -22,4 +22,8 @@ class User < ApplicationRecord
     end
   end
 
+  def returned_rentals
+    self.rentals.completed
+  end
+
 end #end of class
