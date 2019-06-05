@@ -25,9 +25,10 @@ const showToolClickHandlers = function(){
           let overduedHTML = newTool.formatToolRentalOverdued();
           $("#tool-container").append(overduedHTML)
         }
+
     })
 
-    // replaced by above jQuery syntax
+    // fetch api replaced by above jQuery syntax
     // fetch(`tools/${id}.json`)
     // .then(function(res) {
     //   return res.json()
@@ -52,80 +53,108 @@ const showToolClickHandlers = function(){
 
   })
 }
-
-function Tool (tool) {
-  this.id = tool.id
-  this.name = tool.name
-  this.brand = tool.Brand
-  this.description = tool.description
-  this.condition = tool.condition
-  this.rental_price = tool.rental_price
-  this.image = tool.image
-  this.rentalInProgress = tool.rental_in_progress
-  this.rentalOverdued = tool.rental_overdued
-}
-
-Tool.prototype.formatTool = function() {
-  // debugger
-  let val = `
-    <h4> ${this.name} </h4>
-    <ul>
-      <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="100" width="100">
-      <li>Description: ${this.description} </li>
-      <li>Brand: ${this.brand} </li>
-      <li>Rental Price: $ ${this.rental_price} </li>
-      <li>Condition: ${this.condition} </li>
-    </ul>
-  `
-  return val
-}
-
-Tool.prototype.formatToolRentalInProgress = function() {
-  let customized_start_date = new Date(this.rentalInProgress.start_date)
-  let customized_return_date = new Date(this.rentalInProgress.return_date)
-
-  let val = `
-    <h6>Tool is not available right now. Please schedule rental dates base on the return date: </h6>
-
-    <li>Rented on: ${customized_start_date.toDateString()} </li>
-    <li style="color:maroon">Return Date: ${customized_return_date.toDateString()} </li>
-  `
-  return val
-}
-
-Tool.prototype.formatToolRentalOverdued = function() {
-
-  // let todayDate = new Date().toDateString()
-  // let startDate = new Date(this.rentalOverdued.start_date)
-  // let returnDate = new Date(this.rentalOverdued.return_date)
-
-  function treatAsUTC(date) {
-      var result = new Date(date);
-      result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
-      return result;
+class Tool {
+  constructor(tool) {
+    this.id = tool.id
+    this.name = tool.name
+    this.brand = tool.Brand
+    this.description = tool.description
+    this.condition = tool.condition
+    this.rental_price = tool.rental_price
+    this.image = tool.image
+    this.rentalInProgress = tool.rental_in_progress
+    this.rentalOverdued = tool.rental_overdued
   }
 
-  let convertedStartDate = treatAsUTC(this.rentalOverdued.start_date)
-  let convertedReturnDate = treatAsUTC(this.rentalOverdued.return_date)
-  // debugger
-
-  let today = new Date()
-  let convertedToday = treatAsUTC(today)
-
-  // debugger
-
-  function daysBetween(recentDate, pastDate) {
-      var millisecondsPerDay = 24 * 60 * 60 * 1000;
-      return (treatAsUTC(recentDate) - treatAsUTC(pastDate)) / millisecondsPerDay;
+  formatTool() {
+    let val = `
+      <h4> ${this.name} </h4>
+      <ul>
+        <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="100" width="100">
+        <li>Description: ${this.description} </li>
+        <li>Brand: ${this.brand} </li>
+        <li>Rental Price: $ ${this.rental_price} </li>
+        <li>Condition: ${this.condition} </li>
+      </ul>
+    `
+    return val
   }
 
-  let daysOverdued = parseInt(daysBetween(convertedToday, convertedReturnDate))
+  formatToolRentalInProgress() {
+    let customized_start_date = new Date(this.rentalInProgress.start_date)
+    let customized_return_date = new Date(this.rentalInProgress.return_date)
 
-  let val = `
-    <h6 style="color:maroon"> Tool is Overdued for: ${daysOverdued} days and not available for rent. Sorry!</h6>
+    let val = `
+      <h6>Tool is not available right now. Please schedule rental dates base on the return date: </h6>
 
-    <li>Rented on: ${convertedStartDate.toDateString()}</li>
-    <li>Return Date: ${convertedReturnDate.toDateString()}</li>
-  `
-  return val
+      <li>Rented on: ${customized_start_date.toDateString()} </li>
+      <li style="color:maroon">Return Date: ${customized_return_date.toDateString()} </li>
+    `
+    return val
+  }
+
+  formatToolRentalOverdued() {
+
+    // let todayDate = new Date().toDateString()
+    // let startDate = new Date(this.rentalOverdued.start_date)
+    // let returnDate = new Date(this.rentalOverdued.return_date)
+
+    function treatAsUTC(date) {
+        var result = new Date(date);
+        result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+        return result;
+    }
+
+    let convertedStartDate = treatAsUTC(this.rentalOverdued.start_date)
+    let convertedReturnDate = treatAsUTC(this.rentalOverdued.return_date)
+    // debugger
+
+    let today = new Date()
+    let convertedToday = treatAsUTC(today)
+
+    // debugger
+
+    function daysBetween(recentDate, pastDate) {
+        var millisecondsPerDay = 24 * 60 * 60 * 1000;
+        return (treatAsUTC(recentDate) - treatAsUTC(pastDate)) / millisecondsPerDay;
+    }
+
+    let daysOverdued = parseInt(daysBetween(convertedToday, convertedReturnDate))
+
+    let val = `
+      <h6 style="color:maroon"> Tool is Overdued for ${daysOverdued} days and not available for rent. Sorry!</h6>
+
+      <li>Rented on: ${convertedStartDate.toDateString()}</li>
+      <li>Return Date: ${convertedReturnDate.toDateString()}</li>
+    `
+    return val
+  }
 }
+
+// replaced by above class syntax
+// function Tool (tool) {
+//   this.id = tool.id
+//   this.name = tool.name
+//   this.brand = tool.Brand
+//   this.description = tool.description
+//   this.condition = tool.condition
+//   this.rental_price = tool.rental_price
+//   this.image = tool.image
+//   this.rentalInProgress = tool.rental_in_progress
+//   this.rentalOverdued = tool.rental_overdued
+// }
+//
+// Tool.prototype.formatTool = function() {
+//   // debugger
+//   let val = `
+//     <h4> ${this.name} </h4>
+//     <ul>
+//       <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="100" width="100">
+//       <li>Description: ${this.description} </li>
+//       <li>Brand: ${this.brand} </li>
+//       <li>Rental Price: $ ${this.rental_price} </li>
+//       <li>Condition: ${this.condition} </li>
+//     </ul>
+//   `
+//   return val
+// }
