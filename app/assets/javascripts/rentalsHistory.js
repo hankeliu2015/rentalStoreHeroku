@@ -5,19 +5,24 @@ $(document).on("turbolinks:load", function() {
 const rentalsHistoryClickHandlers = function() {
   $("#rentals-history").on("click", function(e){
     e.preventDefault();
+    $.get("/rentals.json", function(data) {
+      console.log("inside callback")
+    })
+
+    //replace fetch with jQuery
     // history.pushState(null,null, "rentals_history")
-    fetch("/rentals.json")
-    .then(function(res) {
-      return res.json()
-    })
-    .then(function(rentals) {
-      $("#list-rentals-history").html("")
-      rentals.forEach(function(rental) {
-        let newRental = new Rental(rental)
-        let rentalsHistoryHTML = newRental.formatRentalsHistory()
-        $("#list-rentals-history").append(rentalsHistoryHTML)
-      })
-    })
+    // fetch("/rentals.json")
+    // .then(function(res) {
+    //   return res.json()
+    // })
+    // .then(function(rentals) {
+    //   $("#list-rentals-history").html("")
+    //   rentals.forEach(function(rental) {
+    //     let newRental = new Rental(rental)
+    //     let rentalsHistoryHTML = newRental.formatRentalsHistory()
+    //     $("#list-rentals-history").append(rentalsHistoryHTML)
+    //   })
+    // })
   })
 
   $(document).on("click", ".show-tool", function(e) {
