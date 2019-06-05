@@ -99,27 +99,16 @@ class Tool {
     // let startDate = new Date(this.rentalOverdued.start_date)
     // let returnDate = new Date(this.rentalOverdued.return_date)
 
-    function treatAsUTC(date) {
-        var result = new Date(date);
-        result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
-        return result;
-    }
-
-    let convertedStartDate = treatAsUTC(this.rentalOverdued.start_date)
-    let convertedReturnDate = treatAsUTC(this.rentalOverdued.return_date)
+    let convertedStartDate = this.treatAsUTC(this.rentalOverdued.start_date)
+    let convertedReturnDate = this.treatAsUTC(this.rentalOverdued.return_date)
     // debugger
 
     let today = new Date()
-    let convertedToday = treatAsUTC(today)
+    let convertedToday = this.treatAsUTC(today)
 
     // debugger
 
-    function daysBetween(recentDate, pastDate) {
-        var millisecondsPerDay = 24 * 60 * 60 * 1000;
-        return (treatAsUTC(recentDate) - treatAsUTC(pastDate)) / millisecondsPerDay;
-    }
-
-    let daysOverdued = parseInt(daysBetween(convertedToday, convertedReturnDate))
+    let daysOverdued = parseInt(this.daysBetween(convertedToday, convertedReturnDate))
 
     let val = `
       <h6 style="color:maroon"> Tool is Overdued for ${daysOverdued} days and not available for rent. Sorry!</h6>
@@ -129,6 +118,18 @@ class Tool {
     `
     return val
   }
+
+  treatAsUTC(date) {
+        var result = new Date(date);
+        result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+        return result;
+    }
+
+  daysBetween(recentDate, pastDate) {
+      var millisecondsPerDay = 24 * 60 * 60 * 1000;
+      return (this.treatAsUTC(recentDate) - this.treatAsUTC(pastDate)) / millisecondsPerDay;
+  }
+
 }
 
 // replaced by above class syntax
