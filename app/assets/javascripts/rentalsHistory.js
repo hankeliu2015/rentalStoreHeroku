@@ -74,25 +74,26 @@ Rental.prototype.formatRental = function() {
   return val
 }
 
-function Tool (tool) {
-  this.id = tool.id
-  this.name = tool.name
-  this.brand = tool.Brand
-  this.description = tool.description
-  this.condition = tool.condition
-  this.rental_price = tool.rental_price
-  this.image = tool.image
-}
-
-Tool.prototype.formatTool = function() {
-  let val = `
-    <h4> ${this.name} </h4>
-    <ul>
-      <li>${this.description} </li>
-      <li>${this.brand} </li>
-      <li>${this.rental_price} </li>
-
-    </ul>
-  `
-  return val
-}
+// declared Tool class in showTool.js. replace the following Tool function. 
+// function Tool (tool) {
+//   this.id = tool.id
+//   this.name = tool.name
+//   this.brand = tool.Brand
+//   this.description = tool.description
+//   this.condition = tool.condition
+//   this.rental_price = tool.rental_price
+//   this.image = tool.image
+// }
+//
+// Tool.prototype.formatTool = function() {
+//   let val = `
+//     <h4> ${this.name} </h4>
+//     <ul>
+//       <li>${this.description} </li>
+//       <li>${this.brand} </li>
+//       <li>${this.rental_price} </li>
+//
+//     </ul>
+//   `
+//   return val
+// }
