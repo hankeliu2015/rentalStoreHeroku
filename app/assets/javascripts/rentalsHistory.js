@@ -6,6 +6,7 @@ const rentalsHistoryClickHandlers = function() {
   $("#rentals-history").on("click", function(e){
     e.preventDefault();
     $.get("/rentals.json", function(rentals) {
+// debugger
       rentals.forEach(function(rental, i) {
 
         let newRental = new Rental(rental);

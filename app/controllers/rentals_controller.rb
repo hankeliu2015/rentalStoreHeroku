@@ -2,6 +2,7 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+  
     # user current_user to identify user_id.
     @user = User.find_by(id: current_user.id)
     # if current_user.id != @user.id
@@ -16,7 +17,7 @@ class RentalsController < ApplicationController
 
     respond_to do |format|
       format.html {render :index}
-      format.json {render json: @past_rented_tools}
+      format.json {render json: @past_rented_tools }
     end
 
     # render json: @past_rented_tools

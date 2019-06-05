@@ -15,6 +15,14 @@ class UsersController < ApplicationController
       @overdue_items = current_user.rentals.overdued
       # the following code no needed. User show only only show a link for completed.
       # @past_rented_tools = current_user.rentals.completed
+      # @user = User.find_by(id: params[:id])
+
+      # respond_to do |f|
+      #   f.html {render :show}
+      #   f.json {render json: @user }
+      # end
+      # render json: @user
+      
   end
 
   private
