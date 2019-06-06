@@ -2,11 +2,11 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :tool
 
-  #validate tool availa and start/return date
-  #instance method (available_for_rent? in the tool class.
+  #validate tool available and start/return date
   validate :appropriate_start_date, :appropriate_return_date, :available_for_rent?, on: :create
 
   validate :appropriate_checkout
+
   #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
