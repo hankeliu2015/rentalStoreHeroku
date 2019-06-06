@@ -9,6 +9,7 @@ $(document).on(("turbolinks:load"), function() {
 const showToolClickHandlers = function(){
   $("a#show-tool").on("click", function(e){
     e.preventDefault();
+    history.pushState("null", "null", "tool")
     let id = parseInt(this.dataset["toolId"])
 
     $.get(`tools/${id}.json`, function(resp_obj){
