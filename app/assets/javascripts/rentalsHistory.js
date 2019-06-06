@@ -20,20 +20,6 @@ const rentalsHistoryClickHandlers = function() {
       })
     })
 
-    // the following replaced by above jQuery
-    // history.pushState(null,null, "rentals_history")
-    // fetch("/rentals.json")
-    // .then(function(res) {
-    //   return res.json()
-    // })
-    // .then(function(rentals) {
-    //   $("#list-rentals-history").html("")
-    //   rentals.forEach(function(rental) {
-    //     let newRental = new Rental(rental)
-    //     let rentalHTML = newRental.formatRental()
-    //     $("#list-rentals-history").append(rentalHTML)
-    //   })
-    // })
   })
 
   $(document).on("click", ".show-tool", function(e) {
@@ -54,12 +40,15 @@ const rentalsHistoryClickHandlers = function() {
   })
 }
 
-function Rental(rental) {
-  this.id = rental.id
-  this.tool_name = rental.tool.name
-  this.start_date = rental.start_date
-  this.return_date = rental.return_date
-  this.tool_id = rental.tool.id
+class Rental {
+  constructor(rental) {
+    this.id = rental.id
+    this.tool_name = rental.tool.name
+    this.start_date = rental.start_date
+    this.return_date = rental.return_date
+    this.tool_id = rental.tool.id
+  }
+
 }
 
 Rental.prototype.formatRental = function() {
@@ -74,7 +63,7 @@ Rental.prototype.formatRental = function() {
   return val
 }
 
-// declared Tool class in showTool.js. replace the following Tool function. 
+// declared Tool class in showTool.js. replace the following Tool function.
 // function Tool (tool) {
 //   this.id = tool.id
 //   this.name = tool.name
