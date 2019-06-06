@@ -7,8 +7,8 @@ const rentalsHistoryClickHandlers = function() {
     e.preventDefault();
     $.get("/profile.json", function(user) {
       // debugger
-      console.log("user data resp")
-      user.returned_rentals.forEach(function(rental, i) {
+
+      user.returned_rentals_with_tool_name.forEach(function(rental, i) {
         // debugger
         let newRental = new Rental(rental);
         let rentalHTML = `
@@ -55,11 +55,11 @@ const rentalsHistoryClickHandlers = function() {
 
 class Rental {
   constructor(rental) {
-    this.id = rental.id
-    this.tool_name = "fake tool name"//rental.tool_id
-    this.start_date = rental.start_date
-    this.return_date = rental.return_date
-    // this.tool_id = rental.tool.id
+    this.id = rental[0].id
+    this.start_date = rental[0].start_date
+    this.return_date = rental[0].return_date
+    this.tool_name = rental[2] // tool name nested in the 2nd element
+    this.tool_id = rental[1]
   }
 
   formatRental() {
