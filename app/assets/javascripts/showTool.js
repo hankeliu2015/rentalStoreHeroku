@@ -26,10 +26,9 @@ const showToolClickHandlers = function(){
           $("#tool-container").append(overduedHTML)
         }
 
-      let simpleCalendar = `
-        <%=render 'application/calendar' %>
-      `
-      $(".calendar-container").append(simpleCalendar)
+      let simpleCalendar = $(".hidden-calendar").html()
+
+      $(".show-calendar").append(simpleCalendar)
     })
 
     // fetch api replaced by above jQuery syntax
