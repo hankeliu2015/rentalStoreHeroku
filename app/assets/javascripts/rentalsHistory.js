@@ -49,19 +49,20 @@ class Rental {
     this.tool_id = rental.tool.id
   }
 
+  formatRental() {
+
+    let custom_start_date = new Date(this.start_date)
+    let custom_return_date = new Date(this.return_date)
+    let val = `
+      <td><a href="/tools/${this.tool_id}" data-toolid="${this.tool_id}" class="show-tool">${this.tool_name}</a></td>
+      <td>${custom_start_date.toDateString()}</td>
+      <td>${custom_return_date.toDateString()}</td>
+    `
+    return val
+  }
 }
 
-Rental.prototype.formatRental = function() {
 
-  let custom_start_date = new Date(this.start_date)
-  let custom_return_date = new Date(this.return_date)
-  let val = `
-    <td><a href="/tools/${this.tool_id}" data-toolid="${this.tool_id}" class="show-tool">${this.tool_name}</a></td>
-    <td>${custom_start_date.toDateString()}</td>
-    <td>${custom_return_date.toDateString()}</td>
-  `
-  return val
-}
 
 // declared Tool class in showTool.js. replace the following Tool function.
 // function Tool (tool) {
