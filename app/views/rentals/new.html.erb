@@ -19,7 +19,7 @@
     <div class="col-sm-6">
       <h4>Tools are booked on dates highlighted</h4>
         <%= month_calendar do |date| %>
-          <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, params[:tool_id], date) || date == Date.today %>> <%= date.strftime("%e") %></div>
+          <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, @rental.tool_id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
         <% end %>
     </div>
   </div>
