@@ -22,14 +22,14 @@ class User < ApplicationRecord
     end
   end
 
+  def returned_rentals
+    self.rentals.completed
+  end
 
   def returned_rentals_with_tool_name
     returned_rentals.map do |rental|
-      [rental, rental.tool.name]
+      [rental, rental.tool.id, rental.tool.name]
     end
   end
-  # repalce with above method. need to have tool names with the rental instance. 
-  # def returned_rentals
-  #   self.rentals.completed
-  # end
+
 end #end of class
