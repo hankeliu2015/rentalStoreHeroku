@@ -5,22 +5,35 @@ $(document).on("turbolinks:load", function() {
 const rentalsHistoryClickHandlers = function() {
   $("#rentals-history").on("click", function(e){
     e.preventDefault();
-    $.get("/rentals.json", function(rentals) {
-// debugger
-      rentals.forEach(function(rental, i) {
-
+    $.get("/profile.json", function(user) {
+      // debugger
+      console.log("user data resp")
+      user.returned_rentals.forEach(function(rental, i) {
+        // debugger
         let newRental = new Rental(rental);
         let rentalHTML = `
           <tr>
             <td> ${i+1} ${newRental.formatRental()} </td>
           </tr>
         `;
-
         $("#list-rentals-history").append(rentalHTML)
+      })
       })
     })
 
-  })
+    // $.get("/rentals.json", function(rentals) {
+    //   rentals.forEach(function(rental, i) {
+    //     let newRental = new Rental(rental);
+    //     let rentalHTML = `
+    //       <tr>
+    //         <td> ${i+1} ${newRental.formatRental()} </td>
+    //       </tr>
+    //     `;
+    //     $("#list-rentals-history").append(rentalHTML)
+    //   })
+    // })
+
+  // })
 
   $(document).on("click", ".show-tool", function(e) {
     e.preventDefault();
@@ -43,10 +56,10 @@ const rentalsHistoryClickHandlers = function() {
 class Rental {
   constructor(rental) {
     this.id = rental.id
-    this.tool_name = rental.tool.name
+    this.tool_name = "fake tool name"//rental.tool_id
     this.start_date = rental.start_date
     this.return_date = rental.return_date
-    this.tool_id = rental.tool.id
+    // this.tool_id = rental.tool.id
   }
 
   formatRental() {
