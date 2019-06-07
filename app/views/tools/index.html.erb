@@ -23,19 +23,14 @@
     <%= link_to "Discount Rental - Next Day Return", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
 
     <div id="formDiscountRental-<%= tool.id %>">
-
     </div>
-
 
   </ul>
   <% end %>
 </div>
 
-<div class="show-calendar">
 
-</div>
-
-<div class="hidden-calendar" style="display: none">
+<div class="tool-calendar" style="display: none">
   <%=render 'application/calendar' %>
 </div>
 

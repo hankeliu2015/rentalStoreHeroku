@@ -27,9 +27,9 @@ const showToolClickHandlers = function(){
           $("#tool-container").append(overduedHTML)
         }
 
-      let simpleCalendar = $(".hidden-calendar").html()
-
-      $(".show-calendar").append(simpleCalendar)
+      // let simpleCalendar = $(".hidden-calendar").html()
+      // $(".show-calendar").append(simpleCalendar)
+        displayToolCalendar();
     })
 
     // fetch api replaced by above jQuery syntax
@@ -57,6 +57,15 @@ const showToolClickHandlers = function(){
 
   })
 }
+
+const displayToolCalendar = function() {
+  const toolCal = $(".tool-calendar")[0];
+  debugger
+  if (toolCal.style.display === 'none') {
+    toolCal.style.removeProperty('display');
+  }
+}
+
 class Tool {
   constructor(tool) {
     this.id = tool.id
