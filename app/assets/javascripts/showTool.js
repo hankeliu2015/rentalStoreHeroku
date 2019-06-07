@@ -60,9 +60,12 @@ const showToolClickHandlers = function(){
 
 const displayToolCalendar = function() {
   const toolCal = $(".tool-calendar")[0];
-  debugger
+  // debugger
   if (toolCal.style.display === 'none') {
     toolCal.style.removeProperty('display');
+    // the following also works.
+    // $(".tool-calendar").show()
+    // $(".tool-calendar").css({ display: "block" });
   }
 }
 
