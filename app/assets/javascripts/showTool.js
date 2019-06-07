@@ -9,14 +9,18 @@ $(document).on(("turbolinks:load"), function() {
 const showToolClickHandlers = function(){
   $("a#show-tool").on("click", function(e){
     e.preventDefault();
-    history.pushState("null", "null", "tool")
+    // history.pushState("null", "null", "tool")
     let id = parseInt(this.dataset["toolId"])
 
     $.get(`tools/${id}.json`, function(resp_obj){
 
       let newTool = new Tool(resp_obj)
+
       let toolHTML = newTool.formatTool()
-      $("#tool-container").html("")
+
+      let calendarObj = $(".tool-calendar")[0];
+      // debugger
+      // $("#tool-container").html("")
       $("#tool-container").html(toolHTML)
 
       if (newTool.rentalInProgress) {
@@ -27,42 +31,23 @@ const showToolClickHandlers = function(){
           $("#tool-container").append(overduedHTML)
         }
 
-      // let simpleCalendar = $(".hidden-calendar").html()
-      // $(".show-calendar").append(simpleCalendar)
-        displayToolCalendar();
+        $("#tool-container").append(displayToolCalendar(calendarObj))
+        // $("#tool-container").append(calendarObj)
+        // let simpleCalendar = $(".hidden-calendar").html()
+        // $(".show-calendar").append(simpleCalendar)
     })
-
-    // fetch api replaced by above jQuery syntax
-    // fetch(`tools/${id}.json`)
-    // .then(function(res) {
-    //   return res.json()
-    // })
-    // .then(function(tool){
-    //   $("#tool-container").html("")
-    //
-    //   let newTool = new Tool(tool)
-    //   // debugger
-    //   let toolHTML = newTool.formatTool()
-    //
-    //   $("#tool-container").html(toolHTML)
-    //
-    //   if (newTool.rentalInProgress) {
-    //     let rentalHTML = newTool.formatToolRentalInProgress();
-    //     $("#tool-container").append(rentalHTML)
-    //   } else if (newTool.rentalOverdued) {
-    //     let overduedHTML = newTool.formatToolRentalOverdued();
-    //     $("#tool-container").append(overduedHTML)
-    //   }
-    // })
 
   })
 }
 
-const displayToolCalendar = function() {
-  const toolCal = $(".tool-calendar")[0];
-   debugger
-  if (toolCal.style.display === 'none') {
-    toolCal.style.removeProperty('display');
+const displayToolCalendar = function(calObj) {
+  // const toolCal = $(".tool-calendar")[0];
+
+  if (calObj.style.display === 'none') {
+    calObj.style.removeProperty('display');
+    return calObj
+
+    // return $(".tool-calendar").html()
     // the following also works.
     // $(".tool-calendar").show()
     // $(".tool-calendar").css({ display: "block" });

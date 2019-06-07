@@ -25,15 +25,15 @@
     <div id="formDiscountRental-<%= tool.id %>">
     </div>
 
+    <div class="tool-calendar" style="display: none">
+      <%=render 'application/calendar' %>
+    </div>
 
   </ul>
   <% end %>
 </div>
 
 
-<div class="tool-calendar" style="display: none">
-  <%=render 'application/calendar' %>
-</div>
 
 <div class="hidden" style="display: none">
   <%#= render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow)} %>
