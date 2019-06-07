@@ -26,8 +26,8 @@ class User < ApplicationRecord
     self.rentals.completed
   end
 
-  def returned_rentals_with_tool_name
-    returned_rentals.map do |rental|
+  def returned_rentals_with_tool_name #for serializer to render user rental history,
+    self.returned_rentals.map do |rental|
       [rental, rental.tool.id, rental.tool.name]
     end
   end
