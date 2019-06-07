@@ -58,8 +58,8 @@ class Rental {
     this.id = rental[0].id
     this.start_date = rental[0].start_date
     this.return_date = rental[0].return_date
-    this.tool_name = rental[2] // tool name nested in the 2nd element
-    this.tool_id = rental[1]
+    this.tool_name = rental[2] // tool name nested in the 3rd array of returned_rentals_with_tool_name
+    this.tool_id = rental[1]  //tool id nested in the 2nd array.
   }
 
   formatRental() {
