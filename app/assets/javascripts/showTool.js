@@ -32,11 +32,11 @@ const showToolClickHandlers = function(){
         }
 
         $("#tool-container").append(displayToolCalendar(calendarObj))
+        // displayToolCalendar(calendarObj)
         // $("#tool-container").append(calendarObj)
         // let simpleCalendar = $(".hidden-calendar").html()
         // $(".show-calendar").append(simpleCalendar)
     })
-
   })
 }
 

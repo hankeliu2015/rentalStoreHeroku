@@ -5,7 +5,7 @@ $(document).ready(function(){
 function displayRentalForm(e) {
   e.preventDefault();
   let discoutToolId = parseInt(e.target.dataset.toolId) //tool_id not working.
-  debugger
+   // debugger
   const discountRentForm = $(".hidden").html()
   $(`#formDiscountRental-${discoutToolId}`).html(discountRentForm)
   $(".hidden").html("")
