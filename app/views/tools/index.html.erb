@@ -26,7 +26,12 @@
     </div>
 
     <div class="tool-calendar" style="display: none">
-      <%=render 'application/calendar' %>
+      <%#=render 'application/calendar' %>
+
+      <%= month_calendar do |date| %>
+        <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, tool.id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
+      <% end %>
+
     </div>
 
   </ul>
@@ -45,7 +50,7 @@
   <%= date_field_tag(:"rental[return_date]", Date.tomorrow, required:true) %>
   <br>
   <%= label_tag(:checkout) %>
-  <%= check_box_tag(:"rental[checkout]", :checked => true ) %>
+  <%= check_box_tag(:"rental[checkout]", {}, checked = true) %>
   <br>
   <%= submit_tag('Confirm Rent') %>
 <% end %>
