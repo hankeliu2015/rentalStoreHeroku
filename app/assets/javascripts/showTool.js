@@ -29,6 +29,9 @@ const showToolClickHandlers = function(){
         } else if (newTool.rentalOverdued) {
           let overduedHTML = newTool.formatToolRentalOverdued();
           $("#tool-container").append(overduedHTML)
+        } else if (newTool.rentalsScheduled) {
+          let scheduledHTML = newTool.formatToolRentalScheduled();
+          $("#tool-container").append(scheduledHTML)
         }
 
         $("#tool-container").append(displayToolCalendar(calendarObj))
@@ -65,6 +68,7 @@ class Tool {
     this.image = tool.image
     this.rentalInProgress = tool.rental_in_progress
     this.rentalOverdued = tool.rental_overdued
+    this.rentalsScheduled = tool.rentals_scheduled
   }
 
   formatTool() {
@@ -131,6 +135,9 @@ class Tool {
       return (this.treatAsUTC(recentDate) - this.treatAsUTC(pastDate)) / millisecondsPerDay;
   }
 
+  formatToolRentalScheduled() {
+    
+  }
 }
 
 // replaced by above class syntax
