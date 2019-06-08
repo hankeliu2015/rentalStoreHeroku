@@ -30,8 +30,15 @@ const showToolClickHandlers = function(){
           let overduedHTML = newTool.formatToolRentalOverdued();
           $("#tool-container").append(overduedHTML)
         } else if (newTool.rentalsScheduled) {
-          let scheduledHTML = newTool.formatToolRentalScheduled();
-          $("#tool-container").append(scheduledHTML)
+          let msgHTML = `<h5>This tool is booked for the following days:</h5>`
+          $("#tool-container").append(msgHTML)
+          newTool.rentalsScheduled.forEach(function(scheduledRental, i){
+            console.log("inside scheduled")
+            // debugger
+            let scheduledHTML = newTool.formatToolRentalScheduled(scheduledRental);
+
+            $("#tool-container").append(scheduledHTML)
+          })
         }
 
         $("#tool-container").append(displayToolCalendar(calendarObj))
@@ -137,11 +144,9 @@ class Tool {
 
   formatToolRentalScheduled(rental) {
     let val = `
-      <h6>This tool is booked for the following days:</h6>
       <ul>
-        <li>Start Date: ${rental.start_date} ; Return Date: ${retnal.return_date} </li>
+        <li>Booked on: ${rental.start_date} ; Return Date: ${rental.return_date} </li>
       </ul>
-
     `
     return val
   }
