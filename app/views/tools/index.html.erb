@@ -13,11 +13,11 @@
       <%= image_tag(tool.image, size: "150x150",  alt: tool.image) %>
     </div>
 
-    <li>Category: <%= tool.category %></li>
+    <li>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
+    <li>Condition: <%= tool.condition %></li>
     <li>Brand: <%= tool.brand %></li>
     <li>Description: <%= tool.description %></li>
-    <li>Condition: <%= tool.condition %></li>
-    <li>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
+    <li>Category: <%= tool.category %></li>
 
     <%= button_to "Rent", new_tool_rental_path(tool), method: :get if user_signed_in? %>
     <%= link_to "Discount Rental - Next Day Return", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
