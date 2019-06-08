@@ -21,5 +21,9 @@ class Tool < ApplicationRecord
     rentals.overdued.first
   end
 
+  def rentals_scheduled
+    rentals.scheduled 
+  end
+
 
 end #end of class
