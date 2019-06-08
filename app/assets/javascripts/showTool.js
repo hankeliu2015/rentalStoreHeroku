@@ -143,9 +143,12 @@ class Tool {
   }
 
   formatToolRentalScheduled(rental) {
+    let customizedStartDate = new Date(rental.start_date)
+    let customizedReturnDate = new Date(rental.return_date)
+    debugger
     let val = `
       <ul>
-        <li>Booked on: ${rental.start_date} ; Return Date: ${rental.return_date} </li>
+        <li>Booked on: ${customizedStartDate.toDateString()} ; Return Date: ${customizedReturnDate.toDateString()} </li>
       </ul>
     `
     return val
