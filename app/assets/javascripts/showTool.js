@@ -19,8 +19,8 @@ const showToolClickHandlers = function(){
       let toolHTML = newTool.formatTool()
 
       let calendarObj = $(".tool-calendar")[0];
-      // debugger
-      // $("#tool-container").html("")
+
+      $("#tool-container").html("")
       $("#tool-container").html(toolHTML)
 
       if (newTool.rentalInProgress) {
