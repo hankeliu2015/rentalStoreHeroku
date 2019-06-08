@@ -135,8 +135,15 @@ class Tool {
       return (this.treatAsUTC(recentDate) - this.treatAsUTC(pastDate)) / millisecondsPerDay;
   }
 
-  formatToolRentalScheduled() {
-    
+  formatToolRentalScheduled(rental) {
+    let val = `
+      <h6>This tool is booked for the following days:</h6>
+      <ul>
+        <li>Start Date: ${rental.start_date} ; Return Date: ${retnal.return_date} </li>
+      </ul>
+
+    `
+    return val
   }
 }
 
