@@ -56,6 +56,11 @@ const showToolClickHandlers = function(){
         // $(".show-calendar").append(simpleCalendar)
     })
   })
+
+  $(document).on("click", ".rent-button", function(){
+    console.log("rent button clicked")
+    debugger
+  })
 }
 
 const displayToolCalendar = function(calObj) {
