@@ -41,10 +41,9 @@ const showToolClickHandlers = function(){
             $("#tool-container").append(scheduledHTML)
           })
         }
-
-        //create a rent button here.
+        //keep data-toolid lowercase.
         let rentButtonHTML = `
-          <button type="button" class="rent-button">Rent</button>
+          <button type="button" class="rent-button" data-toolid=${id}>Rent</button>
           <br>
         `
         $("#tool-container").append(rentButtonHTML)
@@ -57,9 +56,13 @@ const showToolClickHandlers = function(){
     })
   })
 
-  $(document).on("click", ".rent-button", function(){
+  $(document).on("click", ".rent-button", function(e){
     console.log("rent button clicked")
-    debugger
+    e.preventDefault()
+    //keep toolid lower case
+    let rentalToolId = parseInt(e.target.dataset.toolid)
+
+    window.location.href = `http://localhost:3000/tools/${rentalToolId}/rentals/new`;
   })
 }
 
