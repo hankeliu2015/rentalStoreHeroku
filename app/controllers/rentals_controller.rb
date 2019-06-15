@@ -54,7 +54,7 @@ class RentalsController < ApplicationController
     else
       respond_to do |f|
         f.html {render :new}
-        f.json {render json: @rentals.errors, status: :unprocessable}
+        f.json {render json: @rentals.errors, status: :unprocessable_entity}
       end
     end
 
