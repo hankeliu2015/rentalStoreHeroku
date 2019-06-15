@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-  
+
     # user current_user to identify user_id.
     @user = User.find_by(id: current_user.id)
     # if current_user.id != @user.id
@@ -43,32 +43,26 @@ class RentalsController < ApplicationController
   def create
 
     @tool = Tool.find_by(id: params[:tool_id])
+    @rental = current_user.rentals.build(rental_params)
+    @rental.tool_id = @tool.id
+    @rental.start_date = Date.parse(params[:rental][:start_date])
+    @rental.return_date = Date.parse(params[:rental][:return_date])
 
-      @rental = current_user.rentals.build(rental_params)
-      @rental.tool_id = @tool.id
-
-      if @rental.valid?
-        # rental.start_date = Date.strptime(params[:rental][:start_date], "%m/%d/%Y")
-
-        @rental.start_date = Date.parse(params[:rental][:start_date])
-        @rental.return_date = Date.parse(params[:rental][:return_date])
-        if @rental.save
-          # redirect_to profile_path #user_path(@rental.user)
-
-          respond_to do |format|
-              format.html {redirect_to profile_path}
-              format.json {render json: @rental}
-          end
-
-        else
-          redirect_to root_path
-        end
-      else
-        render :new #"/tools/#{@tool.id}/rentals/new"
+    if @rental.save
+      respond_to do |format|
+        format.html {redirect_to profile_path}
+        format.json {render json: @rental}
       end
-    # else
-    #   redirect_to root_path, {alert: "Sorry, this #{@tool.name} is curretly rented"}
-    # end
+    else
+      respond_to do |f|
+        f.html {render :new}
+        f.json {render json: @rentals.errors, status: :unprocessable}
+      end
+    end
+
+      # else
+      #   render :new #"/tools/#{@tool.id}/rentals/new"
+      # end
 
   end # end of method
 
