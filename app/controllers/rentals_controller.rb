@@ -35,8 +35,6 @@ class RentalsController < ApplicationController
   end
 
   def edit
-    #@rental = Rental.new(tool_id: params[:tool_id])
-    #binding.pry
     @rental = Rental.find_by(id: params[:id])
   end
 
