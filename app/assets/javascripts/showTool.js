@@ -9,11 +9,12 @@ $(document).on(("turbolinks:load"), function() {
 const showToolClickHandlers = function(){
   $("a#show-tool").on("click", function(e){
     e.preventDefault();
-    // history.pushState("null", "null", "tool")
     let id = parseInt(this.dataset["toolId"])
+
 
     $.get(`tools/${id}.json`, function(resp_obj){
 
+      history.pushState("null", "null", `tools/${id}`)
       let newTool = new Tool(resp_obj)
 
       let toolHTML = newTool.formatTool()
