@@ -3,16 +3,6 @@ class Tool < ApplicationRecord
   has_many :rentals
   has_many :users, through: :rentals
 
-  # moved the following to rental model:
-  # def available_for_rent?
-  #   rentals.where(return: false).empty?
-  # end
-
-  # no need this method anymore
-  # def current_rental
-  #   rentals.find_by(return: false)
-  # end
-
   def rental_in_progress
     self.rentals.in_progress.first
   end
@@ -22,8 +12,12 @@ class Tool < ApplicationRecord
   end
 
   def rentals_scheduled
-    rentals.scheduled 
+    rentals.scheduled
   end
 
+  # moved the following to rental model:
+  # def available_for_rent?
+  #   rentals.where(return: false).empty?
+  # end
 
 end #end of class
