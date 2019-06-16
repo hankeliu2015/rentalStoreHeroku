@@ -47,16 +47,20 @@ function createDiscountRentalObj(e, idTool) {
 //     let rentalHTML = newRental.formatRental()
 //     $(`#formDiscountRental-${idTool}`).html(rentalHTML)
 //   })
-// })
+// })   //end of fetch
 
   let renting = $.post(`/tools/${idTool}/rentals.json`, value, function(data) {
-    console.log(`${data}`)
     let custom_start_date = new Date(data.start_date)
     let custom_return_date = new Date(data.return_date)
     let content = `<p style="color: green" >Tool ${data.tool.name} rented successfully : Start Date: ${custom_start_date.toDateString()}; Return Date: ${custom_return_date.toDateString()} </p>`
     $(`#formDiscountRental-${idTool}`).html(content)
-  }).fail(function() {
-    alert( "Tool is not available, please click on Rent button and choose available dates to schedule rental")
   })
 
-} //end of function createDiscountRentalObj
+    .fail(function(data) {
+    console.log(`inside fail: ${data}`);
+    alert( "Tool is not available, please click on Rent button and choose available dates to schedule rental")
+    let errorMessage = `<p style="color: maroon">${data.responseJSON.tool[0]}<p>`;
+    $(`#formDiscountRental-${idTool}`).html(errorMessage)
+  })
+
+}
