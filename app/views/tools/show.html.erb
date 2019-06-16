@@ -17,8 +17,16 @@
 
 <h5>This tool is not available right now. Please scheulde rentals date base on tool return date:</h5>
 <ul>
-  <li>Rented on: <%= @tool.rental_in_progress.start_date.to_date %></li>
-  <li style="color:maroon">Return on: <%= @tool.rental_in_progress.return_date.to_date %></li>
+  <li>Rented on: <%= @tool.rental_in_progress.start_date.to_date if @tool.rental_in_progress %></li>
+  <li style="color:maroon">Return on: <%= @tool.rental_in_progress.return_date.to_date if @tool.rental_in_progress%></li>
+</ul>
+
+<br>
+
+<h5>This tool is overdued, not available for rent. Sorry!</h5>
+<ul>
+  <li>Rented on: <%= @tool.rental_overdued.start_date.to_date if @tool.rental_overdued %></li>
+  <li style="color:maroon">Return on: <%= @tool.rental_overdued.return_date.to_date if @tool.rental_overdued  %></li>
 </ul>
 
 <br>
