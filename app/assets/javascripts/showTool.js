@@ -13,6 +13,7 @@ const showToolClickHandlers = function(){
     let id = parseInt(this.dataset["toolId"])
 
     $.get(`tools/${id}.json`, function(resp_obj){
+
       history.pushState("null", "null", `tools/${id}`)
 
       let newTool = new Tool(resp_obj)
