@@ -22,14 +22,41 @@ function createDiscountRentalObj(e, idTool) {
   e.preventDefault();
   let value = $(e.target).serializeArray();
 
-
-  let renting = $.post(`/tools/${idTool}/rentals.json`, value, function(data) {
-    console.log(`${data}`)
-    let custom_start_date = new Date(data.start_date)
-    let custom_return_date = new Date(data.return_date)
-    let content = `<p style="color: green" >Tool ${data.tool.name} rented successfully : Start Date: ${custom_start_date.toDateString()}; Return Date: ${custom_return_date.toDateString()} </p>`
-    $(`#formDiscountRental-${idTool}`).html(content)
-  }).fail(function() {
-    alert( "Tool is not available, please click on Rent button and choose available dates to schedule rental")
+  debugger
+  let valueCSRF = value[1].value
+  fetch(
+    `/tools/${idTool}/rentals.json`,
+    {
+      method: 'POST',
+      headers: {
+        // 'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-CSRF-Token': valueCSRF
+      },
+      body: JSON.stringify(value),
+      credentials: 'same-origin'
+    }
+  ).then(function(res){
+    debugger
+    return res.json()
   })
-}
+  .then(function(rental) {
+    console.log(rental)
+    let newRental = new Rental(rental)
+    let rentalHTML = newRental.formatRental()
+    $(`#formDiscountRental-${idTool}`).html(rentalHTML)
+  })
+})
+
+  // let renting = $.post(`/tools/${idTool}/rentals.json`, value, function(data) {
+  //   console.log(`${data}`)
+  //   let custom_start_date = new Date(data.start_date)
+  //   let custom_return_date = new Date(data.return_date)
+  //   let content = `<p style="color: green" >Tool ${data.tool.name} rented successfully : Start Date: ${custom_start_date.toDateString()}; Return Date: ${custom_return_date.toDateString()} </p>`
+  //   $(`#formDiscountRental-${idTool}`).html(content)
+  // }).fail(function() {
+  //   alert( "Tool is not available, please click on Rent button and choose available dates to schedule rental")
+  // })
+
+} //end of function createDiscountRentalObj
