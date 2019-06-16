@@ -15,7 +15,15 @@
 
 <br>
 
-<h4>Tools are booked on dates highlighted</h4>
+<h5>This tool is not available right now. Please scheulde rentals date base on tool return date:</h5>
+<ul>
+  <li>Rented on: <%= @tool.rental_in_progress.start_date.to_date %></li>
+  <li style="color:maroon">Return on: <%= @tool.rental_in_progress.return_date.to_date %></li>
+</ul>
+
+<br>
+
+<h5>Tools are booked on dates highlighted</h5>
   <%= month_calendar do |date| %>
     <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, @tool.id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
   <% end %>
