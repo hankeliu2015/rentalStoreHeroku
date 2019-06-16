@@ -12,3 +12,10 @@
 <br>
 
 <%= button_to "Rent", new_tool_rental_path(@tool), method: :get if user_signed_in? %>
+
+<br>
+
+<h4>Tools are booked on dates highlighted</h4>
+  <%= month_calendar do |date| %>
+    <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, @tool.id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
+  <% end %>
