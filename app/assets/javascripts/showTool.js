@@ -85,7 +85,7 @@ class Tool {
   constructor(tool) {
     this.id = tool.id
     this.name = tool.name
-    this.brand = tool.Brand
+    this.brand = tool.brand
     this.description = tool.description
     this.condition = tool.condition
     this.rental_price = tool.rental_price
