@@ -23,16 +23,16 @@
   </ul>
 <% end %>
 
-
 <br>
 
 <% if @tool.rental_overdued  %>
 <h5 style="color:maroon"><%= @rental_overdued_message %></h5>
-<ul>
-  <li>Rented on: <%= @tool.rental_overdued.start_date.to_date%></li>
-  <li style="color:maroon">Overdued from: <%= @tool.rental_overdued.return_date.to_date%></li>
-</ul>
+  <ul>
+    <li>Rented on: <%= @tool.rental_overdued.start_date.to_date%></li>
+    <li style="color:maroon">Overdued from: <%= @tool.rental_overdued.return_date.to_date%></li>
+  </ul>
 <% end  %>
+
 <br>
 
 <h5>Tools are booked on dates highlighted</h5>
