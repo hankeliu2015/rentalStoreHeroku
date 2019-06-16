@@ -124,18 +124,12 @@ class Tool {
 
   formatToolRentalOverdued() {
 
-    // let todayDate = new Date().toDateString()
-    // let startDate = new Date(this.rentalOverdued.start_date)
-    // let returnDate = new Date(this.rentalOverdued.return_date)
-
     let convertedStartDate = this.treatAsUTC(this.rentalOverdued.start_date)
     let convertedReturnDate = this.treatAsUTC(this.rentalOverdued.return_date)
-    // debugger
+
 
     let today = new Date()
     let convertedToday = this.treatAsUTC(today)
-
-    // debugger
 
     let daysOverdued = parseInt(this.daysBetween(convertedToday, convertedReturnDate))
 
