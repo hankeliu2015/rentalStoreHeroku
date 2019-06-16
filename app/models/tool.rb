@@ -20,4 +20,4 @@ class Tool < ApplicationRecord
   #   rentals.where(return: false).empty?
   # end
 
-end #end of class
+end
