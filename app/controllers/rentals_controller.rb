@@ -20,9 +20,7 @@ class RentalsController < ApplicationController
       format.json {render json: @past_rented_tools }
     end
 
-    # render json: @past_rented_tools
-
-  end #end of method
+  end
 
   def new
     @rental = Rental.new(tool_id: params[:tool_id])
@@ -54,7 +52,8 @@ class RentalsController < ApplicationController
     else
       respond_to do |f|
         f.html {render :new}
-        f.json {render json: @rentals.errors, status: :unprocessable_entity}
+         # f.json {render json: @rental, status: :unprocessable_entity}
+        f.json {render json: @rental.errors, status: :unprocessable_entity}
       end
     end
 
@@ -62,7 +61,7 @@ class RentalsController < ApplicationController
       #   render :new #"/tools/#{@tool.id}/rentals/new"
       # end
 
-  end # end of method
+  end
 
   def update
 
@@ -76,13 +75,13 @@ class RentalsController < ApplicationController
       @rental.update(actual_return_date: Date.today, return: true)
       redirect_to profile_path, {alert: "Thank you for return #{@rental.tool.name}. To avoid furture overdue charge, please return on time. Thanks!"}
     end
-  end #end of method
+  end
 
   def reschedule_return
 
     @rental = Rental.find_by(id: params[:id])
     if @rental.update(rental_params)
-      redirect_to profile_path ##user_path(current_user)
+      redirect_to profile_path
     else
       render :edit
     end
