@@ -6,10 +6,8 @@ const rentalsHistoryClickHandlers = function() {
   $("#rentals-history").on("click", function(e){
     e.preventDefault();
     $.get("/profile.json", function(user) {
-      // debugger
 
       user.returned_rentals_with_tool_name.forEach(function(rental, i) {
-        // debugger
         let newRental = new Rental(rental);
         let rentalHTML = `
           <tr>
@@ -37,7 +35,6 @@ const rentalsHistoryClickHandlers = function() {
 
   $(document).on("click", ".show-tool", function(e) {
     e.preventDefault();
-    // debugger
     let id = parseInt(this.dataset["toolid"])
 
     fetch(`/tools/${id}.json`)
@@ -45,7 +42,6 @@ const rentalsHistoryClickHandlers = function() {
       return res.json()
     })
     .then(function(tool) {
-      console.log(tool)
       let newTool = new Tool(tool)
       let toolHTML = newTool.formatTool()
       $(".show-tool").append(toolHTML)
