@@ -5,11 +5,9 @@ $(document).ready(function(){
 function displayRentalForm(e) {
   e.preventDefault();
   let discoutToolId = parseInt(e.target.dataset.toolId) //tool_id not working.
-   // debugger
   const discountRentForm = $(".hidden").html()
   $(`#formDiscountRental-${discoutToolId}`).html(discountRentForm)
   $(".hidden").html("")
-  // $.('form')??
   $(`form`).submit(function(event) {
     // event.preventDefault();
     createDiscountRentalObj(event, discoutToolId)
@@ -21,6 +19,20 @@ function displayRentalForm(e) {
 function createDiscountRentalObj(e, idTool) {
   e.preventDefault();
   let value = $(e.target).serializeArray();
+
+  let renting = $.post(`/tools/${idTool}/rentals.json`, value, function(data) {
+    let custom_start_date = new Date(data.start_date)
+    let custom_return_date = new Date(data.return_date)
+    let content = `<p style="color: green" >Tool ${data.tool.name} rented successfully : Start Date: ${custom_start_date.toDateString()}; Return Date: ${custom_return_date.toDateString()} </p>`
+    $(`#formDiscountRental-${idTool}`).html(content)
+  })
+
+    .fail(function(data) {
+
+    alert( "Tool is not available, please click on Rent button and choose available dates to schedule rental")
+    let errorMessage = `<p style="color: maroon">${data.responseJSON.tool[0]}<p>`; //Status Code: ${data.status} unprocessable entity: ${data.statusText}
+    $(`#formDiscountRental-${idTool}`).html(errorMessage)
+  })
 
 //   // fetch api causing unexpected tokent error.
 //   let valueCSRF = value[1].value
@@ -48,19 +60,5 @@ function createDiscountRentalObj(e, idTool) {
 //     $(`#formDiscountRental-${idTool}`).html(rentalHTML)
 //   })
 // })   //end of fetch
-
-  let renting = $.post(`/tools/${idTool}/rentals.json`, value, function(data) {
-    let custom_start_date = new Date(data.start_date)
-    let custom_return_date = new Date(data.return_date)
-    let content = `<p style="color: green" >Tool ${data.tool.name} rented successfully : Start Date: ${custom_start_date.toDateString()}; Return Date: ${custom_return_date.toDateString()} </p>`
-    $(`#formDiscountRental-${idTool}`).html(content)
-  })
-
-    .fail(function(data) {
-    console.log(`inside fail: ${data}`);
-    alert( "Tool is not available, please click on Rent button and choose available dates to schedule rental")
-    let errorMessage = `<p style="color: maroon">${data.responseJSON.tool[0]}<p>`;
-    $(`#formDiscountRental-${idTool}`).html(errorMessage)
-  })
 
 }
