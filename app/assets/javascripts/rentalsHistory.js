@@ -18,7 +18,7 @@ const rentalsHistoryClickHandlers = function() {
       })
       })
     })
-
+    // repalced by above syntax. The following method for serialize the index. 
     // $.get("/rentals.json", function(rentals) {
     //   rentals.forEach(function(rental, i) {
     //     let newRental = new Rental(rental);
