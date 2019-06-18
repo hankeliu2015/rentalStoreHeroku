@@ -61,7 +61,6 @@ const showToolClickHandlers = function(){
   $(document).on("click", ".rent-button", function(e){
     console.log("rent button clicked")
     e.preventDefault()
-    //keep toolid lower case
     let rentalToolId = parseInt(e.target.dataset.toolid)
 
     window.location.href = `http://localhost:3000/tools/${rentalToolId}/rentals/new`;
@@ -100,7 +99,7 @@ class Tool {
     let val = `
       <h4> ${this.name} </h4>
       <ul>
-        <img class="tool_image" src=assets/${this.image}  alt="Tool image" height="120" width="120">
+        <img class="tool_image" src="/assets/${this.image}"  alt="Tool image" height="120" width="120">
         <li>Description: ${this.description} </li>
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
