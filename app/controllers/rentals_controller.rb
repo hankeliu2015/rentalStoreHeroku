@@ -5,10 +5,7 @@ class RentalsController < ApplicationController
 
     # user current_user to identify user_id.
     @user = User.find_by(id: current_user.id)
-    # if current_user.id != @user.id
-    #   flash[:alert] = "You can not access other user's profile. Here is the information under your profile"
-    #   @user = current_user #make sure @user consistancy in show.html.erb
-    # end
+
 
     @user = current_user
     @in_prossession = @user.rentals.in_progress
@@ -52,7 +49,6 @@ class RentalsController < ApplicationController
     else
       respond_to do |f|
         f.html {render :new}
-         # f.json {render json: @rental, status: :unprocessable_entity}
         f.json {render json: @rental.errors, status: :unprocessable_entity}
       end
     end
