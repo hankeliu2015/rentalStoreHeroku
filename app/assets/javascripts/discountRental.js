@@ -12,8 +12,6 @@ function displayRentalForm(e) {
     // event.preventDefault();
     createDiscountRentalObj(event, discoutToolId)
   })
-  // do not delete yet.
-  // $('.hidden').html(`<%= j render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow, tool_id:${discoutToolId})} %>`);
 }
 
 function createDiscountRentalObj(e, idTool) {
