@@ -30,9 +30,9 @@ class Rental < ApplicationRecord
       rental = tool.rentals.in_progress.first
 
       if start_in_middle_of_rental(rental)
-        errors.add(:tool, "Sorry, this Tool is renting now, please try a different start dates.")
+        errors.add(:tool, "Sorry, this Tool is currently rented, please try a different start date.")
       elsif end_in_middle_of_rental(rental)
-        errors.add(:tool, "Sorry, this Tool is renting now, please try a different return date.")
+        errors.add(:tool, "Sorry, this Tool is currently rented, please try a different return date.")
       end
     end
 
@@ -43,7 +43,7 @@ class Rental < ApplicationRecord
 
         #pass the @rental into start_in_middle_of_rental2
         if start_in_middle_of_rental(rental) #self.start_date >= rental.start_date && self.start_date <= rental.return_date
-          errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different start dates.")
+          errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different start date.")
         elsif end_in_middle_of_rental(rental)
           errors.add(:tool, "Sorry, this Tool is booked on this day, please try a different return date.")
         end
