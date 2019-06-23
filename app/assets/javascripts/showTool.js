@@ -110,6 +110,10 @@ class Tool {
     `
     return val
   }
+  
+  formatToolRentalCompleted() {
+
+  }
 
   formatToolRentalInProgress() {
     let customized_start_date = new Date(this.rentalInProgress.start_date)
