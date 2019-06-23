@@ -10,13 +10,7 @@ class Rental < ApplicationRecord
   #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
-  # def tool_available
-  #   errors.add(:tool, " is not available for rent") unless self.tool.available_for_rent? #|| self == self.tool.current_rental
-  # end
-
-  # def available_for_rent? #replaced by following method
-  #   errors.add(:tool, "Sorry, this Tool is not available for rent.") unless Rental.where(tool_id: self.tool_id).where(return: false).empty?
-  # end
+  paginates_per 5
 
   def available_for_rent?
     return unless tool
