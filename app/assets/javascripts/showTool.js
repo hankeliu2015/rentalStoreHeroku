@@ -104,6 +104,7 @@ class Tool {
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
         <li>Condition: ${this.condition} </li>
+        <li>Rented by Customer: <a href=#>100 times</a> </li>
       </ul>
     `
     return val
