@@ -67,12 +67,15 @@ const showToolClickHandlers = function(){
 
   $(document).on("click", ".toolRentalsCount", function(e) {
       e.preventDefault();
-      // console.log(" rent times button clicked")
-
       let toolId = parseInt(e.target.dataset.toolid)
       let toolRentalsCompleted = e.target.dataset.toolRentalsCount
-      $(".toolRentalsCount").append("<p>rentals list test</p>")
-      debugger
+
+      $.get(`/tools/${toolId}.json`, function(resp_obj){
+        debugger
+
+      })
+
+      // $(".toolRentalsCount").append("<p>rentals list test</p>")
     }
   )
 
