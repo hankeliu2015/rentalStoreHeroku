@@ -3,11 +3,12 @@ class RentalsController < ApplicationController
 
   def index
 
-    # user current_user to identify user_id.
-    @user = User.find_by(id: current_user.id)
+    @rentals = Rental.all.page params[:page]   #testing pagination pages settings
 
 
+    # @user = User.find_by(id: current_user.id)
     @user = current_user
+
     @in_prossession = @user.rentals.in_progress
     @overdue_items = @user.rentals.overdued
     @past_rented_tools = @user.rentals.completed
