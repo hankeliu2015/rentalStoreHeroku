@@ -59,13 +59,22 @@ const showToolClickHandlers = function(){
   })
 
   $(document).on("click", ".rent-button", function(e){
-    console.log("rent button clicked")
-    e.preventDefault()
+    e.preventDefault();
     let rentalToolId = parseInt(e.target.dataset.toolid)
 
     window.location.href = `http://localhost:3000/tools/${rentalToolId}/rentals/new`;
   })
+
+  $(document).on("click", ".toolRentalsCount", function(e) {
+      e.preventDefault();
+      console.log(" rent times button clicked")
+      
+    }
+  )
+
 }
+
+
 
 const displayToolCalendar = function(calObj) {
   // const toolCal = $(".tool-calendar")[0];
@@ -105,14 +114,14 @@ class Tool {
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
         <li>Condition: ${this.condition} </li>
-        <li>Rented by Customer: <a href=#> ${this.rentalsCompleted.length} times</a> </li>
+        <li>Rented by Customer: <a class="toolRentalsCount" href=#> ${this.rentalsCompleted.length} times</a> </li>
       </ul>
     `
     return val
   }
-  
-  formatToolRentalCompleted() {
 
+  formatToolRentalCompleted() {
+    let toolRentArr = this.toolRentalCompleted
   }
 
   formatToolRentalInProgress() {
