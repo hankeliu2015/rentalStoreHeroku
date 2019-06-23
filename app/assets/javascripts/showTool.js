@@ -68,7 +68,8 @@ const showToolClickHandlers = function(){
   $(document).on("click", ".toolRentalsCount", function(e) {
       e.preventDefault();
       console.log(" rent times button clicked")
-      
+      $(".toolRentalsCount").append("<p>rentals list</p>")
+      debugger
     }
   )
 
@@ -114,7 +115,7 @@ class Tool {
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
         <li>Condition: ${this.condition} </li>
-        <li>Rented by Customer: <a class="toolRentalsCount" href=#> ${this.rentalsCompleted.length} times</a> </li>
+        <li>Rented by Customer: <a class="toolRentalsCount" data-toolid=${this.id} href=#> ${this.rentalsCompleted.length} times</a> </li>
       </ul>
     `
     return val
