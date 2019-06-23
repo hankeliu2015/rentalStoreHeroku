@@ -18,7 +18,7 @@ const rentalsHistoryClickHandlers = function() {
       })
       })
     })
-    // repalced by above syntax. The following method for serialize the index. 
+    // repalced by above syntax. The following method for serialize the index.
     // $.get("/rentals.json", function(rentals) {
     //   rentals.forEach(function(rental, i) {
     //     let newRental = new Rental(rental);
@@ -37,15 +37,18 @@ const rentalsHistoryClickHandlers = function() {
     e.preventDefault();
     let id = parseInt(this.dataset["toolid"])
 
-    fetch(`/tools/${id}.json`)
-    .then(function(res){
-      return res.json()
-    })
-    .then(function(tool) {
-      let newTool = new Tool(tool)
-      let toolHTML = newTool.formatTool()
-      $(".show-tool").append(toolHTML)
-    })
+    window.location.href = `http://localhost:3000/tools/${id}`;
+
+    //stop render tool show page. instead of redirect to tool show page.
+    // fetch(`/tools/${id}.json`)
+    // .then(function(res){
+    //   return res.json()
+    // })
+    // .then(function(tool) {
+    //   let newTool = new Tool(tool)
+    //   let toolHTML = newTool.formatTool()
+    //   $(".show-tool").append(toolHTML)
+    // })
   })
 }
 
