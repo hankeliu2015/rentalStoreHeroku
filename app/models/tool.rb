@@ -15,6 +15,10 @@ class Tool < ApplicationRecord
     rentals.scheduled
   end
 
+  def rentals_completed
+    rentals.completed
+  end
+
   # moved the following to rental model:
   # def available_for_rent?
   #   rentals.where(return: false).empty?
