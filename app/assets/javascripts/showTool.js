@@ -45,7 +45,7 @@ const showToolClickHandlers = function(){
         }
         //keep data-toolid lowercase.
         let rentButtonHTML = `
-          <button type="button" class="rent-button" data-toolid=${id}>Rent</button>
+          <button type="button" class="rent-button" data-toolid=${id}>Check Availability</button>
           <br>
         `
         $("#tool-container").append(rentButtonHTML)
@@ -114,7 +114,7 @@ class Tool {
     let customized_return_date = new Date(this.rentalInProgress.return_date)
 
     let val = `
-      <h6>Tool is not available right now. Please schedule rental dates base on the return date: </h6>
+      <h6>Tool is not available right now. Please use the check availability button to find available dates to rent: </h6>
 
       <li>Rented on: ${customized_start_date.toDateString()} </li>
       <li style="color:maroon">Return Date: ${customized_return_date.toDateString()} </li>
