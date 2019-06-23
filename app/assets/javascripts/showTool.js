@@ -65,7 +65,7 @@ const showToolClickHandlers = function(){
     window.location.href = `http://localhost:3000/tools/${rentalToolId}/rentals/new`;
   })
 
-  $(document).on("click", ".toolRentalsCount", function(e) {
+  $(document).on("click", ".toolRentalsCounter", function(e) {
       e.preventDefault();
       let toolId = parseInt(e.target.dataset.toolid)
       // let toolRentalsCompleted = e.target.dataset.toolRentalsCount
@@ -88,7 +88,7 @@ const showToolClickHandlers = function(){
               <td>Returned: ${custom_return_date.toDateString()}</td>
             </tr>
           `
-         $(".toolRentalsCount").html(rentalHTML)
+         $(".toolRentalsList").append(rentalHTML)
         })
       })
   })
@@ -100,11 +100,6 @@ const displayToolCalendar = function(calObj) {
   if (calObj.style.display === 'none') {
     calObj.style.removeProperty('display');
     return calObj
-
-    // return $(".tool-calendar").html()
-    // the following also works.
-    // $(".tool-calendar").show()
-    // $(".tool-calendar").css({ display: "block" });
   }
 }
 
@@ -132,8 +127,11 @@ class Tool {
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
         <li>Condition: ${this.condition} </li>
-        <li>Rented by Customer: <a class="toolRentalsCount" data-toolid=${this.id} data-toolRentalsCount=${this.rentalsCompleted} href=#> ${this.rentalsCompleted.length} times</a> </li>
+        <li>Rented by Customer: <a class="toolRentalsCounter" data-toolid=${this.id} data-toolRentalsCount=${this.rentalsCompleted} href=#> ${this.rentalsCompleted.length} times</a> </li>
       </ul>
+        <table class="toolRentalsList">
+          <tr>Rentals list test</tr>
+        </table>
     `
     return val
   }
