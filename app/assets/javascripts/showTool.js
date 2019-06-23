@@ -93,6 +93,7 @@ class Tool {
     this.rentalInProgress = tool.rental_in_progress
     this.rentalOverdued = tool.rental_overdued
     this.rentalsScheduled = tool.rentals_scheduled
+    this.rentalsCompleted = tool.rentals_completed
   }
 
   formatTool() {
@@ -104,7 +105,7 @@ class Tool {
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
         <li>Condition: ${this.condition} </li>
-        <li>Rented by Customer: <a href=#>100 times</a> </li>
+        <li>Rented by Customer: <a href=#> ${this.rentalsCompleted.length} times</a> </li>
       </ul>
     `
     return val
