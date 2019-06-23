@@ -20,7 +20,7 @@
     <li>Category: <%= tool.category %></li>
 
     <%= button_to "Check Availability", new_tool_rental_path(tool), method: :get if user_signed_in? %>
-    <%= link_to "Rent it now", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? %>
+    <%= link_to "Rent it now", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? && !tool.rental_in_progress%>
 
     <div id="formDiscountRental-<%= tool.id %>">
     </div>
