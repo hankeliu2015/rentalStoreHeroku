@@ -73,21 +73,26 @@ const showToolClickHandlers = function(){
       $.get(`/tools/${toolId}.json`, function(resp_obj){
         let toolRentalsArray = resp_obj.rentals_completed;
         toolRentalsArray.forEach(function(rental, i) {
+          // debugger
+          let arrRental = [rental] //have to convert to array for Rental constructor in rentalsHistory.js
+
+          let eachRental = new Rental(arrRental)
+
+          let custom_start_date = new Date(eachRental.start_date)
+          let custom_return_date = new Date(eachRental.return_date)
+
           let rentalHTML = `
-            <p>test ${i+1} </p>
+            <tr>
+              <td>${i+1}.</td>
+              <td>Rented: ${custom_start_date.toDateString()}</td>
+              <td>Returned: ${custom_return_date.toDateString()}</td>
+            </tr>
           `
-
-         $(".toolRentalsCount").append(rentalHTML)
+         $(".toolRentalsCount").html(rentalHTML)
         })
-
       })
-
-    }
-  )
-
+  })
 }
-
-
 
 const displayToolCalendar = function(calObj) {
   // const toolCal = $(".tool-calendar")[0];
@@ -133,7 +138,7 @@ class Tool {
     return val
   }
 
-  formatToolRentalCompleted() {
+  formatToolRentalCompleted() { // not in use for now.
     let toolRentArr = this.toolRentalCompleted
   }
 
