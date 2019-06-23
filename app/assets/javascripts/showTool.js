@@ -68,14 +68,20 @@ const showToolClickHandlers = function(){
   $(document).on("click", ".toolRentalsCount", function(e) {
       e.preventDefault();
       let toolId = parseInt(e.target.dataset.toolid)
-      let toolRentalsCompleted = e.target.dataset.toolRentalsCount
+      // let toolRentalsCompleted = e.target.dataset.toolRentalsCount
 
       $.get(`/tools/${toolId}.json`, function(resp_obj){
-        debugger
+        let toolRentalsArray = resp_obj.rentals_completed;
+        toolRentalsArray.forEach(function(rental, i) {
+          let rentalHTML = `
+            <p>test ${i+1} </p>
+          `
+
+         $(".toolRentalsCount").append(rentalHTML)
+        })
 
       })
 
-      // $(".toolRentalsCount").append("<p>rentals list test</p>")
     }
   )
 
