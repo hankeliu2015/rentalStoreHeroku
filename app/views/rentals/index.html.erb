@@ -1,6 +1,6 @@
 <h5>Here is the pagination page test for Rentals model</h5>
 
-  <%#= paginate @rentals %>
+  <%= paginate @rentals %>
 
   <% @rentals.each_with_index do |rental, index|  %>
     <h6><%= "#{index+1}: " %> <%= rental.tool.name %></h6>
