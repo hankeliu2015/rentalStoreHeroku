@@ -6,8 +6,8 @@ class RentalsController < ApplicationController
     @rentals = Rental.all.page params[:page]   #testing pagination pages settings
 
 
-    # @user = User.find_by(id: current_user.id)
     @user = current_user
+    # @user = User.find_by(id: current_user.id)
 
     @in_prossession = @user.rentals.in_progress
     @overdue_items = @user.rentals.overdued
