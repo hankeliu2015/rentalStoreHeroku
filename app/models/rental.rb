@@ -10,7 +10,7 @@ class Rental < ApplicationRecord
   #validate reschedule_return with checkout and dates.
   validate :appropriate_reschedule_start_date, :appropriate_reschedule_end_date, on: :reschedule_return
 
-  paginates_per 8
+  paginates_per 12
   # max_paginates_per 5
 
   def available_for_rent?
