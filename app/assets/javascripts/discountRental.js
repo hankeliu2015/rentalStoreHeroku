@@ -32,31 +32,32 @@ function createDiscountRentalObj(e, idTool) {
     $(`#formDiscountRental-${idTool}`).html(errorMessage)
   })
 
-//   // fetch api causing unexpected tokent error.
-//   let valueCSRF = value[1].value
-//   fetch(
-//     `/tools/${idTool}/rentals.json`,
-//     {
-//       method: 'POST',
-//       headers: {
-//         // 'X-Requested-With': 'XMLHttpRequest',
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json',
-//         'X-CSRF-Token': valueCSRF // giving unexpected token error.
-//       },
-//       body: JSON.stringify(value),
-//       credentials: 'same-origin'
-//     }
-//   ).then(function(res){
-//     debugger
-//     return res.json()
-//   })
-//   .then(function(rental) {
-//     console.log(rental)
-//     let newRental = new Rental(rental)
-//     let rentalHTML = newRental.formatRental()
-//     $(`#formDiscountRental-${idTool}`).html(rentalHTML)
-//   })
-// })   //end of fetch
+//   // fetch api submit rental form - need rebuild params for rental#create.
+  // let valueCSRF = value[1].value
+  // debugger
+  // fetch(
+  //   `/tools/${idTool}/rentals.json`,
+  //   {
+  //     method: 'POST',
+  //     headers: {
+  //       // 'X-Requested-With': 'XMLHttpRequest',
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //       'X-CSRF-Token': valueCSRF
+  //     },
+  //     body: JSON.stringify(value),  //change to params, serializeArray contains different format.
+  //     credentials: 'same-origin'
+  //   }
+  // ).then(function(res){
+  //   // debugger
+  //   return res.json()
+  // })
+  // .then(function(rental) {
+  //   debugger  //param is missing or the value is empty: rental
+  //   console.log(rental)
+  //   let newRental = new Rental(rental)
+  //   let rentalHTML = newRental.formatRental()
+  //   $(`#formDiscountRental-${idTool}`).html(rentalHTML)
+  // })
 
 }
