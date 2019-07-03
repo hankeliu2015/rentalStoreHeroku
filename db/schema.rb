@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 2019_05_15_013628) do
     t.datetime "updated_at", null: false
     t.boolean "return", default: false
     t.datetime "actual_return_date"
-    t.boolean "picked_up"
-    t.boolean "returned"
     t.boolean "checkout", default: false
     t.index ["tool_id"], name: "index_rentals_on_tool_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
