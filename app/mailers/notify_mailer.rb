@@ -1,11 +1,13 @@
 class NotifyMailer < ApplicationMailer
-  def notification(user)
-    @user = user
+  def notification(rental)
+    @rental = rental
+    @tool = rental.tool
+    @user = rental.user
     mail(
-      from: @user.email,
-      to:"hanke.liu@gmail.com",
+      from: storeappnotifier@gmail.com,
+      to: @user.email,
       content_type: "text/plain",
-      subject: "Welcome #{{@user.name}} Register at Rental Store"
+      subject: "Thanks #{{@user.name}} for renting #{{@tool}}"
     )
   end
 end

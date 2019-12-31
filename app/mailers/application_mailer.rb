@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'storeappnotifier@gmail.comm'
+  default from: 'storeappnotifier@gmail.com'
   layout 'mailer'
 end
