@@ -4,10 +4,9 @@ class NotifyMailer < ApplicationMailer
     @tool = rental.tool
     @user = rental.user
     mail(
-      from: storeappnotifier@gmail.com,
       to: @user.email,
       content_type: "text/plain",
-      subject: "Thanks #{{@user.name}} for renting #{{@tool}}"
+      subject: "Thanks #{@user.username} for renting #{@tool}"
     )
   end
 end
