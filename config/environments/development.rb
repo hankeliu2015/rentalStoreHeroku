@@ -37,14 +37,27 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   #SMTP settings for Mailgun
-  ActionMailer::Base.smtp_settings = {
+  # ActionMailer::Base.smtp_settings = {
+  #   port: 587,
+  #   address: "smtp.mailgun.org",
+  #   domain: ENV["MAILGUN_DOMAIN"],
+  #   user_name: ENV["MAILGUN_USERNAME"],
+  #   password: ENV["MAILGUN_PASSWORD"],
+  #   authentication: 'plain',
+  # }
+
+  #SMTP setting from storeappnotifier@gmail account
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
     port: 587,
-    address: "smtp.mailgun.org",
-    domain: "my domain",
-    user_name: ENV["MAILGUN_USERNAME"],
-    password: ENV["MAILGUN_PASSWORD"],
+    domain: "gmail.com",
+    user_name: ENV["EMAIL_USER_NAME"],
+    password: ENV["EMAIL_PASSWORD"],
     authentication: 'plain',
-  }
+    enable_starttls_auto: true
+   }
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
