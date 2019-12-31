@@ -43,7 +43,7 @@ class RentalsController < ApplicationController
     @rental.return_date = Date.parse(params[:rental][:return_date])
 
     if @rental.save
-      NotifyMailer.notification(@rental).deliver_now
+      NotifyMailer.rental_confirmation(@rental).deliver_now
       respond_to do |format|
         format.html {redirect_to profile_path}
         format.json {render json: @rental}

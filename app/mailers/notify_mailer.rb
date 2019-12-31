@@ -1,5 +1,5 @@
 class NotifyMailer < ApplicationMailer
-  def notification(rental)
+  def rental_confirmation(rental)
     @rental = rental
     @tool = rental.tool
     @user = rental.user
