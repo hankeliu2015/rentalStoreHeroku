@@ -1,5 +1,5 @@
 Hi <%= @user.username %>,
 
-Thanks for renting <%= "#{@tool.name}"%>.
+Thanks for renting <%= "#{@tool.name}"%>. lease return it before <%= @rental.return_date.strftime("%a, %b %e, %y") %>.
 
 Have a great day!

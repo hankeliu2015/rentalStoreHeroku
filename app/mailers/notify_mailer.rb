@@ -6,7 +6,7 @@ class NotifyMailer < ApplicationMailer
     mail(
       to: @user.email,
       content_type: "text/plain",
-      subject: "Thanks #{@user.username} for renting #{@tool}"
+      subject: "Thanks #{@user.username} for renting #{@tool.name}"
     )
   end
 end
