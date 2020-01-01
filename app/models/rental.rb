@@ -110,6 +110,10 @@ class Rental < ApplicationRecord
     checked_out?.not_returned.current_date_between_start_return
   end
 
+  def self.aday_before_return
+    #all the in_progress rentals , which current date is one day way from return date. 
+  end
+
   # def self.in_possession #replaced by in_progress
   #   where(return: false).select {|rental|
   #     rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")

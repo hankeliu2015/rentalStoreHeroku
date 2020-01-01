@@ -13,7 +13,15 @@ class UsersController < ApplicationController
 
       @overdue_items = current_user.rentals.overdued
 
-      @user = current_user #use @user to render serializer. 
+      @aday_before_return_rentals = current.user.rentals.aday_before_return
+
+      if @aday_before_return_rentals
+        @aday_before_return_rentals.each do |rental|
+          NotifyMailer.return_reminder(rental).delivery_now
+        end
+      end
+
+      @user = current_user #use @user to render serializer.
 
       respond_to do |f|
         f.html {render :show}
