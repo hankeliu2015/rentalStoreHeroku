@@ -111,7 +111,10 @@ class Rental < ApplicationRecord
   end
 
   def self.aday_before_return
-    #all the in_progress rentals , which current date is one day way from return date. 
+    #all the in_progress rentals , which current date is one day way from return date.
+    self.not_returned.select {|rental|
+      rental if (rental.return_date.to_date - Date.today).to_i == 2
+    }
   end
 
   # def self.in_possession #replaced by in_progress
