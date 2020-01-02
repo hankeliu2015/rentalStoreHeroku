@@ -21,7 +21,7 @@ class NotifyMailer < ApplicationMailer
     )
   end
 
-  def monthly_rental_report(rentals, current_user)
+  def monthly_report(rentals, current_user)
     @rentals = rentals
     @user = current_user
     mail(

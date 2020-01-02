@@ -35,6 +35,10 @@ class UsersController < ApplicationController
 
   # use current_user to replace user id in URL. repalce all @user with current_user
 
+  def user_monthly_report
+    NotifyMailer.monthly_report(@rentals, current_user).deliver_now
+  end
+
   private
   def set_user
     @user = User.find_by(id: params[:id])
