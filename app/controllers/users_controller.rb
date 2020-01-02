@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def user_monthly_report
     # raise params.inspect
     @user = current_user
-    @rentals = Rental.not_returned
+    @rentals = Rental.past30days_rentals
     NotifyMailer.monthly_report(@rentals, @user).deliver_now
     redirect_to :root
   end

@@ -117,11 +117,9 @@ class Rental < ApplicationRecord
     }
   end
 
-  # def self.in_possession #replaced by in_progress
-  #   where(return: false).select {|rental|
-  #     rental if rental.start_date.strftime("%m/%d/%Y") <= Date.today.strftime("%m/%d/%Y") && rental.return_date.strftime("%m/%d/%Y") >= Date.today.strftime("%m/%d/%Y")
-  #     }
-  # end
+  def self.past30days_rentals
+    Rental.where("start_date >= ?", 30.days.ago)
+  end
 
   def self.scheduled
 
