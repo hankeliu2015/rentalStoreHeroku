@@ -21,13 +21,13 @@ class NotifyMailer < ApplicationMailer
     )
   end
 
-  def mothly_rental_report(rentals, current_user)
+  def monthly_rental_report(rentals, current_user)
     @rentals = rentals
     @user = current_user
     mail(
       to: @user.email,
       # content_type: "text/plain",
-      subject: "Monthly Rental Report for #{{@user}}"
+      subject: "Monthly Rental Report for #{@user}"
     )
   end
 
