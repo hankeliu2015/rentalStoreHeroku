@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'rentals/discount', to: 'rentals#create_discount_rental'
   get 'rentals/new'
   get 'profile', to: 'users#show'
+  get 'profile/monthly', to: 'users#user_monthly_report'
   get 'rentals', to: 'rentals#index'
 
   # resources :users, only: [:show] do

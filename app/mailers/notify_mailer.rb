@@ -21,9 +21,9 @@ class NotifyMailer < ApplicationMailer
     )
   end
 
-  def monthly_report(rentals, current_user)
+  def monthly_report(rentals, user)
     @rentals = rentals
-    @user = current_user
+    @user = user
     mail(
       to: @user.email,
       # content_type: "text/plain",
