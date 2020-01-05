@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def user_monthly_report
     # raise params.inspect
     @user = current_user
-    @rentals = Rental.past30days_rentals
+    @rentals = @user.rentals.past30days_rentals
     # if @rentals
     #   flash[:success] = "Successfully generated User's monthly Rental Report"
     # end
