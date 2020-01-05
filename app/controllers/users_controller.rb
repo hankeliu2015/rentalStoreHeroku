@@ -13,13 +13,13 @@ class UsersController < ApplicationController
 
       @overdue_items = current_user.rentals.overdued
 
-      @aday_before_return_rentals = current_user.rentals.aday_before_return
-
-      if @aday_before_return_rentals
-        @aday_before_return_rentals.each do |rental|
-          NotifyMailer.return_reminder(rental).deliver_now
-        end
-      end
+      # @aday_before_return_rentals = current_user.rentals.aday_before_return
+      #
+      # if @aday_before_return_rentals
+      #   @aday_before_return_rentals.each do |rental|
+      #     NotifyMailer.return_reminder(rental).deliver_now
+      #   end
+      # end
 
       @user = current_user #use @user to render serializer.
 
