@@ -39,6 +39,9 @@ class UsersController < ApplicationController
     # raise params.inspect
     @user = current_user
     @rentals = Rental.past30days_rentals
+    # if @rentals
+    #   flash[:success] = "Successfully generated User's monthly Rental Report"
+    # end
     NotifyMailer.monthly_report(@rentals, @user).deliver_now
     redirect_to :root
   end

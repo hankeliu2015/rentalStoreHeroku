@@ -46,7 +46,7 @@ Rails.application.configure do
   #   authentication: 'plain',
   # }
 
-  #SMTP setting from storeappnotifier@gmail account
+  SMTP setting from storeappnotifier@gmail account
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
