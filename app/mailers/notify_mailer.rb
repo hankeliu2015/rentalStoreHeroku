@@ -33,7 +33,7 @@ class NotifyMailer < ApplicationMailer
 
   def welcome_email(user)
     @user = user
-    mail (
+    mail(
       to: @user.email,
       subject: "Welcome to Henry's Rental Store"
     )
