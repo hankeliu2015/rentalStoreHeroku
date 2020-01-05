@@ -3,6 +3,14 @@ before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
     @tools = Tool.all
+
+    @aday_before_return_rentals = Rental.aday_before_return
+
+    if @aday_before_return_rentals
+      @aday_before_return_rentals.each do |rental|
+        NotifyMailer.return_reminder(rental).deliver_now
+      end
+    end
   end
 
   def show

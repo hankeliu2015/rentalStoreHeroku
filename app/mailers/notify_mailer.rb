@@ -17,7 +17,7 @@ class NotifyMailer < ApplicationMailer
     mail(
       to: @user.email,
       # content_type: "text/plain",
-      subject: "The tool #{@tool.name} you rented is due tomorrow. Please renew or return"
+      subject: "Return reminder for tool #{@tool.name}, Please renew or return"
     )
   end
 
