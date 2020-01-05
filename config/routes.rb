@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   #get 'users/show'
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+   # set route for confirm email after register
+   # resource :users do
+   #   member do
+   #     get :confirm_email
+   #   end
+   # end
   # resources :users, only: [:show]
   # devise_for :users
 
