@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     @in_prossession = @user.rentals.in_progress
     @overdue_items = @user.rentals.overdued
     @past_rented_tools = @user.rentals.completed
-    
+
 
     respond_to do |format|
       format.html {render :index}
@@ -44,7 +44,7 @@ class RentalsController < ApplicationController
     @rental.return_date = Date.parse(params[:rental][:return_date])
 
     if @rental.save
-      NotifyMailer.rental_confirmation(@rental).deliver_now
+      # NotifyMailer.rental_confirmation(@rental).deliver_now
       respond_to do |format|
         format.html {redirect_to profile_path}
         format.json {render json: @rental}

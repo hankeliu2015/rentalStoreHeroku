@@ -43,6 +43,8 @@ class UsersController < ApplicationController
     #   flash[:success] = "Successfully generated User's monthly Rental Report"
     # end
     NotifyMailer.monthly_report(@rentals, @user).deliver_now
+    flash[:alert] = "Monthly Email report is sent to your email."
+
     redirect_to :root
   end
 

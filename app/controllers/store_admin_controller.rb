@@ -12,7 +12,7 @@ class StoreAdminController < ApplicationController
       NotifyMailer.monthly_report(@rentals, @user).deliver_now
     end
 
-    flash[:alert] = "Monthly Eamil report is sent to all users."
+    flash[:alert] = "Monthly Email report is sent to all users."
     redirect_to store_admin_dashboard_path
   end
 
@@ -25,7 +25,7 @@ class StoreAdminController < ApplicationController
       end
     end
 
-    flash[:alert] = "Monthly Eamil report is sent to all users."
+    flash[:alert] = "Monthly Email report is sent to all users."
     redirect_to store_admin_dashboard_path
   end
 
