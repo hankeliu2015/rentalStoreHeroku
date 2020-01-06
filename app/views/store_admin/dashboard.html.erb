@@ -1,4 +1,5 @@
 <h4>Welcome to Store Admin Dashboard</h4>
+<br>
 
 <h5>Registered Users:</h5>
 
@@ -13,6 +14,14 @@
 
 <ol>
   <% @tools.each do |tool| %>
-  <li><%= tool.name %></li>
+  <li><%= tool.name %>, Status: <%= tool.rentals.last.return ? "In Store" : "Rented" %></li>
   <% end  %>
 </ol>
+
+<h5>Email Notifier for Users:</h5>
+
+<ul>
+  <li><%= link_to "Monthly Rental Report for all users"  %></li>
+
+  <li><%= link_to "Rental Return Reminder Email" %></li>
+</ul>
