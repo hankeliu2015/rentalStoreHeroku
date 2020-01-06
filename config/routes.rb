@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'store_admin/dashboard'
   #get 'users/show'
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
    # set route for confirm email after register
