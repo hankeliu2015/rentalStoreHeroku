@@ -1,0 +1,11 @@
+<h4>Hi <%= @user.username %>, </h4>
+
+<p>Here is a report for your rentals in the past month</p>
+
+<ul>
+  <% @rentals.each do |rental| %>
+  <li><%= rental.tool.name %> rented at: <%= rental.start_date.to_date %>; Return Date: <%= rental.return_date.to_date %> User: <%= @user.username %></li>
+  <% end %>
+</ul>
+
+<p>Have a great day!</p>

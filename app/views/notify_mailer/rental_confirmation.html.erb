@@ -1,0 +1,5 @@
+<h4>Hi <%= @user.username %>, </h4>
+
+<p>Thanks for renting <%= @tool.name %>. Please return it before <%= @rental.return_date.strftime("%a, %b %e, %y") %>.</p>
+
+<p>Have a great day!</p>

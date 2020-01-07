@@ -13,7 +13,15 @@ class UsersController < ApplicationController
 
       @overdue_items = current_user.rentals.overdued
 
-      @user = current_user #use @user to render serializer. 
+      # @aday_before_return_rentals = current_user.rentals.aday_before_return
+      #
+      # if @aday_before_return_rentals
+      #   @aday_before_return_rentals.each do |rental|
+      #     NotifyMailer.return_reminder(rental).deliver_now
+      #   end
+      # end
+
+      @user = current_user #use @user to render serializer.
 
       respond_to do |f|
         f.html {render :show}
@@ -26,6 +34,19 @@ class UsersController < ApplicationController
   end
 
   # use current_user to replace user id in URL. repalce all @user with current_user
+
+  def user_monthly_report
+    # raise params.inspect
+    @user = current_user
+    @rentals = @user.rentals.past30days_rentals
+    # if @rentals
+    #   flash[:success] = "Successfully generated User's monthly Rental Report"
+    # end
+    NotifyMailer.monthly_report(@rentals, @user).deliver_now
+    flash[:alert] = "Monthly Email report is sent to your email."
+
+    redirect_to :root
+  end
 
   private
   def set_user

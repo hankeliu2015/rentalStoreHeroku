@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  get 'store_admin/dashboard'
+  get 'store_admin/email_monthly_report'
+  get 'store_admin/aday_return_reminder'
+
   #get 'users/show'
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+   # set route for confirm email after register
+   # resource :users do
+   #   member do
+   #     get :confirm_email
+   #   end
+   # end
   # resources :users, only: [:show]
   # devise_for :users
 
@@ -18,6 +28,7 @@ Rails.application.routes.draw do
   post 'rentals/discount', to: 'rentals#create_discount_rental'
   get 'rentals/new'
   get 'profile', to: 'users#show'
+  get 'profile/monthly', to: 'users#user_monthly_report'
   get 'rentals', to: 'rentals#index'
 
   # resources :users, only: [:show] do

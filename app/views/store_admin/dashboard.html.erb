@@ -1,0 +1,27 @@
+<h4>Welcome to Store Admin Dashboard</h4>
+<br>
+
+<h5>Registered Users:</h5>
+
+<ol>
+  <% @users.each do |user| %>
+  <li><%= user.username %></li>
+  <% end  %>
+</ol>
+
+
+<h5>Tools for Rent:</h5>
+
+<ol>
+  <% @tools.each do |tool| %>
+  <li><%= tool.name %>, Status: <%= tool.rentals.last.return ? "In Store" : "Rented" %></li>
+  <% end  %>
+</ol>
+
+<h5>Email Notifier for Users:</h5>
+
+<ul>
+  <li><%= link_to "Monthly Rental Report for all users", store_admin_email_monthly_report_path %></li>
+
+  <li><%= link_to "Rental Return Reminder Email", store_admin_aday_return_reminder_path %></li>
+</ul>
