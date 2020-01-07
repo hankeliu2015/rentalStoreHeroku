@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'store_admin/dashboard'
   get 'store_admin/email_monthly_report'
   get 'store_admin/aday_return_reminder'
+  get 'store_admin/api_welcome_message'
 
   #get 'users/show'
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
