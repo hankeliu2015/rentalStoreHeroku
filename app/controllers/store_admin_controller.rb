@@ -33,11 +33,13 @@ class StoreAdminController < ApplicationController
     @user = current_user
     RestClient.post "https://api:#{ENV["MAILGUN_APIKEY"]}"\
     "@api.mailgun.net/v3/#{ENV["MAILGUN_DOMAIN"]}/messages",
-    :from => "Excited User <mailgun@#{ENV["MAILGUN_DOMAIN"]}>",
-    :to => "hanke.liu@gmail.com",
+    :from => "#{@user.username} <mailgun@#{ENV["MAILGUN_DOMAIN"]}>",
+    :to => "#{@user.email}",
     :subject => "Welcome Message Testing",
     :text => "Hi, Testing some Mailgun awesomness!"
 
+    flash[:alert] = "Welcome email send to #{@user.username}."
+    redirect_to store_admin_dashboard_path
 
   end
 
