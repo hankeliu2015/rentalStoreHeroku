@@ -39,14 +39,14 @@ Rails.application.configure do
 
   ## SMTP settings for Mailgun
 
-  ActionMailer::Base.smtp_settings = {
-    port: 587,
-    address: "smtp.mailgun.org",
-    domain: ENV["MAILGUN_DOMAIN"],
-    user_name: ENV["MAILGUN_USERNAME"],
-    password: ENV["MAILGUN_PASSWORD"],
-    authentication: 'plain',
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   port: 587,
+  #   address: "smtp.mailgun.org",
+  #   domain: ENV["MAILGUN_DOMAIN"],
+  #   user_name: ENV["MAILGUN_USERNAME"],
+  #   password: ENV["MAILGUN_PASSWORD"],
+  #   authentication: 'plain',
+  # }
 
   # SMTP setting from storeappnotifier@gmail account:
 

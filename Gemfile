@@ -56,6 +56,7 @@ group :development, :test do
   gem 'pry'
   gem 'thin'
   gem 'rb-readline'
+  gem 'rest-client'
 end
 
 group :development do
