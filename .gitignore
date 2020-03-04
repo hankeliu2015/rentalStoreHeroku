@@ -32,4 +32,4 @@
 
 note.md
 .env
-/app/assets/images/*.jpg
+/app/assets/images/*
