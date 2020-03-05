@@ -10,20 +10,51 @@
       <div class="row">
         <div class="col-md-4">
           <h3>Currently Renting</h3>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2 </li>
-          </ul>
+            <% @in_prossession.each do |rental| %>
+            <ul>
+              <h5><%=rental.tool.name %></h5>
+              <div class="tool_image">
+                <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+              </div>
+              <li>Start on: <%= display_start_date(rental) %></li>
+              <li>Return on: <%= display_return_date(rental)%></li>
+              <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
+              <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
+            </ul>
+            <% end %>
         </div>
         <div class="col-md-4">
           <h3>Scheduled for Renting</h3>
-          <li>Item 1</li>
-          <li>Item 2 </li>
+            <% @scheduled_rentals.each do |rental| %>
+            <ul>
+              <h5><%=rental.tool.name %></h5>
+              <div class="tool_image">
+                <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+              </div>
+              <li>Start on: <%= display_start_date(rental) %></li>
+              <li>Return on: <%= display_return_date(rental)%></li>
+              <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
+              <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
+              <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
+            </ul>
+            <% end %>
         </div>
+
         <div class="col-md-4">
-          <h3>Waiting for checkout</h3>
-          <li>Item 1</li>
-          <li>Item 2 </li>
+          <h3>Forget to checkout</h3>
+            <% @forget_checkout.each do |rental| %>
+            <ul>
+              <h5><%=rental.tool.name %></h5>
+              <div class="tool_image">
+                <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+              </div>
+              <li>Start on: <%= display_start_date(rental) %></li>
+              <li>Return on: <%= display_return_date(rental)%></li>
+              <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
+              <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
+              <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
+            </ul>
+            <% end %>
         </div>
       </div>
     </div>
@@ -32,58 +63,9 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <h4>Tools you currently renting:</h4>
-      <% @in_prossession.each do |rental| %>
-      <ul>
-        <h5><%=rental.tool.name %></h5>
-        <div class="tool_image">
-          <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
-        </div>
-        <li>Start on: <%= display_start_date(rental) %></li>
-        <li>Return on: <%= display_return_date(rental)%></li>
-        <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
-        <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
-
-      </ul>
-      <% end %>
     </div>
 
     <div class="col-sm-6">
-      <h4>Tools scheduled for renting:</h4>
-
-        <% @scheduled_rentals.each do |rental| %>
-        <ul>
-          <h5><%=rental.tool.name %></h5>
-          <div class="tool_image">
-            <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
-          </div>
-          <li>Start on: <%= display_start_date(rental) %></li>
-          <li>Return on: <%= display_return_date(rental)%></li>
-          <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
-          <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
-          <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
-        </ul>
-        <% end %>
-        <br>
-
-        <h4>Tools forget to checkout:</h4>
-
-          <% @forget_checkout.each do |rental| %>
-          <ul>
-            <h5><%=rental.tool.name %></h5>
-            <div class="tool_image">
-              <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
-            </div>
-            <li>Start on: <%= display_start_date(rental) %></li>
-            <li>Return on: <%= display_return_date(rental)%></li>
-            <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
-            <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
-            <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
-          </ul>
-          <% end %>
-
-        <br>
-
         <h4 style="color:maroon">Your have following tools Overdue:</h4>
         <% @overdue_items.each do |rental|  %>
           <ul>
