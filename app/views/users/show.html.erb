@@ -1,8 +1,40 @@
 <div class="jumbotron">
     <div class="container">
       <h1><%= current_user.username %>'s Store Account</h1>
-      <p>Please check the following reminder for tool rental's return and pickup. thanks!</p>
+
+       <% if @overdue_items.first %>
+         <h4 style="color:maroon">Your have following tools Overdue. Please return or renew your rentals. Thanks!</h4>
+         <% else %>
+         <h4>All your rentals were returned on time. Thanks!</h4>
+       <% end %>
+
+        <% @overdue_items.each do |rental|  %>
+          <ul>
+            <h5><%= rental.tool.name %></h5>
+            <div class="tool_image">
+              <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+            </div>
+            <li>Return Date: <%= display_return_date(rental) %></li>
+            <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
+            <%= button_to "Return Tool", tool_rental_path(rental.tool, rental), method: :patch %>
+          </ul>
+        <% end %>
       <p><a class="btn btn-primary btn-lg" href="jsreview.html" role="button">Check Rental History</a></p>
+      <div class="fall-below" id="rentals-history">
+        <%= link_to 'Please click here for your rentals history:', rentals_path %>
+      </div>
+
+      <table>
+        <thead>
+          <th>Item</th>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>Return Date</th>
+        </thead>
+        <tbody id="list-rentals-history">
+
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -58,43 +90,3 @@
         </div>
       </div>
     </div>
-
-<div class="container">
-
-  <div class="row">
-    <div class="col-sm-6">
-    </div>
-
-    <div class="col-sm-6">
-        <h4 style="color:maroon">Your have following tools Overdue:</h4>
-        <% @overdue_items.each do |rental|  %>
-          <ul>
-            <h5><%= rental.tool.name %></h5>
-            <div class="tool_image">
-              <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
-            </div>
-            <li>Return Date: <%= display_return_date(rental) %></li>
-            <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
-            <%= button_to "Return Tool", tool_rental_path(rental.tool, rental), method: :patch %>
-          </ul>
-        <% end %>
-
-        <div class="fall-below" id="rentals-history">
-          <%= link_to 'Please click here for your rentals history:', rentals_path %>
-        </div>
-        <table>
-          <thead>
-            <th>Item</th>
-            <th>Name</th>
-            <th>Start Date</th>
-            <th>Return Date</th>
-          </thead>
-          <tbody id="list-rentals-history">
-
-          </tbody>
-        </table>
-
-    </div>
-
-  </div>
-</div>
