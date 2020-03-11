@@ -33,23 +33,47 @@
 background-color: maroon;
 }
 
-.tool_image {
-  grid-area: img;
- float: block;
- // padding: 10px;
- box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-              0.125em 0.125em 0.25em rgba(0,0,0,.15);
+// tool index page / Home page customize
+
+.home_page_greeting {
+  vertical-align: center;
+  text-align: center;
+  font-size: 1.5em;
+  color: #f96302;
 }
 
-.tool_image_user_page {
- float: left;
- // padding: 0.35em;
+.home_page_banner {
+  // vertical-align: bottom;
+  // color: grey;
+  // text-align: center;
+  // color: #f96302;
+  margin-top: .6em;
+  background-image: image-url("power-tools.png");
+  background-size: contain;
+  background-blend-mode: screen;
+  height: 5em;
+}
+.tool_header_name {
+  display: block;
+  border-bottom: 1px solid #f96302;
+  color: f7f7f7;
+}
+.tool_header_name:visited {
+  text-decoration: none;
+}
+.tool_header_name a {
+  color: #212529;
+  text-decoration: none;
+}
+
+.tool_header_name a:hover {
+  color: #f96302;
 }
 
 .tool_image_description_container {
   display: grid;
   // width: min-content;
-  grid-column-gap: 1.2em;
+  grid-column-gap: 1.8em;
   grid-template-areas:
     // "tool_image tool_price"
     // "tool_image tool_condition"
@@ -63,6 +87,26 @@ background-color: maroon;
     "img cat";
 
     grid-template-columns: 150px 1fr;
+}
+
+.tool_image {
+  grid-area: img;
+  float: block;
+  // padding: 10px;
+  box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+  0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+.tool_button_check_avail {
+  // display: inline-block;
+  margin: auto;
+  text-align: right;
+}
+// user page customize
+
+.tool_image_user_page {
+  float: left;
+  // padding: 0.35em;
 }
 
 .tool_price {
