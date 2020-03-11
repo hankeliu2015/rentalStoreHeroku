@@ -23,7 +23,6 @@
   margin: 30px;
 }
 
-
 .field_with_errors {
   color: red;
   display: inline-block;
@@ -34,7 +33,12 @@
 background-color: maroon;
 }
 
-// tool index page customize
+// tool index page / Home page customize
+
+.home_page_greeting {
+  background-image: image-url("power-tools.png");
+  // background-color: maroon;
+}
 .tool_header_name {
   border-bottom: 1px solid #999;
 }

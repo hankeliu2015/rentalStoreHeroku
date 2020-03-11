@@ -1,4 +1,7 @@
-<h3>Hi, <%= current_user.username if current_user %>! Welcome to our store. </h3>
+
+<section class="home_page_greeting">
+  <h3>Hi, <%= current_user.username if current_user %>! Welcome to our store. </h3>
+</section>
 
 <p><%#= link_to "Login", new_user_session_path %> <%#= link_to "Sign Up", new_user_registration_path %> <%#= link_to "User Show Page", user_path(current_user) if current_user %> </p>
 
