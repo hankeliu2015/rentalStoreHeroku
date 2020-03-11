@@ -33,23 +33,10 @@
 background-color: maroon;
 }
 
-.tool_image {
-  grid-area: img;
- float: block;
- // padding: 10px;
- box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-              0.125em 0.125em 0.25em rgba(0,0,0,.15);
-}
-
-.tool_image_user_page {
- float: left;
- // padding: 0.35em;
-}
-
 .tool_image_description_container {
   display: grid;
   // width: min-content;
-  grid-column-gap: 1.2em;
+  grid-column-gap: 1.8em;
   grid-template-areas:
     // "tool_image tool_price"
     // "tool_image tool_condition"
@@ -63,6 +50,19 @@ background-color: maroon;
     "img cat";
 
     grid-template-columns: 150px 1fr;
+}
+
+.tool_image {
+  grid-area: img;
+  float: block;
+  // padding: 10px;
+  box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+  0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+.tool_image_user_page {
+  float: left;
+  // padding: 0.35em;
 }
 
 .tool_price {
