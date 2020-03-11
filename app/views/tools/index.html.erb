@@ -8,7 +8,7 @@
   <% @tools.each do |tool| %>
   <ul>
 
-    <h3><%= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3>
+    <h3 class="tool_header_name"><%= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3>
 
     <section class="tool_image_description_container">
       <div class="tool_image">
