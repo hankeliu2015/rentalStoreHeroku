@@ -36,12 +36,40 @@ background-color: maroon;
 // tool index page / Home page customize
 
 .home_page_greeting {
+  vertical-align: center;
+  color: grey;
+  text-align: center;
+  color: #f96302;
+}
+
+.home_page_banner {
+  // vertical-align: bottom;
+  // color: grey;
+  // text-align: center;
+  // color: #f96302;
+  margin-top: .6em;
   background-image: image-url("power-tools.png");
-  // background-color: maroon;
+  background-size: contain;
+  background-blend-mode: screen;
+  height: 6em;
 }
 .tool_header_name {
-  border-bottom: 1px solid #999;
+  display: block;
+  border-bottom: 1px solid #f96302;
+  color: f7f7f7;
 }
+.tool_header_name:visited {
+  text-decoration: none;
+}
+.tool_header_name a {
+  color: #212529;
+  text-decoration: none;
+}
+
+.tool_header_name a:hover {
+  color: #f96302;
+}
+
 .tool_image_description_container {
   display: grid;
   // width: min-content;
