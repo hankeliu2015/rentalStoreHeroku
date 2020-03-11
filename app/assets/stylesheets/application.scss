@@ -37,8 +37,8 @@ background-color: maroon;
 
 .home_page_greeting {
   vertical-align: center;
-  color: grey;
   text-align: center;
+  font-size: 1.5em;
   color: #f96302;
 }
 
@@ -51,7 +51,7 @@ background-color: maroon;
   background-image: image-url("power-tools.png");
   background-size: contain;
   background-blend-mode: screen;
-  height: 6em;
+  height: 5em;
 }
 .tool_header_name {
   display: block;
