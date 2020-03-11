@@ -35,7 +35,7 @@
             <% @in_prossession.each do |rental| %>
             <ul>
               <h5><%=rental.tool.name %></h5>
-              <div class="tool_image">
+              <div class="tool_image_user_page">
                 <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
               </div>
               <li>Start on: <%= display_start_date(rental) %></li>

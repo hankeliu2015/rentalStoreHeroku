@@ -31,6 +31,14 @@ background-color: maroon;
 
 .tool_image {
  float: left;
+ // padding: 10px;
+ box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+              0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+.tool_image_user_page {
+ float: left;
+ // padding: 0.35em;
 }
 
 .fall-below {
@@ -42,7 +50,7 @@ background-color: maroon;
 //   margin-bottom: 0;
 // }
 
-// user page style 
+// user page style
 .user_rental_page {
   padding-top: 0px;
   background: #3E4649;
