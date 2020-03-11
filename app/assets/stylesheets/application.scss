@@ -14,7 +14,11 @@
  */
 
 @import "bootstrap";
-
+// *,
+// *::before,
+// *::after {
+//     box-sizing: border-box;
+// }
 :root {
   margin: 30px;
 }
@@ -30,7 +34,8 @@ background-color: maroon;
 }
 
 .tool_image {
- float: left;
+  grid-area: img;
+ float: block;
  // padding: 10px;
  box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
               0.125em 0.125em 0.25em rgba(0,0,0,.15);
@@ -40,6 +45,42 @@ background-color: maroon;
  float: left;
  // padding: 0.35em;
 }
+
+.tool_image_description_container {
+  display: grid;
+  // width: min-content;
+  grid-column-gap: 1.2em;
+  grid-template-areas:
+    // "tool_image tool_price"
+    // "tool_image tool_condition"
+    // "tool_image tool_brand"
+    // "tool_image tool_description"
+    // "tool_image tool_category";
+    "img p"
+    "img con"
+    "img b"
+    "img d"
+    "img cat";
+
+    grid-template-columns: 150px 1fr;
+}
+
+.tool_price {
+  grid-area: p;
+}
+.tool_condition {
+  grid-area: con;
+}
+.tool_brand {
+  grid-area: b;
+}
+.tool_description {
+  grid-area: d;
+}
+.tool_category {
+  grid-area: cat;
+}
+
 
 .fall-below {
   clear: left;

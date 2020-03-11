@@ -7,17 +7,21 @@
 
   <% @tools.each do |tool| %>
   <ul>
+
     <h3><%= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3>
 
-    <div class="tool_image">
-      <%= image_tag(tool.image, size: "150x150",  alt: tool.image) %>
-    </div>
+    <section class="tool_image_description_container">
+      <div class="tool_image">
+        <%= image_tag(tool.image, size: "150x150",  alt: tool.image) %>
+      </div>
 
-    <li>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
-    <li>Condition: <%= tool.condition %></li>
-    <li>Brand: <%= tool.brand %></li>
-    <li>Description: <%= tool.description %></li>
-    <li>Category: <%= tool.category %></li>
+      <p class='tool_price'>Rental Price Per Day: <%= "$#{tool.rental_price}" %></p>
+      <p class="tool_condition">Condition: <%= tool.condition %></p>
+      <p calss="tool_brand">Brand: <%= tool.brand %></p>
+      <p class="tool_description">Description: <%= tool.description %></p>
+      <p class="tool_category">Category: <%= tool.category %></p>
+
+  </section>
 
     <%= button_to "Check Availability", new_tool_rental_path(tool), method: :get if user_signed_in? %>
     <%= link_to "Rent it now", '#', id: 'discount-rental', data: {tool_id: tool.id} if user_signed_in? && !tool.rental_in_progress%>
