@@ -3,24 +3,28 @@
   <div class="jumbotron">
     <div class="container">
       <h1><%= current_user.username %>'s Store Account</h1>
-
        <% if @overdue_items.first %>
          <p style="color:maroon">Your have following tools Overdued. Please return or renew your rentals. Thanks!</p>
          <% else %>
          <h4>All your rentals were returned on time. Thanks!</h4>
        <% end %>
 
-        <% @overdue_items.each do |rental|  %>
-          <ul>
-            <h5><%= rental.tool.name %></h5>
-            <div class="tool_image">
-              <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
-            </div>
-            <li>Return Date: <%= display_return_date(rental) %></li>
-            <li>Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
-            <%= button_to "Return Tool", tool_rental_path(rental.tool, rental), method: :patch %>
-          </ul>
-        <% end %>
+       <% @overdue_items.each do |rental|  %>
+        <div class="tool_unreturned">
+
+           <div class="tool_image_unreturned">
+             <%= image_tag(rental.tool.image, size: "85x85",  alt: rental.tool.image) %>
+           </div>
+
+           <li class="tool_name_unreturned">Tool Name: <%= rental.tool.name %></li>
+           <li class="tool_date_unreturned">Return Date: <%= display_return_date(rental) %></li>
+           <li class="tool_date_overdued">Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
+
+        </div>
+        <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
+       <% end %>
+
+
         <br>
         <br>
       <p><a class="btn btn-primary btn-lg" href="jsreview.html" role="button">Check Rental History</a></p>

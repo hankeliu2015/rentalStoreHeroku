@@ -91,7 +91,7 @@ background-color: maroon;
 
 .tool_image {
   grid-area: img;
-  float: block;
+  float: inline-block;
   // padding: 10px;
   box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
   0.125em 0.125em 0.25em rgba(0,0,0,.15);
@@ -101,12 +101,6 @@ background-color: maroon;
   // display: inline-block;
   margin: auto;
   text-align: right;
-}
-// user page customize
-
-.tool_image_user_page {
-  float: left;
-  // padding: 0.35em;
 }
 
 .tool_price {
@@ -125,6 +119,42 @@ background-color: maroon;
   grid-area: cat;
 }
 
+// user page customize
+.user_rental_page {
+  padding-top: 0px;
+  // background: #3E4649;
+  // color: #f7f7f7;
+  font-family: 'segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tool_unreturned {
+  display: grid;
+  grid-gap: 5px;
+  grid-template: repeat(3, 30px) / repeat(4, 120px);
+}
+.tool_image_unreturned {
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
+}
+.tool_name_unreturned {
+  grid-row: 1 / 2;
+  grid-column: 2 / -1;
+}
+.tool_date_unreturned {
+  grid-row: 2 / 3;
+  grid-column: 2 / -1;
+}
+.tool_date_overdued {
+  grid-row: 3 / -1;
+  grid-column: 2 / -1;
+}
+
+
+
+// .tool_image_user_page {
+//   float: left;
+//   // padding: 0.35em;
+// }
 
 .fall-below {
   clear: left;
@@ -134,11 +164,3 @@ background-color: maroon;
 // .navbar-nav {
 //   margin-bottom: 0;
 // }
-
-// user page style
-.user_rental_page {
-  padding-top: 0px;
-  background: #3E4649;
-  color: #f7f7f7;
-  font-family: 'segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
