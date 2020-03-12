@@ -147,6 +147,7 @@ background-color: maroon;
 }
 .tool_date_overdued {
   color: #f96302;
+
   grid-row: 3 / -1;
   grid-column: 2 / -1;
 }
@@ -162,7 +163,7 @@ background-color: maroon;
   grid-gap: 5px;
   grid-template: repeat(5, 30px) / repeat(3, 120px);
 }
-.tool_satus_image {
+.tool_status_image {
   grid-row: 2 / -1;
   grid-column: 1 / 2;
 }

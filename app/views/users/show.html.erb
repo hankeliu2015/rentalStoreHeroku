@@ -35,33 +35,45 @@
       <div class="row">
         <div class="col-md-4">
           <h3>Currently Renting</h3>
-            <% @in_prossession.each do |rental| %>
-            <ul>
-              <h5><%=rental.tool.name %></h5>
-              <div class="tool_image_user_page">
-                <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+            <% @in_prossession.each_with_index do |rental, index| %>
+              <div class="tool_status_container">
+                <div class="tool_image tool_status_image">
+                  <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+                </div>
+
+                <p class="tool_status_name"><%=index+1%>. <%=rental.tool.name %></p>
+                <p class="tool_status_start">Start: <%= display_start_date(rental)%></p>
+                <p class="tool_status_return">Return: <%= display_return_date(rental)%></p>
+                <div class="tool_status_cancel_bt">
+                  <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
+                </div>
+                <div class="tool_status_reschedule_bt">
+                  <%= button_to "Reschedule", edit_tool_rental_path(rental.tool, rental), method: :get %>
+                </div>
+
               </div>
-              <li>Start on: <%= display_start_date(rental) %></li>
-              <li>Return on: <%= display_return_date(rental)%></li>
-              <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
-              <%= button_to "Change Return Date", edit_tool_rental_path(rental.tool, rental), method: :get %>
-            </ul>
             <% end %>
         </div>
         <div class="col-md-4">
           <h3>Scheduled for Renting</h3>
-            <% @scheduled_rentals.each do |rental| %>
-            <ul>
-              <h5><%=rental.tool.name %></h5>
-              <div class="tool_image">
-                <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+            <% @scheduled_rentals.each_with_index do |rental,index| %>
+              <div class="tool_status_container">
+                <div class="tool_image tool_status_image">
+                  <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+                </div>
+
+                <p class="tool_status_name"><%=index+1%>. <%= rental.tool.name %></p>
+                <p class="tool_status_start">Start: <%= display_start_date(rental) %></p>
+                <p class="tool_status_return">Return: <%= display_return_date(rental)%></p>
+                <div class="tool_status_cancel_bt">
+                  <%= button_to "Cancel", tool_rental_path(rental.tool, rental), method: :patch %>
+                </div>
+                <div class="tool_status_reschedule_bt">
+                  <%= button_to "Reschedule", edit_tool_rental_path(rental.tool, rental), method: :get %>
+                  <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
+                </div>
+
               </div>
-              <li>Start on: <%= display_start_date(rental) %></li>
-              <li>Return on: <%= display_return_date(rental)%></li>
-              <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
-              <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
-              <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
-            </ul>
             <% end %>
         </div>
 
@@ -70,10 +82,10 @@
 
             <% @forget_checkout.each_with_index do |rental, index| %>
               <div class="tool_status_container">
-                <div class="tool_image tool_satus_image">
+                <div class="tool_image tool_status_image">
                   <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
                 </div>
-                <p class="tool_status_name"><%=index+1 %> : <%=rental.tool.name %></p>
+                <p class="tool_status_name"><%=index+1 %>. <%=rental.tool.name %></p>
                 <p class="tool_status_start">Start: <%= display_start_date(rental) %></p>
                 <p class="tool_status_return">Return: <%= display_return_date(rental)%></p>
                 <div class="tool_status_cancel_bt">
