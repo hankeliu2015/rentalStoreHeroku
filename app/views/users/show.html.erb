@@ -11,20 +11,19 @@
 
        <% @overdue_items.each do |rental|  %>
         <div class="tool_unreturned">
-
            <div class="tool_image_unreturned">
-             <%= image_tag(rental.tool.image, size: "85x85",  alt: rental.tool.image) %>
+             <%= image_tag(rental.tool.image, size: "100x100",  alt: rental.tool.image) %>
            </div>
 
            <li class="tool_name_unreturned">Tool Name: <%= rental.tool.name %></li>
            <li class="tool_date_unreturned">Return Date: <%= display_return_date(rental) %></li>
            <li class="tool_date_overdued">Overdued: <%= pluralize(rental.overdued_dates, "Day") %></li>
 
+          <div class="tool_overdued_return_bt">
+            <%= button_to "Return",  tool_rental_path(rental.tool, rental), method: :patch %>
+          </div>
         </div>
-        <%= button_to "Return", tool_rental_path(rental.tool, rental), method: :patch %>
        <% end %>
-
-
         <br>
         <br>
       <p><a class="btn btn-primary btn-lg" href="jsreview.html" role="button">Check Rental History</a></p>
@@ -34,7 +33,7 @@
 
   <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h3>Currently Renting</h3>
             <% @in_prossession.each do |rental| %>
             <ul>
@@ -49,7 +48,7 @@
             </ul>
             <% end %>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h3>Scheduled for Renting</h3>
             <% @scheduled_rentals.each do |rental| %>
             <ul>
@@ -66,23 +65,30 @@
             <% end %>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <h3>Forget to checkout</h3>
-            <% @forget_checkout.each do |rental| %>
-            <ul>
-              <h5><%=rental.tool.name %></h5>
-              <div class="tool_image">
-                <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+
+            <% @forget_checkout.each_with_index do |rental, index| %>
+              <div class="tool_status_container">
+                <div class="tool_image tool_satus_image">
+                  <%= image_tag(rental.tool.image, size: "120x120",  alt: rental.tool.image) %>
+                </div>
+                <p class="tool_status_name"><%=index+1 %> : <%=rental.tool.name %></p>
+                <p class="tool_status_start">Start: <%= display_start_date(rental) %></p>
+                <p class="tool_status_return">Return: <%= display_return_date(rental)%></p>
+                <div class="tool_status_cancel_bt">
+                  <%= button_to "Cancel", tool_rental_path(rental.tool, rental), method: :patch %>
+                </div>
+                <div class="tool_status_reschedule_bt">
+                  <%= button_to "Reschedule", edit_tool_rental_path(rental.tool, rental), method: :get %>
+                  <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
+                </div>
+
               </div>
-              <li>Start on: <%= display_start_date(rental) %></li>
-              <li>Return on: <%= display_return_date(rental)%></li>
-              <%= button_to "Return(Cancel)", tool_rental_path(rental.tool, rental), method: :patch %>
-              <%= button_to "Reschedule & Checkout", edit_tool_rental_path(rental.tool, rental), method: :get %>
-              <%#= button_to "Checkout", checkout_path(rental), method: :patch %>
-            </ul>
             <% end %>
+
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="fall-below" id="rentals-history">
             <h3><%= link_to 'Please click here for your rentals history:', rentals_path %></h3>
           </div>
