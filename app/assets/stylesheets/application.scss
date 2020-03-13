@@ -46,16 +46,20 @@ background-color: maroon;
 }
 
 
-.home_page_banner {
+.home_page_img_banner {
   // vertical-align: bottom;
   // color: grey;
   // text-align: center;
   // color: #f96302;
+  border: 1px dotted #f96302;
   margin-top: .8em;
   background-image: image-url("power-tools.png");
   background-size: contain;
-  background-blend-mode: screen;
+  // background-blend-mode: screen;
   height: 5em;
+  // filter: blur(1px);
+  opacity: 0.3;
+  width: 100%;
 }
 .tool_header_name {
   display: block;
