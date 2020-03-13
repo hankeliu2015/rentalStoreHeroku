@@ -36,10 +36,18 @@ background-color: maroon;
 // tool index page / Home page customize
 
 .home_page_greeting {
-  vertical-align: center;
+  display: block;
+  border: 1px solid red;
+  // vertical-align: center;
   text-align: center;
-  font-size: 1.5em;
+  // font-size: 1.25em;
   color: #f96302;
+  width: 75%;
+}
+
+h5 {
+  margin: auto;
+
 }
 
 .home_page_banner {
@@ -47,7 +55,7 @@ background-color: maroon;
   // color: grey;
   // text-align: center;
   // color: #f96302;
-  margin-top: .6em;
+  margin-top: .8em;
   background-image: image-url("power-tools.png");
   background-size: contain;
   background-blend-mode: screen;

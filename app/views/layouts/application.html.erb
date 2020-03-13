@@ -19,14 +19,14 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
       <%= link_to "#{current_user.username} \'s Account", profile_path, class: "nav-item nav-link" if current_user %>
-      <%= link_to "Montly Report Email", profile_monthly_path, class: "nav-item nav-link" if current_user %>
       <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %> <%= link_to "Sign Up", new_user_registration_path, class: "nav-item nav-link" %>
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-item nav-link" if user_signed_in? %>
       <%= link_to 'Store Admin', store_admin_dashboard_path, class: "nav-item nav-link" %>
     </div>
   </div>
   </nav>
-    <div class="home_page_banner"></div>
+
+  <div class=" container home_page_banner"></div>
 
     <%= render 'application/alert' %>
     <%#= link_to 'Sign Out', destroy_user_session_path, method: :delete if user_signed_in? %>
