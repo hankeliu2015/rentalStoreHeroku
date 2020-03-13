@@ -36,22 +36,30 @@ background-color: maroon;
 // tool index page / Home page customize
 
 .home_page_greeting {
-  vertical-align: center;
+  display: block;
+  // border: 1px solid red;
+  // vertical-align: center;
   text-align: center;
-  font-size: 1.5em;
+  // font-size: 1.25em;
   color: #f96302;
+  width: 75%;
 }
 
-.home_page_banner {
+
+.home_page_img_banner {
   // vertical-align: bottom;
   // color: grey;
   // text-align: center;
   // color: #f96302;
-  margin-top: .6em;
+  border: 1px dotted #f96302;
+  margin-top: .8em;
   background-image: image-url("power-tools.png");
   background-size: contain;
-  background-blend-mode: screen;
+  // background-blend-mode: screen;
   height: 5em;
+  // filter: blur(1px);
+  opacity: 0.3;
+  width: 100%;
 }
 .tool_header_name {
   display: block;
@@ -147,6 +155,7 @@ background-color: maroon;
 }
 .tool_date_overdued {
   color: #f96302;
+
   grid-row: 3 / -1;
   grid-column: 2 / -1;
 }
@@ -162,7 +171,7 @@ background-color: maroon;
   grid-gap: 5px;
   grid-template: repeat(5, 30px) / repeat(3, 120px);
 }
-.tool_satus_image {
+.tool_status_image {
   grid-row: 2 / -1;
   grid-column: 1 / 2;
 }
