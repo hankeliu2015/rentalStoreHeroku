@@ -4,7 +4,7 @@
     <div class="container">
       <h1><%= current_user.username %>'s Store Account</h1>
        <% if @overdue_items.first %>
-         <p style="color:maroon">Your have following tools Overdued. Please return or renew your rentals. Thanks!</p>
+         <p style="color: #f96302">Your have following tools Overdued. Please return or renew your rentals. Thanks!</p>
          <% else %>
          <h4>All your rentals were returned on time. Thanks!</h4>
        <% end %>
