@@ -14,7 +14,7 @@
 
     <section class="tool_image_description_container">
       <div class="tool_image">
-        <%= image_tag(tool.image, size: "150x150",  alt: tool.image) %>
+        <%= link_to (image_tag(tool.image, size: "150x150",  alt: tool.image)), tool_path(tool) %>
       </div>
 
       <li class='tool_price'>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
