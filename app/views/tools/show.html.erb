@@ -1,46 +1,54 @@
 <div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3><%= @tool.name %></h3>
 
-<h3><%= @tool.name %></h3>
+      <section class="tool_image_description_container">
+        <div class="tool_image">
+          <%= image_tag(@tool.image, size: "150x150",  alt: @tool.image) %>
+        </div>
 
-<section class="tool_image_description_container">
-  <div class="tool_image">
-    <%= image_tag(@tool.image, size: "150x150",  alt: @tool.image) %>
+        <li class='tool_price'>Rental Price Per Day: <%= "$#{@tool.rental_price}" %></li>
+        <li class='tool_condition'>Condition: <%= @tool.condition %></li>
+        <li class='tool_brand'>Brand: <%= @tool.brand %></li>
+        <li class='tool_description'>Description: <%= @tool.description %></li>
+        <li class='category'>Category: <%= @tool.category %></li>
+
+      </section>
+
+      <br>
+      <%= button_to "Check Availability", new_tool_rental_path(@tool), method: :get if user_signed_in? %>
+      <br>
+
+      <% if @tool.rental_in_progress  %>
+      <h5><%= @rental_in_progress_message %></h5>
+      <ul>
+        <li>Rented on: <%= @tool.rental_in_progress.start_date.to_date %></li>
+        <li style="color:maroon">Return on: <%= @tool.rental_in_progress.return_date.to_date%></li>
+      </ul>
+      <% end %>
+
+      <br>
+
+      <% if @tool.rental_overdued  %>
+      <h5 style="color:maroon"><%= @rental_overdued_message %></h5>
+      <ul>
+        <li>Rented on: <%= @tool.rental_overdued.start_date.to_date%></li>
+        <li style="color:maroon">Overdued from: <%= @tool.rental_overdued.return_date.to_date%></li>
+      </ul>
+      <% end  %>
+
+    </div>
+
+    <div class="col-sm-6">
+      <h5>Tools are booked on the dates highlighted</h5>
+      <%= month_calendar do |date| %>
+      <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, @tool.id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
+      <% end %>
+
+    </div>
+
+
+
   </div>
-
-  <li class='tool_price'>Rental Price Per Day: <%= "$#{@tool.rental_price}" %></li>
-  <li class='tool_condition'>Condition: <%= @tool.condition %></li>
-  <li class='tool_brand'>Brand: <%= @tool.brand %></li>
-  <li class='tool_description'>Description: <%= @tool.description %></li>
-  <li class='category'>Category: <%= @tool.category %></li>
-
-</section>
-
-<br>
-<%= button_to "Check Availability", new_tool_rental_path(@tool), method: :get if user_signed_in? %>
-<br>
-
-<% if @tool.rental_in_progress  %>
-  <h5><%= @rental_in_progress_message %></h5>
-  <ul>
-    <li>Rented on: <%= @tool.rental_in_progress.start_date.to_date %></li>
-    <li style="color:maroon">Return on: <%= @tool.rental_in_progress.return_date.to_date%></li>
-  </ul>
-<% end %>
-
-<br>
-
-<% if @tool.rental_overdued  %>
-<h5 style="color:maroon"><%= @rental_overdued_message %></h5>
-  <ul>
-    <li>Rented on: <%= @tool.rental_overdued.start_date.to_date%></li>
-    <li style="color:maroon">Overdued from: <%= @tool.rental_overdued.return_date.to_date%></li>
-  </ul>
-<% end  %>
-
-<br>
-
-<h5>Tools are booked on dates highlighted</h5>
-  <%= month_calendar do |date| %>
-    <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, @tool.id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
-  <% end %>
 </div>
