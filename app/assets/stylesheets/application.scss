@@ -101,8 +101,15 @@ background-color: maroon;
   grid-area: img;
   float: inline;
   // padding: 10px;
+  transition:
+    transform 750ms cubic-bezier(.5 0, .5, 1), opacity 250ms linear;
   box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
   0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+.tool_image:hover, .tool_image:focus {
+  transform: scale(1.2);
+  // opacity: .8;
 }
 
 .tool_button_check_avail {
