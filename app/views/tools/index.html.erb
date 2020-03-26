@@ -3,7 +3,9 @@
     Hi, <%= current_user.username if current_user %>! Welcome to our store. We can help to resolve your difficult tasks.
   </container>
 
-<p><%#= link_to "Login", new_user_session_path %> <%#= link_to "Sign Up", new_user_registration_path %> <%#= link_to "User Show Page", user_path(current_user) if current_user %> </p>
+  <% if false %>
+  <p><%#= link_to "Login", new_user_session_path %> <%#= link_to "Sign Up", new_user_registration_path %> <%#= link_to "User Show Page", user_path(current_user) if current_user %> </p>
+  <% end  %>
 
 <br>
 <div id="tool-container">
@@ -13,9 +15,15 @@
     <h3 class="tool_header_name"><%= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3>
 
     <section class="tool_image_description_container">
-      <div class="tool_image">
-        <%= link_to (image_tag(tool.image, size: "150x150",  alt: tool.image)), tool_path(tool) %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="tool_image">
+          <%= link_to (image_tag(tool.image, size: "150x150",  alt: tool.image)), tool_path(tool) %>
+        </div>
+      <% else %>
+        <div class="tool_image">
+          <%= (image_tag(tool.image, size: "150x150",  alt: tool.image)) %>
+        </div>
+      <% end %>
 
       <li class='tool_price'>Rental Price Per Day: <%= "$#{tool.rental_price}" %></li>
       <li class="tool_condition">Condition: <%= tool.condition %></li>
@@ -44,8 +52,6 @@
   </ul>
   <% end %>
 </div>
-
-
 
 <div class="hidden" style="display: none">
   <%#= render partial: 'rentals/form', locals: {user_rental: Rental.new(start_date: Date.today, return_date: Date.tomorrow)} %>
