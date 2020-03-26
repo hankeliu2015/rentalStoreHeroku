@@ -51,7 +51,7 @@ const showToolClickHandlers = function(){
         $("#tool-container").append(rentButtonHTML)
 
         $("#tool-container").append(displayToolCalendar(calendarObj))
-      
+
     })
   })
 
@@ -119,7 +119,7 @@ class Tool {
     let val = `
       <h4> ${this.name} </h4>
       <ul>
-        <img class="tool_image" src="/assets/${this.image}"  alt="Tool image" height="120" width="120">
+        <img class="tool_image" src="/assets/${this.image}"  alt="${this.name}" height="120" width="120">
         <li>Description: ${this.description} </li>
         <li>Brand: ${this.brand} </li>
         <li>Rental Price: $ ${this.rental_price} </li>
