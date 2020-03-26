@@ -14,7 +14,7 @@
 
 <ol>
   <% @tools.each do |tool| %>
-  <li><%= tool.name %>, Status: <%= tool.rentals.last.return ? "In Store" : "Rented" %></li>
+  <li><%= tool.name %>, Status: <%= !tool.rentals.last || tool.rentals.last.return ? "In Store" : "Rented" %></li>
   <% end  %>
 </ol>
 
