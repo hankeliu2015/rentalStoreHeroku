@@ -2,10 +2,10 @@
   <container class=" container home_page_greeting">
     <% if user_signed_in? %>
 
-      Hi, <%= current_user.username if current_user %>! Welcome to our store. We can help to resolve your difficult tasks.
-      <% else %>
-      Dear Customer! Please <strong>Sign up</strong> or <strong>Login</strong> to access full store features. Thanks!
-      <% end %>
+      Hi, <%= current_user.username if current_user %>! Welcome to our store.
+    <% else %>
+      Dear Customer! Please <%= link_to "Sign Up", new_user_registration_path%> or <%= link_to "Login", new_user_session_path %> to access full store application features. Thanks!
+    <% end %>
   </container>
 
   <% if false %>

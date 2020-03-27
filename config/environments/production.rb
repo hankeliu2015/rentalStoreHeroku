@@ -93,7 +93,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-#config/production.rb
+#config/production.rb # image path still not recognize on heroku. 
 # APPLICATIONNAME::Application.configure do
 #      config.assets.compile = true
 # end

@@ -45,6 +45,17 @@ background-color: maroon;
   width: 75%;
 }
 
+.home_page_greeting a {
+  font-size: 1.25em;
+  color: #f96302;
+  text-decoration: underline;
+}
+// .sign_up_login {
+//   font-size: 1.25em;
+//   color: #f96302;
+//   text-decoration: underline;
+// }
+
 
 .home_page_img_banner {
   // vertical-align: bottom;
@@ -61,10 +72,11 @@ background-color: maroon;
   opacity: 0.3;
   width: 100%;
 }
+
 .tool_header_name {
   display: block;
   border-bottom: 1px solid #f96302;
-  color: f7f7f7;
+  color: #f7f7f7;
 }
 .tool_header_name:visited {
   text-decoration: none;
