@@ -1,6 +1,11 @@
 
   <container class=" container home_page_greeting">
-    Hi, <%= current_user.username if current_user %>! Welcome to our store. We can help to resolve your difficult tasks.
+    <% if user_signed_in? %>
+
+      Hi, <%= current_user.username if current_user %>! Welcome to our store. We can help to resolve your difficult tasks.
+      <% else %>
+      Dear Customer! Please <strong>Sign up</strong> or <strong>Login</strong> to access full store features. Thanks!
+      <% end %>
   </container>
 
   <% if false %>
