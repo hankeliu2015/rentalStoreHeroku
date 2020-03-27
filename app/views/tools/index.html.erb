@@ -17,7 +17,11 @@
 
   <% @tools.each do |tool| %>
   <ul>
-    <h3 class="tool_header_name"><%= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3>
+    <% if false  %>
+      <!-- <h3 class="tool_header_name"><%#= link_to "#{tool.name}", '#', id: 'show-tool', data: {tool_id: tool.id}%></h3> -->
+    <% end %>
+
+    <h3 class="tool_header_name"><%= link_to "#{tool.name}", tool_path(tool)%></h3>
 
     <section class="tool_image_description_container">
       <% if user_signed_in? %>
