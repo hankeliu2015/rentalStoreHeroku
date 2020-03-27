@@ -47,7 +47,7 @@
         <div class=<%="today_highlight" if date_scheduled_for_rent?(current_user.id, @tool.id, date) || date == Date.today %>> <%= date.strftime("%e") %></div>
         <% end %>
      <% else %>
-        <p>Please <%= link_to "Sign Up", new_user_registration_path%> or <%= link_to "Login", new_user_session_path %> to access full store application features. Thanks!</p>
+        <p>If this is the right tool you need, please <%= link_to "Sign Up", new_user_registration_path%> or <%= link_to "Login", new_user_session_path %> to rent it. Thanks!</p>
         <%= month_calendar do |date| %>
         <div class=<%="today_highlight" if date == Date.today %>> <%= date.strftime("%e") %></div>
         <% end %>
