@@ -94,6 +94,6 @@ Rails.application.configure do
 end
 
 #config/production.rb
-APPLICATIONNAME::Application.configure do
-     config.assets.compile = true
-end
+# APPLICATIONNAME::Application.configure do
+#      config.assets.compile = true
+# end
