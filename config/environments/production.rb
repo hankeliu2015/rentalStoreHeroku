@@ -91,9 +91,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #AWS EB deployment 
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 end
 
-#config/production.rb # image path still not recognize on heroku. 
+#config/production.rb # image path still not recognize on heroku.
 # APPLICATIONNAME::Application.configure do
 #      config.assets.compile = true
 # end
