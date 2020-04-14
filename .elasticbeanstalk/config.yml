@@ -1,6 +1,8 @@
 branch-defaults:
   awsdemo2:
     environment: Dev-env
+  awsdemo2ruby265:
+    environment: Dev-env
 environment-defaults:
   Dev-env:
     branch: null
