@@ -11,6 +11,8 @@ gem 'dotenv-rails', '~> 2.6'
 
 gem "simple_calendar", "~> 2.0"
 
+gem 'mini_racer', platforms: :ruby
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
