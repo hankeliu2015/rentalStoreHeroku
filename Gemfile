@@ -9,7 +9,7 @@ gem 'omniauth-google-oauth2'
 
 gem 'dotenv-rails', '~> 2.6'
 
-gem "simple_calendar", "~> 2.0"
+# gem "simple_calendar", "~> 2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
