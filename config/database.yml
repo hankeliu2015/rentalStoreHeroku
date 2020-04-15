@@ -79,9 +79,19 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-    url: <%= ENV['DATABASE_URL'] %>
+<<: *default
+    database: <%= ENV['DATABASE_NAME'] %>
+    host: <%= ENV['DATABASE_HOST'] %>
+    port: 5432
+    reconnect: true
+    username: <%= ENV['PG_USERNAME'] %>
+    password: <%= ENV['PG_PASSWORD'] %>
 
+  # <<: *default
+  #   url: <%= ENV['DATABASE_URL'] %>
+
+
+  # # enviroment database configure testing # not success.
   # adapter: pg
   # encoding: utf8
   # database: <%= ENV['RDS_DB_NAME'] %>
