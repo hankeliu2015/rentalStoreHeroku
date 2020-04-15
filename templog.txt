@@ -442,3 +442,542 @@ Retrieving logs...
 
 
 
+Retrieving logs...
+============= i-0b64eacfb4029b6f0 ==============
+-------------------------------------
+/var/log/puma/puma.log
+-------------------------------------
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `times'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:213:in `check_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:486:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/launcher.rb:186:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cli.rb:80:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/bin/puma:10:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `load'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `<main>'
+[17477] + Gemfile in context: /var/app/current/Gemfile
+/opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/specification.rb:2298:in `raise_if_conflicts': Unable to activate sinatra-1.4.7, because rack-2.2.2 conflicts with rack (~> 1.5) (Gem::ConflictError)
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/specification.rb:1415:in `activate'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems.rb:224:in `rescue in try_activate'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems.rb:217:in `try_activate'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:123:in `rescue in require'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:34:in `require'
+	from /var/app/current/worker_sample.rb:1:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from config.ru:4:in `block in <main>'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:116:in `eval'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:116:in `new_from_string'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:105:in `load_file'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:66:in `parse_file'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/configuration.rb:320:in `load_rackup'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/configuration.rb:245:in `app'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/runner.rb:157:in `app'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/runner.rb:164:in `start_server'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:275:in `worker'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block (2 levels) in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `fork'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `times'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:213:in `check_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:486:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/launcher.rb:186:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cli.rb:80:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/bin/puma:10:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `load'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `<main>'
+/opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/specification.rb:2298:in `raise_if_conflicts': Unable to activate sinatra-1.4.7, because rack-2.2.2 conflicts with rack (~> 1.5) (Gem::ConflictError)
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/specification.rb:1415:in `activate'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems.rb:218:in `try_activate'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:123:in `rescue in require'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:34:in `require'
+	from /var/app/current/worker_sample.rb:1:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from config.ru:4:in `block in <main>'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:116:in `eval'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:116:in `new_from_string'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:105:in `load_file'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:66:in `parse_file'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/configuration.rb:320:in `load_rackup'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/configuration.rb:245:in `app'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/runner.rb:157:in `app'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/runner.rb:164:in `start_server'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:275:in `worker'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block (2 levels) in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `fork'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `times'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:213:in `check_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:486:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/launcher.rb:186:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cli.rb:80:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/bin/puma:10:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `load'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `<main>'
+/opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- sinatra/base (LoadError)
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /var/app/current/worker_sample.rb:1:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from config.ru:4:in `block in <main>'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:116:in `eval'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:116:in `new_from_string'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:105:in `load_file'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:66:in `parse_file'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/configuration.rb:320:in `load_rackup'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/configuration.rb:245:in `app'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/runner.rb:157:in `app'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/runner.rb:164:in `start_server'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:275:in `worker'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block (2 levels) in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `fork'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:139:in `block in spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `times'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:135:in `spawn_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:213:in `check_workers'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cluster.rb:486:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/launcher.rb:186:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/lib/puma/cli.rb:80:in `run'
+	from /opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0/gems/puma-3.12.4/bin/puma:10:in `<top (required)>'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `load'
+	from /opt/rubies/ruby-2.6.5/bin/puma:23:in `<main>'
+[17482] + Gemfile in context: /var/app/current/Gemfile
+
+
+
+-------------------------------------
+/var/log/nginx/error.log
+-------------------------------------
+2020/04/15 06:02:24 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyadmi/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyadmi/index.php", host: "54.209.237.61"
+2020/04/15 06:02:26 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmion/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmion/index.php", host: "54.209.237.61"
+2020/04/15 06:02:27 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /s/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/s/index.php", host: "54.209.237.61"
+2020/04/15 06:02:27 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /MyAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/MyAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:28 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin1/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin1/index.php", host: "54.209.237.61"
+2020/04/15 06:02:31 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin123/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin123/index.php", host: "54.209.237.61"
+2020/04/15 06:02:31 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /pwd/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/pwd/index.php", host: "54.209.237.61"
+2020/04/15 06:02:31 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmina/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmina/index.php", host: "54.209.237.61"
+2020/04/15 06:02:31 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMydmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMydmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:32 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmins/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmins/index.php", host: "54.209.237.61"
+2020/04/15 06:02:32 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin._/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin._/index.php", host: "54.209.237.61"
+2020/04/15 06:02:35 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin._2/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin._2/index.php", host: "54.209.237.61"
+2020/04/15 06:02:35 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpmyadmin2222/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpmyadmin2222/index.php", host: "54.209.237.61"
+2020/04/15 06:02:36 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin333/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin333/index.php", host: "54.209.237.61"
+2020/04/15 06:02:36 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpmyadmin3333/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpmyadmin3333/index.php", host: "54.209.237.61"
+2020/04/15 06:02:39 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /php2MyAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/php2MyAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:39 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpiMyAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpiMyAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:40 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpNyAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpNyAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:40 [error] 3060#0: *9422 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /1/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/1/index.php", host: "54.209.237.61"
+2020/04/15 06:02:47 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /download/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/download/index.php", host: "54.209.237.61"
+2020/04/15 06:02:48 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin_111/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin_111/index.php", host: "54.209.237.61"
+2020/04/15 06:02:51 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpmadmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpmadmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:51 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /321/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/321/index.php", host: "54.209.237.61"
+2020/04/15 06:02:51 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /123131/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/123131/index.php", host: "54.209.237.61"
+2020/04/15 06:02:51 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdminn/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdminn/index.php", host: "54.209.237.61"
+2020/04/15 06:02:54 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdminhf/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdminhf/index.php", host: "54.209.237.61"
+2020/04/15 06:02:55 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /sbb/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/sbb/index.php", host: "54.209.237.61"
+2020/04/15 06:02:55 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /WWW/phpMyAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/WWW/phpMyAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:55 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmln/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmln/index.php", host: "54.209.237.61"
+2020/04/15 06:02:55 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpMyAdmin_ai/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin_ai/index.php", host: "54.209.237.61"
+2020/04/15 06:02:57 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /__phpMyAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/__phpMyAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:02:59 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /program/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/program/index.php", host: "54.209.237.61"
+2020/04/15 06:02:59 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /shopdb/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/shopdb/index.php", host: "54.209.237.61"
+2020/04/15 06:02:59 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phppma/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phppma/index.php", host: "54.209.237.61"
+2020/04/15 06:03:03 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /phpmy/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpmy/index.php", host: "54.209.237.61"
+2020/04/15 06:03:03 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /mysql/admin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/mysql/admin/index.php", host: "54.209.237.61"
+2020/04/15 06:03:03 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /mysql/dbadmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/mysql/dbadmin/index.php", host: "54.209.237.61"
+2020/04/15 06:03:03 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /mysql/sqlmanager/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/mysql/sqlmanager/index.php", host: "54.209.237.61"
+2020/04/15 06:03:04 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /mysql/mysqlmanager/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/mysql/mysqlmanager/index.php", host: "54.209.237.61"
+2020/04/15 06:03:07 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php", host: "54.209.237.61"
+2020/04/15 06:03:07 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /sqladmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/sqladmin/index.php", host: "54.209.237.61"
+2020/04/15 06:03:11 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /sql/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/sql/index.php", host: "54.209.237.61"
+2020/04/15 06:03:12 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /SQL/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/SQL/index.php", host: "54.209.237.61"
+2020/04/15 06:03:13 [error] 3060#0: *9458 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /websql/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/websql/index.php", host: "54.209.237.61"
+2020/04/15 06:03:15 [error] 3060#0: *9497 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /MySQLAdmin/index.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/MySQLAdmin/index.php", host: "54.209.237.61"
+2020/04/15 06:03:19 [error] 3060#0: *9497 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /manager/html HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/manager/html", host: "54.209.237.61"
+2020/04/15 06:04:24 [error] 3060#0: *9511 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "10.0.1.186"
+2020/04/15 06:06:34 [error] 3060#0: *9551 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "54.209.237.61"
+2020/04/15 07:29:16 [error] 3060#0: *10704 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "3.223.156.124"
+2020/04/15 08:43:43 [error] 3060#0: *11755 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "3.223.156.124"
+2020/04/15 08:57:46 [error] 3060#0: *11962 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /solr/admin/info/system?wt=json HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/solr/admin/info/system?wt=json", host: "3.223.156.124"
+2020/04/15 09:09:19 [error] 3060#0: *12120 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php>", host: "3.223.156.124"
+2020/04/15 09:09:20 [error] 3060#0: *12120 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/?XDEBUG_SESSION_START=phpstorm", host: "3.223.156.124"
+2020/04/15 09:20:29 [error] 3060#0: *12288 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /index.php?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/index.php?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP", host: "3.223.156.124"
+2020/04/15 09:56:36 [error] 3060#0: *12797 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /manager/html HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/manager/html", host: "3.223.156.124"
+2020/04/15 10:58:32 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "3.223.156.124"
+2020/04/15 10:58:33 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /asdasdasd HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/asdasdasd", host: "3.223.156.124"
+2020/04/15 10:58:34 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /console HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/console", host: "3.223.156.124"
+2020/04/15 10:58:35 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /cgi-bin/test-cgi HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/cgi-bin/test-cgi", host: "3.223.156.124"
+2020/04/15 10:58:36 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /horde/imp/test.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/horde/imp/test.php", host: "3.223.156.124"
+2020/04/15 10:58:36 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /login.action HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/login.action", host: "3.223.156.124"
+2020/04/15 10:58:37 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /login?from=0.000000 HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/login?from=0.000000", host: "3.223.156.124"
+2020/04/15 10:58:37 [error] 3060#0: *13658 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /phpMyAdmin/scripts/setup.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/phpMyAdmin/scripts/setup.php", host: "3.223.156.124"
+2020/04/15 11:20:12 [error] 3060#0: *13986 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "3.223.156.124"
+2020/04/15 11:28:52 [error] 3060#0: *14109 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "3.223.156.124"
+2020/04/15 11:28:53 [error] 3060#0: *14109 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /asdasdasd HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/asdasdasd", host: "3.223.156.124"
+2020/04/15 12:11:09 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "example.com"
+2020/04/15 12:11:09 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "169.254.169.254"
+2020/04/15 12:11:09 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 12:11:09 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "169.254.169.254"
+2020/04/15 12:11:09 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 12:11:09 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "example.com"
+2020/04/15 12:11:10 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "169.254.169.254"
+2020/04/15 12:11:10 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 12:11:10 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "169.254.169.254"
+2020/04/15 12:11:10 [error] 3060#0: *14709 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 13:34:16 [error] 3060#0: *15899 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /.env HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/.env", host: "3.223.156.124"
+2020/04/15 13:38:13 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "example.com"
+2020/04/15 13:38:13 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "169.254.169.254"
+2020/04/15 13:38:13 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 13:38:13 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "169.254.169.254"
+2020/04/15 13:38:13 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 13:38:13 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "example.com"
+2020/04/15 13:38:14 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "169.254.169.254"
+2020/04/15 13:38:14 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 13:38:14 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "169.254.169.254"
+2020/04/15 13:38:14 [error] 3060#0: *15951 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /latest/dynamic/instance-identity/document HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/latest/dynamic/instance-identity/document", host: "[::ffff:a9fe:a9fe]"
+2020/04/15 13:54:26 [error] 3060#0: *16213 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "3.223.156.124"
+2020/04/15 14:05:49 [error] 3060#0: *16369 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "54.209.237.61"
+2020/04/15 14:06:35 [error] 3060#0: *16389 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /portal/redlion HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/portal/redlion", host: "3.223.156.124"
+2020/04/15 14:11:32 [error] 3060#0: *16456 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /portal/redlion HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/portal/redlion", host: "54.209.237.61"
+2020/04/15 14:17:49 [error] 3060#0: *16552 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "54.209.237.61"
+2020/04/15 14:32:19 [error] 3060#0: *16757 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "POST /cgi-bin/mainfunction.cgi HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/cgi-bin/mainfunction.cgi", host: "127.0.0.1"
+2020/04/15 14:51:13 [error] 3060#0: *17019 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "54.209.237.61"
+2020/04/15 14:56:09 [error] 3060#0: *17090 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "54.209.237.61"
+2020/04/15 16:54:02 [error] 3060#0: *18751 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /wp-login.php HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/wp-login.php", host: "3.223.156.124"
+2020/04/15 16:54:26 [error] 3060#0: *18751 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.1.186, server: _, request: "GET /robots.txt HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/robots.txt", host: "3.223.156.124"
+2020/04/15 17:37:55 [error] 3060#0: *19366 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "54.209.237.61"
+2020/04/15 18:38:05 [error] 3060#0: *20221 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET / HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/", host: "dev-env.eba-bgetszy6.us-east-1.elasticbeanstalk.com"
+2020/04/15 18:38:06 [error] 3060#0: *20221 connect() to unix:///var/run/puma/my_app.sock failed (11: Resource temporarily unavailable) while connecting to upstream, client: 10.0.0.99, server: _, request: "GET /favicon.ico HTTP/1.1", upstream: "http://unix:///var/run/puma/my_app.sock:/favicon.ico", host: "dev-env.eba-bgetszy6.us-east-1.elasticbeanstalk.com", referrer: "http://dev-env.eba-bgetszy6.us-east-1.elasticbeanstalk.com/"
+
+
+
+-------------------------------------
+/var/log/eb-activity.log
+-------------------------------------
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.0.0-p648
+  ++ case "${dir##*/}" in
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.1.10
+  ++ case "${dir##*/}" in
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.2.10
+  ++ case "${dir##*/}" in
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.3.8
+  ++ case "${dir##*/}" in
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.4.9
+  ++ case "${dir##*/}" in
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.5.7
+  ++ case "${dir##*/}" in
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-2.6.5
+  ++ case "${dir##*/}" in
+  ++ match=/opt/rubies/ruby-2.6.5
+  ++ for dir in '"${RUBIES[@]}"'
+  ++ dir=/opt/rubies/ruby-current
+  ++ case "${dir##*/}" in
+  ++ [[ -z /opt/rubies/ruby-2.6.5 ]]
+  ++ shift
+  ++ chruby_use /opt/rubies/ruby-2.6.5 ''
+  ++ [[ ! -x /opt/rubies/ruby-2.6.5/bin/ruby ]]
+  ++ [[ -n '' ]]
+  ++ export RUBY_ROOT=/opt/rubies/ruby-2.6.5
+  ++ RUBY_ROOT=/opt/rubies/ruby-2.6.5
+  ++ export RUBYOPT=
+  ++ RUBYOPT=
+  ++ export PATH=/opt/rubies/ruby-2.6.5/bin:/opt/elasticbeanstalk/lib/ruby/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+  ++ PATH=/opt/rubies/ruby-2.6.5/bin:/opt/elasticbeanstalk/lib/ruby/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+  +++ /opt/rubies/ruby-2.6.5/bin/ruby -
+  ++ eval 'export RUBY_ENGINE=ruby;
+  export RUBY_VERSION=2.6.5;
+  export GEM_ROOT="/opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0";'
+  +++ export RUBY_ENGINE=ruby
+  +++ RUBY_ENGINE=ruby
+  +++ export RUBY_VERSION=2.6.5
+  +++ RUBY_VERSION=2.6.5
+  +++ export GEM_ROOT=/opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0
+  +++ GEM_ROOT=/opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0
+  ++ ((  0 != 0  ))
+  + cd /var/app/ondeck
+  + su -s /bin/bash -c 'bundle exec /opt/elasticbeanstalk/support/scripts/check-for-rake-task.rb assets:precompile' webapp
+  `/home/webapp` is not a directory.
+  Bundler will use `/tmp/bundler/home/webapp' as your home directory temporarily.
+  + '[' false == true ']'
+  + su -s /bin/bash -c 'bundle exec rake assets:precompile' webapp
+  `/home/webapp` is not a directory.
+  Bundler will use `/tmp/bundler/home/webapp' as your home directory temporarily.
+  rake aborted!
+  YAML syntax error occurred while parsing /var/app/ondeck/config/database.yml. Please note that YAML must be consistently indented using spaces. Tabs are not allowed. Error: (<unknown>): did not find expected key while parsing a block mapping at line 17 column 1
+  /var/app/ondeck/app/models/application_record.rb:1:in `<main>'
+  /var/app/ondeck/app/models/user.rb:1:in `<main>'
+  /var/app/ondeck/config/routes.rb:8:in `block in <main>'
+  /var/app/ondeck/config/routes.rb:1:in `<main>'
+  /var/app/ondeck/config/environment.rb:5:in `<main>'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `load'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `<main>'
+  
+  Caused by:
+  Psych::SyntaxError: (<unknown>): did not find expected key while parsing a block mapping at line 17 column 1
+  /var/app/ondeck/app/models/application_record.rb:1:in `<main>'
+  /var/app/ondeck/app/models/user.rb:1:in `<main>'
+  /var/app/ondeck/config/routes.rb:8:in `block in <main>'
+  /var/app/ondeck/config/routes.rb:1:in `<main>'
+  /var/app/ondeck/config/environment.rb:5:in `<main>'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `load'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `<main>'
+  Tasks: TOP => environment
+  (See full trace by running task with --trace) (Executor::NonZeroExitStatus)
+
+
+[2020-04-15T21:00:15.366Z] INFO  [15176] - [Application update app-6616-200415_165551@25/AppDeployStage0/AppDeployPreHook/11_asset_compilation.sh] : Activity failed.
+[2020-04-15T21:00:15.367Z] INFO  [15176] - [Application update app-6616-200415_165551@25/AppDeployStage0/AppDeployPreHook] : Activity failed.
+[2020-04-15T21:00:15.367Z] INFO  [15176] - [Application update app-6616-200415_165551@25/AppDeployStage0] : Activity failed.
+[2020-04-15T21:00:15.367Z] INFO  [15176] - [Application update app-6616-200415_165551@25] : Completed activity. Result:
+  Application update - Command CMD-AppDeploy failed
+[2020-04-15T21:03:00.412Z] INFO  [17264] - [CMD-TailLogs] : Starting activity...
+[2020-04-15T21:03:00.412Z] INFO  [17264] - [CMD-TailLogs/AddonsBefore] : Starting activity...
+[2020-04-15T21:03:00.412Z] INFO  [17264] - [CMD-TailLogs/AddonsBefore] : Completed activity.
+[2020-04-15T21:03:00.412Z] INFO  [17264] - [CMD-TailLogs/TailLogs] : Starting activity...
+[2020-04-15T21:03:00.412Z] INFO  [17264] - [CMD-TailLogs/TailLogs/TailLogs] : Starting activity...
+[2020-04-15T21:03:04.622Z] INFO  [17264] - [CMD-TailLogs/TailLogs/TailLogs] : Completed activity.
+[2020-04-15T21:03:04.623Z] INFO  [17264] - [CMD-TailLogs/TailLogs] : Completed activity. Result:
+  CMD-TailLogs - stage 0 - Command CMD-TailLogs stage 0 completed
+[2020-04-15T21:03:04.623Z] INFO  [17264] - [CMD-TailLogs/AddonsAfter] : Starting activity...
+[2020-04-15T21:03:04.623Z] INFO  [17264] - [CMD-TailLogs/AddonsAfter] : Completed activity.
+[2020-04-15T21:03:04.623Z] INFO  [17264] - [CMD-TailLogs] : Completed activity. Result:
+  CMD-TailLogs - Command CMD-TailLogs succeeded
+[2020-04-15T21:03:36.957Z] INFO  [17453] - [CMD-TailLogs] : Starting activity...
+[2020-04-15T21:03:36.957Z] INFO  [17453] - [CMD-TailLogs/AddonsBefore] : Starting activity...
+[2020-04-15T21:03:36.957Z] INFO  [17453] - [CMD-TailLogs/AddonsBefore] : Completed activity.
+[2020-04-15T21:03:36.957Z] INFO  [17453] - [CMD-TailLogs/TailLogs] : Starting activity...
+[2020-04-15T21:03:36.957Z] INFO  [17453] - [CMD-TailLogs/TailLogs/TailLogs] : Starting activity...
+
+
+
+-------------------------------------
+/tmp/sample-app.log
+-------------------------------------
+# Logfile created on 2020-04-14 21:31:14 +0000 by logger.rb/66358
+
+
+
+-------------------------------------
+/var/log/nginx/access.log
+-------------------------------------
+10.0.0.99 - - [15/Apr/2020:06:02:35 +0000] "GET /phpMyAdmin._2/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:35 +0000] "GET /phpmyadmin2222/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:36 +0000] "GET /phpMyAdmin333/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:36 +0000] "GET /phpmyadmin3333/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:39 +0000] "GET /php2MyAdmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:39 +0000] "GET /phpiMyAdmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:40 +0000] "GET /phpNyAdmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:40 +0000] "GET /1/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:47 +0000] "GET /download/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:48 +0000] "GET /phpMyAdmin_111/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:51 +0000] "GET /phpmadmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:51 +0000] "GET /321/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:51 +0000] "GET /123131/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:51 +0000] "GET /phpMyAdminn/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:54 +0000] "GET /phpMyAdminhf/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:55 +0000] "GET /sbb/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:55 +0000] "GET /WWW/phpMyAdmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:55 +0000] "GET /phpMyAdmln/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:55 +0000] "GET /phpMyAdmin_ai/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:57 +0000] "GET /__phpMyAdmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:59 +0000] "GET /program/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:59 +0000] "GET /shopdb/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:02:59 +0000] "GET /phppma/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:03 +0000] "GET /phpmy/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:03 +0000] "GET /mysql/admin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:03 +0000] "GET /mysql/dbadmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:03 +0000] "GET /mysql/sqlmanager/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:04 +0000] "GET /mysql/mysqlmanager/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:07 +0000] "GET /wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:07 +0000] "GET /sqladmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:11 +0000] "GET /sql/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:12 +0000] "GET /SQL/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:13 +0000] "GET /websql/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:15 +0000] "GET /MySQLAdmin/index.php HTTP/1.1" 502 559 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)" "123.207.226.105"
+10.0.0.99 - - [15/Apr/2020:06:03:19 +0000] "GET /manager/html HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 SE 2.X MetaSr 1.0" "123.207.226.105"
+10.0.1.186 - - [15/Apr/2020:06:04:24 +0000] "GET / HTTP/1.1" 502 157 "-" "NetSystemsResearch studies the availability of various services across the internet. Our website is netsystemsresearch.com" "92.118.160.5"
+10.0.0.99 - - [15/Apr/2020:06:06:34 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" "5.232.233.0"
+10.0.1.186 - - [15/Apr/2020:07:29:16 +0000] "GET / HTTP/1.1" 502 157 "-" "Mozilla/5.0 zgrab/0.x" "192.241.237.166"
+10.0.1.186 - - [15/Apr/2020:08:43:43 +0000] "GET / HTTP/1.1" 502 157 "-" "Mozilla/5.0 zgrab/0.x" "171.67.70.85"
+10.0.1.186 - - [15/Apr/2020:08:57:46 +0000] "GET /solr/admin/info/system?wt=json HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" "5.101.0.209"
+10.0.1.186 - - [15/Apr/2020:09:09:19 +0000] "GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" "5.101.0.209"
+10.0.1.186 - - [15/Apr/2020:09:09:20 +0000] "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" "5.101.0.209"
+10.0.1.186 - - [15/Apr/2020:09:20:29 +0000] "GET /index.php?s=/Index/\x5Cthink\x5Capp/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" "5.101.0.209"
+10.0.1.186 - - [15/Apr/2020:09:56:36 +0000] "GET /manager/html HTTP/1.1" 502 559 "-" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)" "114.113.112.92"
+10.0.1.186 - - [15/Apr/2020:10:58:32 +0000] "GET / HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:33 +0000] "GET /asdasdasd HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:34 +0000] "GET /console HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:35 +0000] "GET /cgi-bin/test-cgi HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:36 +0000] "GET /horde/imp/test.php HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:36 +0000] "GET /login.action HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:37 +0000] "GET /login?from=0.000000 HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:10:58:37 +0000] "GET /phpMyAdmin/scripts/setup.php HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "39.106.80.210"
+10.0.1.186 - - [15/Apr/2020:11:20:12 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36" "71.6.232.4"
+10.0.1.186 - - [15/Apr/2020:11:28:52 +0000] "GET / HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "84.232.5.140"
+10.0.1.186 - - [15/Apr/2020:11:28:53 +0000] "GET /asdasdasd HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0" "84.232.5.140"
+10.0.0.99 - - [15/Apr/2020:12:11:09 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:09 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:09 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:09 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:09 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:09 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:10 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:10 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:10 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.0.99 - - [15/Apr/2020:12:11:10 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.225.84.206"
+10.0.1.186 - - [15/Apr/2020:13:34:16 +0000] "GET /.env HTTP/1.1" 502 157 "-" "curl/7.58.0" "3.80.115.109"
+10.0.1.186 - - [15/Apr/2020:13:38:13 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:13 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:13 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:13 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:13 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:13 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:14 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:14 +0000] "GET / HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:14 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:38:14 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 502 157 "-" "AWS Security Scanner" "44.224.22.196"
+10.0.1.186 - - [15/Apr/2020:13:54:26 +0000] "GET / HTTP/1.1" 502 157 "-" "curl/7.58.0" "3.80.115.109"
+10.0.0.99 - - [15/Apr/2020:14:05:49 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36" "139.255.247.42"
+10.0.1.186 - - [15/Apr/2020:14:06:35 +0000] "GET /portal/redlion HTTP/1.1" 502 157 "-" "Mozilla/5.0 zgrab/0.x" "162.243.130.182"
+10.0.0.99 - - [15/Apr/2020:14:11:32 +0000] "GET /portal/redlion HTTP/1.1" 502 157 "-" "Mozilla/5.0 zgrab/0.x" "192.241.239.179"
+10.0.0.99 - - [15/Apr/2020:14:17:49 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" "86.102.68.77"
+10.0.0.99 - - [15/Apr/2020:14:32:19 +0000] "POST /cgi-bin/mainfunction.cgi HTTP/1.1" 502 157 "-" "XTC" "113.20.108.152"
+10.0.0.99 - - [15/Apr/2020:14:51:13 +0000] "GET / HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7" "89.190.78.10"
+10.0.0.99 - - [15/Apr/2020:14:56:09 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36" "151.244.207.159"
+10.0.1.186 - - [15/Apr/2020:16:54:02 +0000] "GET /wp-login.php HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36" "37.59.56.107"
+10.0.1.186 - - [15/Apr/2020:16:54:26 +0000] "GET /robots.txt HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36" "37.59.56.107"
+10.0.0.99 - - [15/Apr/2020:17:37:55 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" "180.183.112.26"
+10.0.0.99 - - [15/Apr/2020:18:38:05 +0000] "GET / HTTP/1.1" 502 559 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" "108.21.248.138"
+10.0.0.99 - - [15/Apr/2020:18:38:06 +0000] "GET /favicon.ico HTTP/1.1" 502 559 "http://dev-env.eba-bgetszy6.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" "108.21.248.138"
+10.0.0.99 - - [15/Apr/2020:18:41:57 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" "108.21.248.138"
+10.0.0.99 - - [15/Apr/2020:18:42:04 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" "108.21.248.138"
+10.0.0.99 - - [15/Apr/2020:18:42:12 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" "108.21.248.138"
+10.0.0.99 - - [15/Apr/2020:19:12:16 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" "106.51.37.22"
+10.0.1.186 - - [15/Apr/2020:20:18:27 +0000] "GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" "5.101.0.209"
+10.0.1.186 - - [15/Apr/2020:20:27:49 +0000] "GET /TP/public/index.php HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "121.201.34.11"
+10.0.1.186 - - [15/Apr/2020:20:27:54 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "121.201.34.11"
+10.0.1.186 - - [15/Apr/2020:20:29:25 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)" "209.17.96.10"
+10.0.0.99 - - [15/Apr/2020:20:33:54 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)" "209.17.96.194"
+10.0.0.99 - - [15/Apr/2020:20:38:52 +0000] "POST /cgi-bin/mainfunction.cgi HTTP/1.1" 499 0 "-" "XTC BOTNET" "177.85.2.33"
+10.0.1.186 - - [15/Apr/2020:20:53:10 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (X11; Ubuntu; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2689.39 Safari/537.36" "134.119.176.57"
+
+
+
+-------------------------------------
+/var/log/eb-commandprocessor.log
+-------------------------------------
+  ++ eval 'export RUBY_ENGINE=ruby;
+  export RUBY_VERSION=2.6.5;
+  export GEM_ROOT="/opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0";'
+  +++ export RUBY_ENGINE=ruby
+  +++ RUBY_ENGINE=ruby
+  +++ export RUBY_VERSION=2.6.5
+  +++ RUBY_VERSION=2.6.5
+  +++ export GEM_ROOT=/opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0
+  +++ GEM_ROOT=/opt/rubies/ruby-2.6.5/lib/ruby/gems/2.6.0
+  ++ ((  0 != 0  ))
+  + cd /var/app/ondeck
+  + su -s /bin/bash -c 'bundle exec /opt/elasticbeanstalk/support/scripts/check-for-rake-task.rb assets:precompile' webapp
+  `/home/webapp` is not a directory.
+  Bundler will use `/tmp/bundler/home/webapp' as your home directory temporarily.
+  + '[' false == true ']'
+  + su -s /bin/bash -c 'bundle exec rake assets:precompile' webapp
+  `/home/webapp` is not a directory.
+  Bundler will use `/tmp/bundler/home/webapp' as your home directory temporarily.
+  rake aborted!
+  YAML syntax error occurred while parsing /var/app/ondeck/config/database.yml. Please note that YAML must be consistently indented using spaces. Tabs are not allowed. Error: (<unknown>): did not find expected key while parsing a block mapping at line 17 column 1
+  /var/app/ondeck/app/models/application_record.rb:1:in `<main>'
+  /var/app/ondeck/app/models/user.rb:1:in `<main>'
+  /var/app/ondeck/config/routes.rb:8:in `block in <main>'
+  /var/app/ondeck/config/routes.rb:1:in `<main>'
+  /var/app/ondeck/config/environment.rb:5:in `<main>'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `load'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `<main>'
+  
+  Caused by:
+  Psych::SyntaxError: (<unknown>): did not find expected key while parsing a block mapping at line 17 column 1
+  /var/app/ondeck/app/models/application_record.rb:1:in `<main>'
+  /var/app/ondeck/app/models/user.rb:1:in `<main>'
+  /var/app/ondeck/config/routes.rb:8:in `block in <main>'
+  /var/app/ondeck/config/routes.rb:1:in `<main>'
+  /var/app/ondeck/config/environment.rb:5:in `<main>'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `load'
+  /opt/rubies/ruby-2.6.5/bin/bundle:23:in `<main>'
+  Tasks: TOP => environment
+  (See full trace by running task with --trace) (Executor::NonZeroExitStatus)
+
+
+[2020-04-15T21:00:15.367Z] ERROR [15176] : Command CMD-AppDeploy failed!
+[2020-04-15T21:00:15.367Z] INFO  [15176] : Command processor returning results: 
+{"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"(TRUNCATED)...deck/config/routes.rb:1:in `<main>'\n/var/app/ondeck/config/environment.rb:5:in `<main>'\n/opt/rubies/ruby-2.6.5/bin/bundle:23:in `load'\n/opt/rubies/ruby-2.6.5/bin/bundle:23:in `<main>'\nTasks: TOP => environment\n(See full trace by running task with --trace). \nHook /opt/elasticbeanstalk/hooks/appdeploy/pre/11_asset_compilation.sh failed. For more detail, check /var/log/eb-activity.log using console or EB CLI","returncode":1,"events":[]}],"truncated":"true"}
+[2020-04-15T21:03:00.205Z] DEBUG [17264] : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-04-15T21:03:00.205Z] DEBUG [17264] : Checking if the command processor should execute...
+[2020-04-15T21:03:00.246Z] DEBUG [17264] : Checking whether the command is applicable to instance (i-0b64eacfb4029b6f0)..
+[2020-04-15T21:03:00.246Z] INFO  [17264] : Command is applicable to this instance (i-0b64eacfb4029b6f0)..
+[2020-04-15T21:03:00.246Z] DEBUG [17264] : Checking if the received command stage is valid..
+[2020-04-15T21:03:00.246Z] INFO  [17264] : No stage_num in command. Valid stage..
+[2020-04-15T21:03:00.246Z] INFO  [17264] : Received command CMD-TailLogs: {"execution_data"=>"*", "instance_ids"=>["i-0b64eacfb4029b6f0"], "data"=>"76b33591-4ea5-451c-b6b8-d1bb8dcd6bea", "command_name"=>"CMD-TailLogs", "api_version"=>"1.0", "resource_name"=>"AWSEBAutoScalingGroup", "request_id"=>"76b33591-4ea5-451c-b6b8-d1bb8dcd6bea"}
+[2020-04-15T21:03:00.246Z] INFO  [17264] : Command processor should execute command.
+[2020-04-15T21:03:00.246Z] DEBUG [17264] : Storing current stage..
+[2020-04-15T21:03:00.246Z] DEBUG [17264] : Stage_num does not exist. Not saving null stage. Returning..
+[2020-04-15T21:03:00.246Z] DEBUG [17264] : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-04-15T21:03:00.246Z] DEBUG [17264] : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2020-04-15T21:03:00.247Z] DEBUG [17264] : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2020-04-15T21:03:00.247Z] INFO  [17264] : Found enabled addons: ["logpublish", "logstreaming"].
+[2020-04-15T21:03:00.411Z] INFO  [17264] : Updating Command definition of addon logpublish.
+[2020-04-15T21:03:00.411Z] INFO  [17264] : Updating Command definition of addon logstreaming.
+[2020-04-15T21:03:00.411Z] DEBUG [17264] : Loaded definition of Command CMD-TailLogs.
+[2020-04-15T21:03:00.411Z] INFO  [17264] : Executing CMD-TailLogs
+[2020-04-15T21:03:00.412Z] INFO  [17264] : Executing command: CMD-TailLogs...
+[2020-04-15T21:03:00.412Z] INFO  [17264] : Executing command CMD-TailLogs activities...
+[2020-04-15T21:03:00.412Z] DEBUG [17264] : Setting environment variables..
+[2020-04-15T21:03:00.412Z] INFO  [17264] : Running AddonsBefore for command CMD-TailLogs...
+[2020-04-15T21:03:00.412Z] DEBUG [17264] : Running stages of Command CMD-TailLogs from stage 0 to stage 0...
+[2020-04-15T21:03:00.412Z] INFO  [17264] : Running stage 0 of command CMD-TailLogs...
+[2020-04-15T21:03:00.412Z] DEBUG [17264] : Loaded 1 actions for stage 0.
+[2020-04-15T21:03:00.412Z] INFO  [17264] : Running 1 of 1 actions: TailLogs...
+[2020-04-15T21:03:04.623Z] INFO  [17264] : Running AddonsAfter for command CMD-TailLogs...
+[2020-04-15T21:03:04.623Z] INFO  [17264] : Command CMD-TailLogs succeeded!
+[2020-04-15T21:03:04.623Z] INFO  [17264] : Command processor returning results: 
+{"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"","returncode":0,"events":[{"msg":"[Instance: i-0b64eacfb4029b6f0] Successfully finished tailing 6 log(s)","severity":"INFO","timestamp":1586984584623}]}]}
+[2020-04-15T21:03:36.749Z] DEBUG [17453] : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-04-15T21:03:36.750Z] DEBUG [17453] : Checking if the command processor should execute...
+[2020-04-15T21:03:36.791Z] DEBUG [17453] : Checking whether the command is applicable to instance (i-0b64eacfb4029b6f0)..
+[2020-04-15T21:03:36.791Z] INFO  [17453] : Command is applicable to this instance (i-0b64eacfb4029b6f0)..
+[2020-04-15T21:03:36.791Z] DEBUG [17453] : Checking if the received command stage is valid..
+[2020-04-15T21:03:36.791Z] INFO  [17453] : No stage_num in command. Valid stage..
+[2020-04-15T21:03:36.791Z] INFO  [17453] : Received command CMD-TailLogs: {"execution_data"=>"*", "instance_ids"=>["i-0b64eacfb4029b6f0"], "data"=>"0776c916-ab56-4ca1-b76c-03207fea6461", "command_name"=>"CMD-TailLogs", "api_version"=>"1.0", "resource_name"=>"AWSEBAutoScalingGroup", "request_id"=>"0776c916-ab56-4ca1-b76c-03207fea6461"}
+[2020-04-15T21:03:36.791Z] INFO  [17453] : Command processor should execute command.
+[2020-04-15T21:03:36.791Z] DEBUG [17453] : Storing current stage..
+[2020-04-15T21:03:36.791Z] DEBUG [17453] : Stage_num does not exist. Not saving null stage. Returning..
+[2020-04-15T21:03:36.791Z] DEBUG [17453] : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-04-15T21:03:36.792Z] DEBUG [17453] : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2020-04-15T21:03:36.792Z] DEBUG [17453] : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2020-04-15T21:03:36.873Z] INFO  [17453] : Found enabled addons: ["logpublish", "logstreaming"].
+[2020-04-15T21:03:36.956Z] INFO  [17453] : Updating Command definition of addon logpublish.
+[2020-04-15T21:03:36.956Z] INFO  [17453] : Updating Command definition of addon logstreaming.
+[2020-04-15T21:03:36.956Z] DEBUG [17453] : Loaded definition of Command CMD-TailLogs.
+[2020-04-15T21:03:36.956Z] INFO  [17453] : Executing CMD-TailLogs
+[2020-04-15T21:03:36.957Z] INFO  [17453] : Executing command: CMD-TailLogs...
+[2020-04-15T21:03:36.957Z] INFO  [17453] : Executing command CMD-TailLogs activities...
+[2020-04-15T21:03:36.957Z] DEBUG [17453] : Setting environment variables..
+[2020-04-15T21:03:36.957Z] INFO  [17453] : Running AddonsBefore for command CMD-TailLogs...
+[2020-04-15T21:03:36.957Z] DEBUG [17453] : Running stages of Command CMD-TailLogs from stage 0 to stage 0...
+[2020-04-15T21:03:36.957Z] INFO  [17453] : Running stage 0 of command CMD-TailLogs...
+[2020-04-15T21:03:36.957Z] DEBUG [17453] : Loaded 1 actions for stage 0.
+[2020-04-15T21:03:36.957Z] INFO  [17453] : Running 1 of 1 actions: TailLogs...
+
+
+
