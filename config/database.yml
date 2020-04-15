@@ -79,7 +79,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-<<: *default
   adapter: postgresql
   encoding: unicode
   database: <%= ENV['RDS_DB_NAME'] %>
@@ -101,8 +100,8 @@ production:
 
 
   # # enviroment database configure testing # not success.
-  # adapter: pg
-  # encoding: utf8
+  # adapter: postgresql
+  # encoding: unicode
   # database: <%= ENV['RDS_DB_NAME'] %>
   # username: <%= ENV['RDS_USERNAME'] %>
   # password: <%= ENV['RDS_PASSWORD'] %>
