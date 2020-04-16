@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   # devise_for :users
 
   #homepage changes.
-  # root 'tools#index'
-  root 'users#show'
+  root 'tools#index'
+  # root 'users#show'
 
   resources :tools do
     resources :rentals, only: [:new, :create, :update, :edit, :show] do
